@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body {
+    @apply bg-brand-bg text-brand-text font-sans antialiased;
+  }
+  ::selection {
+    @apply bg-brand-cyan/30 text-white;
+  }
+}
+
+@layer components {
+  /* glassmorphism card */
+  .card-glass {
+    @apply bg-white/[0.03] backdrop-blur-sm border border-brand-border rounded-2xl transition-all duration-300;
+  }
+  .card-glass:hover {
+    @apply border-brand-cyan/30 bg-white/[0.06] -translate-y-1 shadow-lg shadow-brand-cyan/5;
+  }
+
+  /* gradient text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-brand-cyan via-sky-400 to-brand-cyan2 bg-clip-text text-transparent;
+  }
+
+  /* affiliate CTA box */
+  .affiliate-box {
+    @apply border border-brand-cyan/30 bg-brand-cyan/5 rounded-xl p-5 my-6;
+  }
+
+  /* rating stars */
+  .stars { @apply text-yellow-400 text-lg tracking-tight; }
+
+  /* tag pill */
+  .tag {
+    @apply text-xs font-medium px-2.5 py-0.5 rounded-full bg-brand-surface border border-brand-border text-brand-dim;
+  }
+
+  /* type badge colors */
+  .badge-review     { @apply bg-brand-cyan/10 text-brand-cyan border border-brand-cyan/20; }
+  .badge-comparison { @apply bg-purple-500/10 text-purple-400 border border-purple-500/20; }
+  .badge-guide      { @apply bg-emerald-500/10 text-emerald-400 border border-emerald-500/20; }
+  .badge-article    { @apply bg-slate-500/10 text-slate-400 border border-slate-500/20; }
+}
+
+/* Prose overrides for dark theme */
+.prose { max-width: 72ch; }
+.prose img { @apply rounded-xl border border-brand-border; }
+.prose table { @apply text-sm; }
+.prose th { @apply bg-brand-surface; }
+.prose td { @apply border-brand-border; }
+
+/* gradient header per article type */
+.grad-review     { background: linear-gradient(135deg, #0F172A 0%, #0c2340 100%); }
+.grad-comparison { background: linear-gradient(135deg, #0F172A 0%, #1a0f2e 100%); }
+.grad-guide      { background: linear-gradient(135deg, #0F172A 0%, #0c2018 100%); }
+.grad-article    { background: linear-gradient(135deg, #0F172A 0%, #1a1a2e 100%); }

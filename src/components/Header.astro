@@ -1,0 +1,52 @@
+---
+const { pathname } = Astro.url;
+---
+<header class="sticky top-0 z-50 border-b border-brand-border/50 bg-brand-bg/80 backdrop-blur-md">
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-2 group flex-shrink-0">
+      <div class="w-8 h-8 rounded-lg bg-brand-cyan/20 border border-brand-cyan/40 flex items-center justify-center">
+        <svg class="w-4 h-4 text-brand-cyan" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
+        </svg>
+      </div>
+      <span class="font-display font-bold text-white text-lg group-hover:text-brand-cyan transition-colors">
+        AI<span class="text-brand-cyan">Tool</span>Spott
+      </span>
+    </a>
+
+    <!-- Nav links -->
+    <div class="hidden sm:flex items-center gap-1">
+      {[
+        { href: '/',          label: 'Home' },
+        { href: '/reviews',   label: 'Reviews' },
+        { href: '/compare',   label: 'Compare' },
+      ].map(({ href, label }) => (
+        <a
+          href={href}
+          class={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
+            pathname === href
+              ? 'text-brand-cyan bg-brand-cyan/10'
+              : 'text-brand-dim hover:text-white hover:bg-white/5'
+          }`}
+        >
+          {label}
+        </a>
+      ))}
+    </div>
+
+    <!-- CTA -->
+    <a
+      href="https://www.youtube.com/@AIToolSpott"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="hidden sm:flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg border border-brand-cyan/30 bg-brand-cyan/5 text-brand-cyan text-sm font-medium hover:bg-brand-cyan/10 transition-colors flex-shrink-0"
+    >
+      <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+      </svg>
+      YouTube
+    </a>
+  </nav>
+</header>

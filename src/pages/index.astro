@@ -1,0 +1,140 @@
+---
+import Base    from '../layouts/Base.astro';
+import Header  from '../components/Header.astro';
+import Footer  from '../components/Footer.astro';
+import PostCard from '../components/PostCard.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = (await getCollection('posts', ({ data }) => !data.draft))
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+
+const featured = allPosts.slice(0, 3);
+const rest     = allPosts.slice(3);
+---
+<Base
+  title="AIToolSpott — Honest AI Tool Reviews & Comparisons"
+  description="Find the best AI tools with honest reviews, real comparisons, and clear ratings. No hype — just straight answers on whether each tool is worth it."
+>
+  <Header />
+
+  <main class="flex-1">
+    <!-- ═══ HERO ═══════════════════════════════════════════════════ -->
+    <section class="relative overflow-hidden py-20 sm:py-28">
+      <!-- Background glow -->
+      <div class="absolute inset-0 pointer-events-none overflow-hidden">
+        <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full
+                    bg-brand-cyan/5 blur-[100px]"></div>
+      </div>
+
+      <div class="relative max-w-6xl mx-auto px-4 sm:px-6 text-center">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-brand-cyan/20
+                    bg-brand-cyan/5 text-brand-cyan text-xs font-medium mb-6">
+          <span class="w-1.5 h-1.5 rounded-full bg-brand-cyan animate-pulse"></span>
+          Updated daily · AI tool reviews
+        </div>
+
+        <h1 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl text-white leading-tight mb-4">
+          Find the best<br />
+          <span class="gradient-text">AI tools</span>
+        </h1>
+
+        <p class="text-brand-dim text-lg sm:text-xl max-w-xl mx-auto mb-8 leading-relaxed">
+          Honest reviews, real comparisons.<br />
+          Is it worth it or not — in 60 seconds.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+          <a href="#latest"
+            class="px-6 py-3 rounded-xl bg-brand-cyan text-brand-bg font-semibold text-sm
+                   hover:bg-sky-300 transition-colors shadow-lg shadow-brand-cyan/20">
+            Browse Reviews
+          </a>
+          <a href="https://www.youtube.com/@AIToolSpott" target="_blank" rel="noopener noreferrer"
+            class="px-6 py-3 rounded-xl border border-brand-border text-brand-dim hover:text-white
+                   hover:border-brand-cyan/30 transition-colors text-sm font-medium">
+            Watch on YouTube →
+          </a>
+        </div>
+
+        <!-- Stats -->
+        <div class="mt-14 flex flex-col sm:flex-row justify-center gap-8 sm:gap-16">
+          {[
+            { value: `${allPosts.length}+`, label: 'Reviews published' },
+            { value: '100%',                label: 'Independent opinions' },
+            { value: 'Daily',               label: 'New content' },
+          ].map(({ value, label }) => (
+            <div class="text-center">
+              <div class="font-display font-extrabold text-3xl text-brand-cyan">{value}</div>
+              <div class="text-brand-dim text-sm mt-0.5">{label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ FEATURED ════════════════════════════════════════════════ -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 pb-16" id="latest">
+      <div class="flex items-center justify-between mb-6">
+        <h2 class="font-display font-bold text-xl text-white">Latest Reviews</h2>
+        <span class="text-brand-dim text-sm">{allPosts.length} articles</span>
+      </div>
+
+      <!-- Featured 3 — larger cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-5">
+        {featured.map(post => (
+          <PostCard
+            title={post.data.title}
+            slug={post.slug}
+            excerpt={post.data.excerpt}
+            date={post.data.date}
+            type={post.data.type}
+            rating={post.data.rating}
+            tags={post.data.tags}
+          />
+        ))}
+      </div>
+
+      <!-- Rest — smaller grid -->
+      {rest.length > 0 && (
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {rest.map(post => (
+            <PostCard
+              title={post.data.title}
+              slug={post.slug}
+              excerpt={post.data.excerpt}
+              date={post.data.date}
+              type={post.data.type}
+              rating={post.data.rating}
+              tags={post.data.tags}
+            />
+          ))}
+        </div>
+      )}
+    </section>
+
+    <!-- ═══ NEWSLETTER / CTA BAND ══════════════════════════════════ -->
+    <section class="border-t border-brand-border/50 bg-gradient-to-r from-brand-surface/50 via-brand-bg to-brand-surface/50 py-16">
+      <div class="max-w-2xl mx-auto px-4 sm:px-6 text-center">
+        <h2 class="font-display font-bold text-2xl text-white mb-3">
+          New AI tool reviews every day
+        </h2>
+        <p class="text-brand-dim mb-6">
+          Subscribe to the YouTube channel for 60-second video reviews.
+        </p>
+        <a
+          href="https://www.youtube.com/@AIToolSpott?sub_confirmation=1"
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-red-600 hover:bg-red-500
+                 text-white font-semibold text-sm transition-colors shadow-lg shadow-red-600/20"
+        >
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+          </svg>
+          Subscribe — it's free
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Base>
