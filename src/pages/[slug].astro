@@ -118,6 +118,18 @@ const badgeLabel: Record<string, string> = {
         </div>
       )}
 
+      <!-- Tool screenshot -->
+      {data.image && (
+        <div class="mb-8 rounded-2xl overflow-hidden border border-brand-border/40 shadow-lg">
+          <img
+            src={data.image}
+            alt={`${toolName} screenshot`}
+            class="w-full h-56 sm:h-72 object-cover object-top"
+            loading="eager"
+          />
+        </div>
+      )}
+
       <!-- Article body -->
       <article class="prose prose-invert max-w-none">
         <Content />
