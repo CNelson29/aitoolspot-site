@@ -27,8 +27,7 @@ const year = new Date().getFullYear();
         <ul class="space-y-2 text-sm">
           {[
             { href: '/',        label: 'Latest Reviews' },
-            { href: '/rss.xml', label: 'RSS Feed' },
-          ].map(({ href, label }) => (
+            ].map(({ href, label }) => (
             <li>
               <a href={href} class="text-brand-dim hover:text-brand-cyan transition-colors">{label}</a>
             </li>
