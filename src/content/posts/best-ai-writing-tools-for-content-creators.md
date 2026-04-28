@@ -7,6 +7,7 @@ category: "AI Tools"
 tags: ["AI content writing software", "AI copywriting tools", "AI writing assistant", "best AI tools for bloggers"]
 type: "review"
 affiliate_link: "https://www.copy.ai/?via=aitoolspot"
+image: "/images/tools/best-ai-writing-tools-for-content-creators-home.png"
 draft: false
 ---
 

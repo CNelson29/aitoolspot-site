@@ -7,6 +7,7 @@ category: "AI Tools"
 tags: ["best automation software", "make automation", "no-code automation 2025", "workflow automation tools", "zapier alternatives"]
 type: "guide"
 affiliate_link: "https://n8n.io"
+image: "/images/tools/best-n8n-alternatives-top-automation-tools-2025-home.png"
 draft: false
 ---
 

@@ -7,6 +7,7 @@ category: "AI Tools"
 tags: ["AI avatar video maker", "best AI video generator 2025", "HeyGen review", "Synthesia review", "text to video AI tool"]
 type: "comparison"
 affiliate_link: "https://www.synthesia.io"
+image: "/images/tools/synthesia-vs-heygen-best-ai-video-generator-2025-home.png"
 draft: false
 ---
 

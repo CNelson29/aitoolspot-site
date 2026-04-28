@@ -7,6 +7,7 @@ tags: ["jasper-ai", "copy-ai", "2026", "ai-writing-tools", "content-generation"]
 type: "comparison"
 affiliate_link: "https://www.jasper.ai"
 rating: 8.5
+image: "/images/tools/jasper-ai-vs-copy-ai-2026-home.png"
 draft: false
 ---
 

@@ -7,6 +7,7 @@ category: "AI Tools"
 tags: ["affordable AI software", "AI business tools 2025", "free AI tools for small business", "small business automation tools"]
 type: "guide"
 affiliate_link: "https://chat.openai.com"
+image: "/images/tools/best-ai-tools-for-small-business-2025-home.png"
 draft: false
 ---
 

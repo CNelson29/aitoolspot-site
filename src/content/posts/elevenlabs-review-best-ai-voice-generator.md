@@ -7,6 +7,7 @@ category: "AI Tools"
 tags: ["AI text to speech", "best AI voice generator", "ElevenLabs alternatives", "ElevenLabs pricing", "ElevenLabs voice cloning"]
 type: "review"
 affiliate_link: "https://try.elevenlabs.io/xvzxw4j2l8h5"
+image: "/images/tools/elevenlabs-review-best-ai-voice-generator-home.png"
 draft: false
 ---
 

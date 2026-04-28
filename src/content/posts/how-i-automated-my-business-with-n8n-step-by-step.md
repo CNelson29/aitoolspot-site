@@ -7,6 +7,7 @@ category: "AI Tools"
 tags: ["n8n business automation", "n8n tutorial", "n8n vs zapier", "n8n workflow automation", "open source automation tool"]
 type: "guide"
 affiliate_link: "https://n8n.io"
+image: "/images/tools/how-i-automated-my-business-with-n8n-step-by-step-home.png"
 draft: false
 ---
 

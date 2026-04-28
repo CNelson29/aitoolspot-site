@@ -1,0 +1,75 @@
+---
+interface Props {
+  variant?: 'banner' | 'footer';
+}
+const { variant = 'banner' } = Astro.props;
+---
+
+{variant === 'banner' && (
+  <div class="newsletter-banner my-10 p-7 rounded-2xl border border-brand-cyan/20 bg-gradient-to-br from-brand-surface to-brand-bg">
+    <div class="max-w-md">
+      <p class="text-xs font-semibold uppercase tracking-widest text-brand-cyan mb-2">Free Newsletter</p>
+      <h3 class="font-display font-extrabold text-xl text-white mb-1">
+        Get the best AI tool picks weekly
+      </h3>
+      <p class="text-brand-dim text-sm mb-5">
+        No spam. Just one email a week with the tools worth trying and the ones to skip.
+      </p>
+      <form
+        action="https://buttondown.com/api/emails/embed-subscribe/aitoolspot"
+        method="POST"
+        target="popupwindow"
+        onsubmit="window.open('https://buttondown.com/aitoolspot','popupwindow')"
+        class="flex gap-2"
+      >
+        <input
+          type="email"
+          name="email"
+          placeholder="you@example.com"
+          required
+          class="flex-1 min-w-0 px-4 py-2.5 rounded-lg bg-brand-bg border border-brand-border
+                 text-brand-text placeholder-brand-dim text-sm
+                 focus:outline-none focus:border-brand-cyan/60 transition-colors"
+        />
+        <button
+          type="submit"
+          class="flex-shrink-0 px-4 py-2.5 rounded-lg bg-brand-cyan text-brand-bg
+                 font-semibold text-sm hover:bg-sky-300 transition-colors whitespace-nowrap"
+        >
+          Subscribe →
+        </button>
+      </form>
+    </div>
+  </div>
+)}
+
+{variant === 'footer' && (
+  <div class="mb-8">
+    <h4 class="text-white font-semibold text-sm mb-1">Weekly AI picks — free</h4>
+    <p class="text-brand-dim text-xs mb-3">One email/week. No spam.</p>
+    <form
+      action="https://buttondown.com/api/emails/embed-subscribe/aitoolspot"
+      method="POST"
+      target="popupwindow"
+      onsubmit="window.open('https://buttondown.com/aitoolspot','popupwindow')"
+      class="flex gap-2"
+    >
+      <input
+        type="email"
+        name="email"
+        placeholder="your@email.com"
+        required
+        class="flex-1 min-w-0 px-3 py-2 rounded-lg bg-brand-bg border border-brand-border
+               text-brand-text placeholder-brand-dim text-sm
+               focus:outline-none focus:border-brand-cyan/60 transition-colors"
+      />
+      <button
+        type="submit"
+        class="flex-shrink-0 px-3 py-2 rounded-lg bg-brand-cyan text-brand-bg
+               font-semibold text-xs hover:bg-sky-300 transition-colors"
+      >
+        Go →
+      </button>
+    </form>
+  </div>
+)}

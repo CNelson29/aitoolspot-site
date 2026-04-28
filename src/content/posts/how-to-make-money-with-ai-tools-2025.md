@@ -7,6 +7,7 @@ category: "AI Tools"
 tags: ["AI freelancing", "AI side hustle 2025", "best AI tools for income", "earn money using AI", "passive income with AI"]
 type: "guide"
 affiliate_link: "https://chat.openai.com"
+image: "/images/tools/how-to-make-money-with-ai-tools-2025-home.png"
 draft: false
 ---
 

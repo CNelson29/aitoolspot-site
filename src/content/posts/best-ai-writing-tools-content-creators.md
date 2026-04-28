@@ -7,6 +7,7 @@ category: "AI Tools"
 tags: ["AI content writing software", "AI copywriting tools", "best AI writers 2024", "Copy.ai alternatives", "Jasper AI review"]
 type: "review"
 affiliate_link: "https://www.copy.ai/?via=aitoolspot"
+image: "/images/tools/best-ai-writing-tools-content-creators-home.png"
 draft: false
 ---
 
