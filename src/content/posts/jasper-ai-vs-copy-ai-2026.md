@@ -1,7 +1,7 @@
 ---
 title: "Jasper AI vs Copy AI 2026: Which AI Writing Tool Actually Wins?"
 date: "2026-04-28"
-except: "Choosing between Jasper AI and Copy AI in 2026 is harder than ever — both tools have leveled up significantly. This hands-on review breaks down exactly who should use Jasper AI and when Copy AI is the"
+excerpt: "Choosing between Jasper AI and Copy AI in 2026 is harder than ever — both tools have leveled up significantly. This hands-on review breaks down exactly who should use Jasper AI and when Copy AI is the"
 category: "AI Tools"
 tags: ["jasper-ai", "copy-ai", "2026", "ai-writing-tools", "content-generation"]
 type: "comparison"
