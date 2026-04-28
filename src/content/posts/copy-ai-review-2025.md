@@ -7,6 +7,7 @@ category: "AI Tools"
 tags: ["best AI writing tools 2025", "Copy.ai pricing", "Copy.ai Pro plan", "Copy.ai vs Jasper"]
 type: "review"
 affiliate_link: "https://www.copy.ai/?via=aitoolspot"
+image: "/images/tools/copy-ai-review-2025-home.png"
 draft: false
 ---
 

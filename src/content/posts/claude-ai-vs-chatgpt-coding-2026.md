@@ -7,6 +7,7 @@ tags: ["Claude AI", "ChatGPT", "AI coding assistant", "Anthropic", "OpenAI"]
 type: "comparison"
 affiliate_link: "https://claude.ai"
 rating: 8.7
+image: "/images/tools/claude-ai-vs-chatgpt-coding-2026-home.png"
 draft: false
 ---
 

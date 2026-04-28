@@ -7,6 +7,7 @@ category: "AI Tools"
 tags: ["best AI chatbot 2025", "ChatGPT alternatives", "Claude AI review", "Gemini vs ChatGPT", "which AI is best"]
 type: "comparison"
 affiliate_link: "https://claude.ai"
+image: "/images/tools/claude-vs-chatgpt-vs-gemini-best-ai-2025-home.png"
 draft: false
 ---
 

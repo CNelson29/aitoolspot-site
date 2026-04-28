@@ -7,6 +7,7 @@ category: "AI Tools"
 tags: ["AI code generator", "best AI for coding", "ChatGPT coding assistant", "Claude AI coding"]
 type: "article"
 affiliate_link: "https://claude.ai"
+image: "/images/tools/claude-ai-vs-chatgpt-for-coding-home.png"
 draft: false
 ---
 
