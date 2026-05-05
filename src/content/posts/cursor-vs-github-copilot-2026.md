@@ -1,7 +1,7 @@
 ---
-title: "Cursor vs GitHub Copilot 2026: Which AI Coding Tool Actually Wins?"
+title: "Cursor vs GitHub Copilot 2026: Which AI Coding Tool Actually."
 date: "2026-05-01"
-excerpt: "The cursor vs GitHub Copilot 2026 debate is hotter than ever as AI coding tools mature. This hands-on review breaks down exactly why Cursor is pulling ahead for most developers."
+excerpt: "The cursor vs GitHub Copilot 2026 debate is hotter than ever as AI coding tools mature. This hands-on review breaks down exactly why Cursor is pulling."
 category: "AI Tools"
 tags: ["cursor-vs-github-copilot", "Cursor", "2026", "AI coding tools", "developer tools"]
 type: "comparison"

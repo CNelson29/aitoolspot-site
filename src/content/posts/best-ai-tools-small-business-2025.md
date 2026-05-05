@@ -2,7 +2,7 @@
 title: "Best AI Tools for Small Business in 2025 (Free & Paid)"
 date: "20260419T1"
 slug: "best-ai-tools-small-business-2025"
-excerpt: "Discover the top free and paid AI tools helping small businesses automate marketing, customer service, and operations in 2025. From ChatGPT to HubSpot, find the right tools to save time and scale faster."
+excerpt: "Discover the top free and paid AI tools helping small businesses automate marketing, customer service, and operations in 2025. From ChatGPT to HubSpot."
 category: "AI Tools"
 tags: ["affordable AI tools 2025", "AI software for small business", "free AI tools for small business", "small business automation tools"]
 type: "guide"

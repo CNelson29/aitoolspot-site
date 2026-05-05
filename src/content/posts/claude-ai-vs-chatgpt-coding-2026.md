@@ -1,7 +1,7 @@
 ---
 title: "Is Claude AI Better Than ChatGPT for Coding in 2026?"
 date: "2026-04-27"
-excerpt: "Claude AI and ChatGPT are neck-and-neck for coding dominance in 2026, but one pulls ahead where it matters most. We break down the real differences so you can stop guessing and start shipping faster c"
+excerpt: "Claude AI and ChatGPT are neck-and-neck for coding dominance in 2026, but one pulls ahead where it matters most. We break down the real differences so you."
 category: "AI Tools"
 tags: ["Claude AI", "ChatGPT", "AI coding assistant", "Anthropic", "OpenAI"]
 type: "comparison"

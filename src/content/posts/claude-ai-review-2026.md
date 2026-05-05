@@ -1,7 +1,7 @@
 ---
 title: "Claude AI Review 2026: Is Anthropic's Chatbot Worth It?"
 date: "2026-04-29"
-excerpt: "Our Claude AI review 2026 cuts through the hype with real feature testing, exact pricing tiers, and honest pros and cons. Here's who should — and shouldn't — use Claude this year."
+excerpt: "Our Claude AI review 2026 cuts through the hype with real feature testing, exact pricing tiers, and honest pros and cons. Here's who should — and."
 category: "AI Tools"
 tags: ["claude-ai", "Claude", "2026", "anthropic-ai", "ai-chatbot"]
 type: "review"

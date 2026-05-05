@@ -1,7 +1,7 @@
 ---
-title: "Best AI Tools for Solopreneurs 2026: The Complete Stack You Actually Need"
+title: "Best AI Tools for Solopreneurs 2026: The Complete Stack You."
 date: "2026-05-01"
-excerpt: "Running a one-person business in 2026 means competing with teams of ten using a fraction of the budget. This guide breaks down the best AI tools for solopreneurs 2026 so you can build a lean, automate"
+excerpt: "Running a one-person business in 2026 means competing with teams of ten using a fraction of the budget. This guide breaks down the best AI tools for."
 category: "AI Tools"
 tags: ["best-ai-tools", "solopreneurs", "2026", "ai-productivity", "solo-business"]
 type: "guide"

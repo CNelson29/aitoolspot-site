@@ -1,7 +1,7 @@
 ---
-title: "Best AI Tools for Freelancers 2026: The Ultimate Roundup to Boost Your Income"
+title: "Best AI Tools for Freelancers 2026: The Ultimate Roundup to."
 date: "2026-05-02"
-excerpt: "Freelancers in 2026 are drowning in busywork while AI-powered competitors close deals faster. This opinionated roundup cuts through the noise and names the tools actually worth your money."
+excerpt: "Freelancers in 2026 are drowning in busywork while AI-powered competitors close deals faster. This opinionated roundup cuts through the noise and names."
 category: "AI Tools"
 tags: ["ai-tools-freelancers", "various", "2026", "freelance-productivity", "ai-software-review"]
 type: "guide"

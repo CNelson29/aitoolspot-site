@@ -1,7 +1,7 @@
 ---
 title: "Notion AI Review 2026: Is It Still Worth It?"
 date: "2026-05-04"
-excerpt: "Our Notion AI review 2026 breaks down every key feature, pricing tier, and real-world use case so you can decide before you buy. Honest pros, cons, and a clear verdict inside."
+excerpt: "Our Notion AI review 2026 breaks down every key feature, pricing tier, and real-world use case so you can decide before you buy. Honest pros, cons, and a."
 category: "AI Tools"
 tags: ["notion-ai", "Notion AI", "2026", "ai-writing-tools", "productivity-ai"]
 type: "review"

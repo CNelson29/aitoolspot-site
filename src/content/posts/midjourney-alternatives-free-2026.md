@@ -1,7 +1,7 @@
 ---
-title: "Midjourney Alternatives Free 2026: Is Midjourney Still Worth Paying For?"
+title: "Midjourney Alternatives Free 2026: Is Midjourney Still Worth."
 date: "2026-05-02"
-excerpt: "Everyone's hunting for midjourney alternatives free in 2026, but does the original still lead the pack? This hands-on review breaks down features, pricing, and exactly who should — and shouldn't — pay"
+excerpt: "Everyone's hunting for midjourney alternatives free in 2026, but does the original still lead the pack? This hands-on review breaks down features."
 category: "AI Tools"
 tags: ["midjourney-alternatives", "midjourney", "2026", "ai-image-generator", "free-ai-art"]
 type: "review"

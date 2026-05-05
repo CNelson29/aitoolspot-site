@@ -85,6 +85,14 @@ const schemaReview = (type === 'review' || type === 'comparison') && toolName ? 
   <link rel="alternate" type="application/rss+xml" title="AIToolSpott Feed" href="/rss.xml" />
 
   <!-- Schema.org -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'AIToolSpott',
+    url: siteUrl,
+    description: 'Honest AI tool reviews, comparisons and ratings.',
+    potentialAction: { '@type': 'SearchAction', target: `${siteUrl}/?q={search_term_string}`, 'query-input': 'required name=search_term_string' },
+  })} />
   {schemaReview && <script type="application/ld+json" set:html={schemaReview} />}
 
   <!-- Google Analytics -->

@@ -1,7 +1,7 @@
 ---
 title: "Perplexity AI Review 2026: Is It Still the Best AI Search Engine?"
 date: "2026-05-03"
-excerpt: "Perplexity AI has evolved into one of the most powerful AI-powered search tools on the market — but it's not for everyone. This 2026 review breaks down features, pricing, and exactly who should (and s"
+excerpt: "Perplexity AI has evolved into one of the most powerful AI-powered search tools on the market — but it's not for everyone. This 2026 review breaks down."
 category: "AI Tools"
 tags: ["perplexity-ai", "ai-search-engine", "2026", "ai-research-tools", "chatgpt-alternative"]
 type: "review"

@@ -2,7 +2,7 @@
 title: "Best N8N Alternatives: Top Automation Tools in 2025"
 date: "20260419T2"
 slug: "best-n8n-alternatives-top-automation-tools-2025"
-excerpt: "Discover the best N8N alternatives in 2025, from beginner-friendly Zapier and Make to developer-focused Pipedream and Activepieces. Find the right automation tool for your budget and workflow needs."
+excerpt: "Discover the best N8N alternatives in 2025, from beginner-friendly Zapier and Make to developer-focused Pipedream and Activepieces. Find the right."
 category: "AI Tools"
 tags: ["best automation software", "make automation", "no-code automation 2025", "workflow automation tools", "zapier alternatives"]
 type: "guide"

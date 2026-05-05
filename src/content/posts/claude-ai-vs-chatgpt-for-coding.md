@@ -2,7 +2,7 @@
 title: "Is Claude AI Better Than ChatGPT for Coding? (2024 Comparison)"
 date: "20260419T1"
 slug: "claude-ai-vs-chatgpt-for-coding"
-excerpt: "Claude AI and ChatGPT are both elite coding assistants, but Claude's massive context window and precise output give it an edge for complex development tasks. Read our full comparison to find out which AI tool is right for your coding workflow."
+excerpt: "Claude AI and ChatGPT are both elite coding assistants, but Claude's massive context window and precise output give it an edge for complex development."
 category: "AI Tools"
 tags: ["AI code generator", "best AI for coding", "ChatGPT coding assistant", "Claude AI coding"]
 type: "article"

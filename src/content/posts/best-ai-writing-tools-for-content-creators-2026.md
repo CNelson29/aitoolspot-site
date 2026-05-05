@@ -1,7 +1,7 @@
 ---
-title: "Best AI Writing Tools for Content Creators 2026: The Complete Breakdown"
+title: "Best AI Writing Tools for Content Creators 2026: The Complete."
 date: "2026-05-02"
-excerpt: "The AI writing tool market is more crowded than ever in 2026 — and most tools aren't worth your money. This guide cuts through the noise and tells you exactly which tools deliver."
+excerpt: "The AI writing tool market is more crowded than ever in 2026 — and most tools aren't worth your money. This guide cuts through the noise and tells you."
 category: "AI Tools"
 tags: ["ai-writing-tools", "content-creators", "2026", "copywriting-ai", "best-ai-tools"]
 type: "comparison"

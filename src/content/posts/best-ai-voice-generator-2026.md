@@ -1,7 +1,7 @@
 ---
 title: "Best AI Voice Generator 2026: Why ElevenLabs Leads the Pack"
 date: "2026-05-04"
-excerpt: "ElevenLabs is the most capable AI voice generator heading into 2026, offering ultra-realistic speech synthesis, voice cloning, and multilingual support. This review breaks down exactly who should use "
+excerpt: "ElevenLabs is the most capable AI voice generator heading into 2026, offering ultra-realistic speech synthesis, voice cloning, and multilingual support."
 category: "AI Tools"
 tags: ["ai-voice-generator", "ElevenLabs", "2026", "text-to-speech", "voice-cloning"]
 type: "review"

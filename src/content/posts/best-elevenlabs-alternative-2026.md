@@ -1,7 +1,7 @@
 ---
 title: "Best ElevenLabs Alternative 2026: Why ElevenLabs Still Wins"
 date: "2026-04-28"
-excerpt: "Searching for the best ElevenLabs alternative in 2026? Before you switch, read why ElevenLabs remains the gold standard in AI voice generation. We break down features, pricing, and who should actually"
+excerpt: "Searching for the best ElevenLabs alternative in 2026? Before you switch, read why ElevenLabs remains the gold standard in AI voice generation. We break."
 category: "AI Tools"
 tags: ["elevenlabs-alternative", "ElevenLabs", "2026", "ai-voice-generator", "text-to-speech"]
 type: "review"
