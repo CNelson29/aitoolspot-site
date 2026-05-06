@@ -1,5 +1,5 @@
 ---
-title: "Best AI Video Generator 2026: Top Tools Compared for Every Budget"
+title: "Best AI Video Generator 2026: Top Tools Compared"
 date: "2026-04-29"
 excerpt: "Finding the best AI video generator in 2026 is harder than ever — the market is flooded with options that overpromise and underdeliver. This hands-on."
 category: "AI Tools"

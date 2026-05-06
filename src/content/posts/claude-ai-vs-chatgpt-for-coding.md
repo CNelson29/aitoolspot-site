@@ -1,6 +1,6 @@
 ---
-title: "Is Claude AI Better Than ChatGPT for Coding? (2024 Comparison)"
-date: "20260419T1"
+title: "Claude AI vs ChatGPT for Coding: 2026 Comparison"
+date: "2026-04-19"
 slug: "claude-ai-vs-chatgpt-for-coding"
 excerpt: "Claude AI and ChatGPT are both elite coding assistants, but Claude's massive context window and precise output give it an edge for complex development."
 category: "AI Tools"
