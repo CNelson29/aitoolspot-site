@@ -1,6 +1,6 @@
 ---
 title: "How to Make Money with AI Tools in 2025"
-date: "20260419T0"
+date: "2026-04-19"
 slug: "how-to-make-money-with-ai-tools-2025"
 excerpt: "AI tools are transforming the way people earn money online in 2025, offering accessible paths to income through freelancing, digital products, and."
 category: "AI Tools"

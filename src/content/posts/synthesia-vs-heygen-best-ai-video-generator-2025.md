@@ -1,6 +1,6 @@
 ---
 title: "Synthesia vs HeyGen: Best AI Video Generator 2025"
-date: "20260419T2"
+date: "2026-04-19"
 slug: "synthesia-vs-heygen-best-ai-video-generator-2025"
 excerpt: "Synthesia and HeyGen are the two leading AI video generators of 2025, each excelling in different areas. This comparison reveals which platform delivers."
 category: "AI Tools"

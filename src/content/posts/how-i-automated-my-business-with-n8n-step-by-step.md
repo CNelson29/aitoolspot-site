@@ -1,6 +1,6 @@
 ---
 title: "How I Automated My Business With N8N (Step-by-Step)"
-date: "20260421T1"
+date: "2026-04-21"
 slug: "how-i-automated-my-business-with-n8n-step-by-step"
 excerpt: "I used N8N to automate lead capture, email follow-ups, and daily reporting — saving 15 hours a week at a fraction of the cost of Zapier. Here's the exact."
 category: "AI Tools"

@@ -1,6 +1,6 @@
 ---
 title: "Claude vs ChatGPT vs Gemini: Which AI Is Best in 2025?"
-date: "20260419T1"
+date: "2026-04-19"
 slug: "claude-vs-chatgpt-vs-gemini-best-ai-2025"
 excerpt: "Claude, ChatGPT, and Gemini each dominate different use cases in 2025, from long-form writing to image generation and Google Workspace integration. Read."
 category: "AI Tools"

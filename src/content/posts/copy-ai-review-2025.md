@@ -1,6 +1,6 @@
 ---
 title: "Copy.ai Review 2025: Is It Worth $49/Month?"
-date: "20260426T1"
+date: "2026-04-26"
 slug: "copy-ai-review-2025"
 excerpt: "Copy.ai has evolved into a powerful GTM AI platform in 2025, offering unlimited content generation and workflow automation for $49/month. Our in-depth."
 category: "AI Tools"

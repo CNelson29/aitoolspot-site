@@ -1,6 +1,6 @@
 ---
 title: "ElevenLabs Review: The Best AI Voice Generator?"
-date: "20260419T0"
+date: "2026-04-19"
 slug: "elevenlabs-review-best-ai-voice-generator"
 excerpt: "ElevenLabs is a leading AI voice generator known for its ultra-realistic speech synthesis, voice cloning, and multilingual support. Read our full review."
 category: "AI Tools"

@@ -1,6 +1,6 @@
 ---
 title: "Best AI Tools for Small Business in 2025 (Free & Paid)"
-date: "20260424T0"
+date: "2026-04-24"
 slug: "best-ai-tools-for-small-business-2025"
 excerpt: "From free chatbots to AI-powered accounting software, the best AI tools for small business in 2025 can save you time and money while helping you compete."
 category: "AI Tools"
