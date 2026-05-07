@@ -1,5 +1,5 @@
 ---
-title: "Midjourney Alternatives Free 2026: Is Midjourney Still Worth."
+title: "Midjourney Alternatives Free 2026"
 date: "2026-05-02"
 excerpt: "Everyone's hunting for midjourney alternatives free in 2026, but does the original still lead the pack? This hands-on review breaks down features."
 category: "AI Tools"

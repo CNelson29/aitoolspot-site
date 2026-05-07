@@ -1,5 +1,5 @@
 ---
-title: "ChatGPT vs Claude: Which Is Better in 2026? (Honest Review)"
+title: "ChatGPT vs Claude: Which Is Better 2026?"
 date: "2026-05-01"
 excerpt: "Trying to decide between ChatGPT and Claude in 2026? This no-fluff review covers pricing, features, strengths, and weaknesses so you stop guessing and."
 category: "AI Tools"

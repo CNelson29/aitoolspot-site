@@ -1,5 +1,5 @@
 ---
-title: "Runway ML Review 2026: Is It Still the Best AI Video Editor?"
+title: "Runway ML Review 2026: Honest Verdict"
 date: "2026-05-06"
 excerpt: "Runway ML remains one of the most powerful AI video generation platforms in 2026, but it's not for everyone. This hands-on review breaks down pricing, features, and who actually gets value from it."
 category: "AI Tools"

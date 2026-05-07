@@ -1,5 +1,5 @@
 ---
-title: "Best AI Coding Assistant 2026: Top Tools Compared and Ranked"
+title: "Best AI Coding Assistant 2026: Ranked"
 date: "2026-05-03"
 excerpt: "Finding the best AI coding assistant in 2026 means cutting through hype and testing what actually ships better code. This guide ranks the top tools by."
 category: "AI Tools"
