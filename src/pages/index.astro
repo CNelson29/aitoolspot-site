@@ -8,13 +8,8 @@ import { getCollection } from 'astro:content';
 const allPosts = (await getCollection('posts', ({ data }) => !data.draft))
   .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
 
-const newPosts = allPosts.slice(0, 8);
-const reviewPosts = allPosts
-  .filter(post => post.data.type === 'review')
-  .slice(0, 8);
-const comparePosts = allPosts
-  .filter(post => post.data.type === 'comparison' || post.data.title.toLowerCase().includes(' vs '))
-  .slice(0, 8);
+const featured = allPosts.slice(0, 3);
+const rest     = allPosts.slice(3);
 ---
 <Base
   title="AIToolSpott — Honest AI Tool Reviews & Comparisons"
@@ -49,10 +44,10 @@ const comparePosts = allPosts
         </p>
 
         <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
-          <a href="#new"
+          <a href="#latest"
             class="px-6 py-3 rounded-xl bg-brand-cyan text-brand-bg font-semibold text-sm
                    hover:bg-sky-300 transition-colors shadow-lg shadow-brand-cyan/20">
-            Browse New Tools
+            Browse Reviews
           </a>
           <a href="https://www.youtube.com/@AIToolSpott" target="_blank" rel="noopener noreferrer"
             class="px-6 py-3 rounded-xl border border-brand-border text-brand-dim hover:text-white
@@ -77,18 +72,16 @@ const comparePosts = allPosts
       </div>
     </section>
 
-    <!-- ═══ NEW TOOLS ════════════════════════════════════════════════ -->
-    <section class="max-w-6xl mx-auto px-4 sm:px-6 pb-16 scroll-mt-24" id="new">
+    <!-- ═══ FEATURED ════════════════════════════════════════════════ -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 pb-16" id="latest">
       <div class="flex items-center justify-between mb-6">
-        <div>
-          <h2 class="font-display font-bold text-xl text-white">New AI Tools</h2>
-          <p class="text-brand-dim text-sm mt-1">Fresh tools, updates, and guides worth checking first.</p>
-        </div>
-        <span class="text-brand-dim text-sm">{newPosts.length} latest</span>
+        <h2 class="font-display font-bold text-xl text-white">Latest Reviews</h2>
+        <span class="text-brand-dim text-sm">{allPosts.length} articles</span>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        {newPosts.map(post => (
+      <!-- Featured 3 — larger cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-5">
+        {featured.map(post => (
           <PostCard
             title={post.data.title}
             slug={post.slug}
@@ -97,62 +90,26 @@ const comparePosts = allPosts
             type={post.data.type}
             rating={post.data.rating}
             tags={post.data.tags}
-            image={post.data.image}
           />
         ))}
       </div>
-    </section>
 
-    <!-- ═══ REVIEWS ══════════════════════════════════════════════════ -->
-    <section class="max-w-6xl mx-auto px-4 sm:px-6 pb-16 scroll-mt-24" id="reviews">
-      <div class="flex items-center justify-between mb-6">
-        <div>
-          <h2 class="font-display font-bold text-xl text-white">Reviews</h2>
-          <p class="text-brand-dim text-sm mt-1">Straight verdicts on tools we already cover.</p>
+      <!-- Rest — smaller grid -->
+      {rest.length > 0 && (
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {rest.map(post => (
+            <PostCard
+              title={post.data.title}
+              slug={post.slug}
+              excerpt={post.data.excerpt}
+              date={post.data.date}
+              type={post.data.type}
+              rating={post.data.rating}
+              tags={post.data.tags}
+            />
+          ))}
         </div>
-        <span class="text-brand-dim text-sm">{reviewPosts.length} picks</span>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        {reviewPosts.map(post => (
-          <PostCard
-            title={post.data.title}
-            slug={post.slug}
-            excerpt={post.data.excerpt}
-            date={post.data.date}
-            type={post.data.type}
-            rating={post.data.rating}
-            tags={post.data.tags}
-            image={post.data.image}
-          />
-        ))}
-      </div>
-    </section>
-
-    <!-- ═══ COMPARE ══════════════════════════════════════════════════ -->
-    <section class="max-w-6xl mx-auto px-4 sm:px-6 pb-16 scroll-mt-24" id="compare">
-      <div class="flex items-center justify-between mb-6">
-        <div>
-          <h2 class="font-display font-bold text-xl text-white">Compare</h2>
-          <p class="text-brand-dim text-sm mt-1">Side-by-side matchups for choosing between similar tools.</p>
-        </div>
-        <span class="text-brand-dim text-sm">{comparePosts.length} matchups</span>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        {comparePosts.map(post => (
-          <PostCard
-            title={post.data.title}
-            slug={post.slug}
-            excerpt={post.data.excerpt}
-            date={post.data.date}
-            type={post.data.type}
-            rating={post.data.rating}
-            tags={post.data.tags}
-            image={post.data.image}
-          />
-        ))}
-      </div>
+      )}
     </section>
 
     <!-- ═══ NEWSLETTER / CTA BAND ══════════════════════════════════ -->

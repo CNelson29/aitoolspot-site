@@ -22,13 +22,6 @@
     @apply border-brand-cyan/30 bg-white/[0.06] -translate-y-1 shadow-lg shadow-brand-cyan/5;
   }
 
-  .tool-card {
-    @apply rounded-xl border border-brand-border bg-white/[0.035] transition-all duration-300;
-  }
-  .tool-card:hover {
-    @apply -translate-y-1 border-brand-cyan/35 bg-white/[0.06] shadow-xl shadow-brand-cyan/10;
-  }
-
   /* gradient text */
   .gradient-text {
     @apply bg-gradient-to-r from-brand-cyan via-sky-400 to-brand-cyan2 bg-clip-text text-transparent;
