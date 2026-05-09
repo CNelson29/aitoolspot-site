@@ -41,7 +41,7 @@ const schemaReview = (type === 'review' || type === 'comparison') && toolName ? 
 }) : null;
 ---
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -84,6 +84,13 @@ const schemaReview = (type === 'review' || type === 'comparison') && toolName ? 
 
   <!-- RSS -->
   <link rel="alternate" type="application/rss+xml" title="AIToolSpott Feed" href="/rss.xml" />
+  <script>
+    (() => {
+      const stored = localStorage.getItem('aitoolspot-theme');
+      const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+      document.documentElement.dataset.theme = stored || (prefersLight ? 'light' : 'dark');
+    })();
+  </script>
 
   <!-- Schema.org -->
   <script type="application/ld+json" set:html={JSON.stringify({

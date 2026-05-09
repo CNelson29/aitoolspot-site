@@ -4,6 +4,23 @@
 @tailwind utilities;
 
 @layer base {
+  :root,
+  :root[data-theme="dark"] {
+    --brand-bg: #0F172A;
+    --brand-surface: #1E293B;
+    --brand-card: #162032;
+    --brand-border: #2D3F5C;
+    --brand-dim: #94A3B8;
+    --brand-text: #CBD5E1;
+  }
+  :root[data-theme="light"] {
+    --brand-bg: #F7FAFC;
+    --brand-surface: #EAF1F8;
+    --brand-card: #FFFFFF;
+    --brand-border: #C9D6E2;
+    --brand-dim: #53657A;
+    --brand-text: #243244;
+  }
   html { scroll-behavior: smooth; }
   body {
     @apply bg-brand-bg text-brand-text font-sans antialiased;
@@ -52,6 +69,20 @@
   .badge-comparison { @apply bg-purple-500/10 text-purple-400 border border-purple-500/20; }
   .badge-guide      { @apply bg-emerald-500/10 text-emerald-400 border border-emerald-500/20; }
   .badge-article    { @apply bg-slate-500/10 text-slate-400 border border-slate-500/20; }
+
+  .theme-toggle,
+  .language-select {
+    @apply h-9 rounded-lg border border-brand-border bg-brand-surface text-brand-text transition-colors;
+  }
+  .theme-toggle {
+    @apply w-9 flex items-center justify-center text-sm font-bold hover:border-brand-cyan/40 hover:text-brand-cyan;
+  }
+  .language-select {
+    @apply px-2 text-xs font-semibold outline-none hover:border-brand-cyan/40;
+  }
+  .theme-icon-light { display: none; }
+  :root[data-theme="light"] .theme-icon-dark { display: none; }
+  :root[data-theme="light"] .theme-icon-light { display: inline; }
 }
 
 /* Prose overrides for dark theme */
