@@ -12,7 +12,6 @@
     }
   ],
   "redirects": [
-    { "source": "/rss.xml", "destination": "/", "permanent": false },
     { "source": "/best-ai-tools-for-small-business-2025-2", "destination": "/best-ai-tools-for-small-business-2025", "permanent": true },
     { "source": "/best-ai-tools-for-small-business-2025-2/", "destination": "/best-ai-tools-for-small-business-2025/", "permanent": true },
     { "source": "/claude-ai-vs-chatgpt-for-coding-2", "destination": "/claude-ai-vs-chatgpt-for-coding", "permanent": true },
