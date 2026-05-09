@@ -7,6 +7,7 @@ tags: ["best ai tools for marketing 2026", "ai marketing tools", "marketing auto
 type: "guide"
 affiliate_link: "https://www.copy.ai/?via=aitoolspot"
 rating: 8.5
+image: "/images/posts/canva-ai-review-2026-hero.jpg"
 draft: False
 ---
 

@@ -7,6 +7,7 @@ tags: ["Synthesis AI math problem solving vs traditional tutoring", "Synthesis",
 type: "review"
 affiliate_link: "https://aitoolspot.net"
 rating: 8.5
+image: "/images/posts/synthesis-ai-math-learning-vs-traditional-tutoring-hero.jpg"
 draft: false
 ---
 

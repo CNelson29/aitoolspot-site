@@ -7,6 +7,7 @@ tags: ["best-ai-tools", "solopreneurs", "2026", "ai-productivity", "solo-busines
 type: "guide"
 affiliate_link: "https://try.elevenlabs.io/xvzxw4j2l8h5"
 rating: 8.5
+image: "/images/posts/ai-tools-for-small-business-free-2026-hero.jpg"
 draft: False
 ---
 

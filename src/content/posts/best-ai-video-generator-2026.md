@@ -7,6 +7,7 @@ tags: ["ai-video-generator", "various", "2026", "ai-video-tools", "video-ai-comp
 type: "comparison"
 affiliate_link: "https://try.elevenlabs.io/xvzxw4j2l8h5"
 rating: 8.5
+image: "/images/tools/synthesia-vs-heygen-best-ai-video-generator-2025-home.png"
 draft: False
 ---
 
