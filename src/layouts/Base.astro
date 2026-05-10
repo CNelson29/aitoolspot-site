@@ -18,7 +18,9 @@ const {
 } = Astro.props;
 
 const GA_ID = 'G-Z2L68BZV2J';
-const ADSENSE_CLIENT_ID = import.meta.env.PUBLIC_ADSENSE_CLIENT_ID || import.meta.env.PUBLIC_GOOGLE_ADSENSE_CLIENT_ID || '';
+const ADSENSE_RAW_ID = import.meta.env.PUBLIC_ADSENSE_CLIENT_ID || import.meta.env.PUBLIC_GOOGLE_ADSENSE_CLIENT_ID || '';
+const ADSENSE_PUBLISHER_ID = ADSENSE_RAW_ID.replace(/^ca-/, '');
+const ADSENSE_CLIENT_ID = ADSENSE_PUBLISHER_ID ? `ca-${ADSENSE_PUBLISHER_ID}` : '';
 const siteUrl = 'https://aitoolspot.net';
 const ogImage = image || `${siteUrl}/og-default.png`;
 const canonical = slug ? `${siteUrl}/${slug}/` : siteUrl;
@@ -47,6 +49,7 @@ const schemaReview = (type === 'review' || type === 'comparison') && toolName ? 
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google-site-verification" content="jZKM4TmkLHu7Xlxlsk9t8ZePFd47EACyPZ4U_AdeHNM" />
+  {ADSENSE_CLIENT_ID && <meta name="google-adsense-account" content={ADSENSE_CLIENT_ID} />}
   <meta name="p:domain_verify" content="35b3e74a79742e28981fd533bbe2bc5d" />
   <meta name="generator" content={Astro.generator} />
 
