@@ -5,7 +5,7 @@ excerpt: "ElevenLabs is the most capable AI voice generator heading into 2026, o
 category: "AI Tools"
 tags: ["ai-voice-generator", "ElevenLabs", "2026", "text-to-speech", "voice-cloning"]
 type: "review"
-affiliate_link: "https://try.elevenlabs.io/xvzxw4j2l8h5"
+affiliate_link: "https://elevenlabs.io/"
 rating: 8.5
 image: "/images/tools/best-ai-voice-generator-2026-home.png"
 draft: False
@@ -80,7 +80,7 @@ ElevenLabs is a poor fit for budget-conscious hobbyists who need more than 10,00
 
 ElevenLabs earns its reputation as the **best AI voice generator 2026** for professional use. The voice quality is genuinely category-defining, the feature set covers everything from solo creators to enterprise API deployments, and the free tier is honest enough to let you verify the quality yourself before paying a cent. The character-cap pricing model can sting at scale, and the Dubbing Studio still has rough edges — but no competitor currently matches the overall package. If you produce audio content for a living, this is the tool to beat.
 
-[Try ElevenLabs free →](https://try.elevenlabs.io/xvzxw4j2l8h5)
+[Try ElevenLabs free →](https://elevenlabs.io/)
 
 ## FAQ
 

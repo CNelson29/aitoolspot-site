@@ -5,7 +5,7 @@ excerpt: "Searching for the best ElevenLabs alternative in 2026? Before you swit
 category: "AI Tools"
 tags: ["elevenlabs-alternative", "ElevenLabs", "2026", "ai-voice-generator", "text-to-speech"]
 type: "review"
-affiliate_link: "https://try.elevenlabs.io/xvzxw4j2l8h5"
+affiliate_link: "https://elevenlabs.io/"
 rating: 8.5
 image: "/images/tools/best-elevenlabs-alternative-2026-home.png"
 draft: False
