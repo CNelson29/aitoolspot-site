@@ -18,6 +18,7 @@ const {
 } = Astro.props;
 
 const GA_ID = 'G-Z2L68BZV2J';
+const ADSENSE_CLIENT_ID = import.meta.env.PUBLIC_ADSENSE_CLIENT_ID || import.meta.env.PUBLIC_GOOGLE_ADSENSE_CLIENT_ID || '';
 const siteUrl = 'https://aitoolspot.net';
 const ogImage = image || `${siteUrl}/og-default.png`;
 const canonical = slug ? `${siteUrl}/${slug}/` : siteUrl;
@@ -110,6 +111,13 @@ const schemaReview = (type === 'review' || type === 'comparison') && toolName ? 
     gtag('js', new Date());
     gtag('config', GA_ID);
   </script>
+  {ADSENSE_CLIENT_ID && (
+    <script
+      async
+      crossorigin="anonymous"
+      src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT_ID}`}
+    />
+  )}
 </head>
 <body class="min-h-screen flex flex-col">
   <slot />
