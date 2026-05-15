@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-labelledby="title desc">
+  <title id="title">AIToolSpott Publisher App Icon</title>
+  <desc id="desc">Square app icon with dark navy background, cyan glow, and an abstract spark plus play mark representing AI content publishing.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#08111f"/>
+      <stop offset="100%" stop-color="#13243c"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5ee4ff"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="28" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1024" height="1024" rx="220" fill="url(#bg)"/>
+  <circle cx="760" cy="260" r="170" fill="#22d3ee" opacity="0.08"/>
+  <circle cx="290" cy="780" r="210" fill="#0ea5e9" opacity="0.1"/>
+
+  <rect x="184" y="184" width="656" height="656" rx="164" fill="#0f172a" stroke="#2d3f5c" stroke-width="18"/>
+
+  <g filter="url(#glow)">
+    <path
+      d="M405 646c25-84 55-114 139-139-84-25-114-55-139-139-25 84-55 114-139 139 84 25 114 55 139 139z"
+      fill="none"
+      stroke="url(#accent)"
+      stroke-width="30"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </g>
+
+  <path d="M540 385l136 122-136 122z" fill="url(#accent)"/>
+  <rect x="244" y="744" width="536" height="32" rx="16" fill="#2d3f5c"/>
+  <rect x="244" y="744" width="286" height="32" rx="16" fill="url(#accent)"/>
+</svg>

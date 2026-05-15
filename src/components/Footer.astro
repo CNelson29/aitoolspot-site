@@ -27,6 +27,7 @@ const year = new Date().getFullYear();
         <ul class="space-y-2 text-sm">
           {[
             { href: '/',        label: 'Latest Reviews' },
+            { href: '/terms/',   label: 'Terms of Service' },
             { href: '/privacy/', label: 'Privacy Policy' },
             ].map(({ href, label }) => (
             <li>
@@ -73,6 +74,8 @@ const year = new Date().getFullYear();
       <p>© {year} AIToolSpott. All rights reserved.</p>
       <p>
         Some links are affiliate links. We may earn a commission at no extra cost to you.
+        <a href="/terms/" class="hover:text-brand-cyan transition-colors">Terms</a>
+        ·
         <a href="/privacy/" class="hover:text-brand-cyan transition-colors">Privacy Policy</a>
       </p>
     </div>
