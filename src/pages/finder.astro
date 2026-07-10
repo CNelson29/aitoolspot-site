@@ -1,0 +1,87 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+<Base
+  title="AI Tool Finder — Find the Right AI Tool"
+  description="Answer 2 quick questions and instantly find the best AI tools for your task and budget. Free interactive AI tool finder, 50+ real tools."
+>
+  <Header />
+  <main class="flex-1">
+    <section class="max-w-3xl mx-auto px-4 sm:px-6 py-12">
+      <div class="text-center mb-10">
+        <h1 class="font-display font-black text-3xl sm:text-5xl text-brand-white mb-3">
+          Find the Right <span class="text-brand-cyan">AI Tool</span>
+        </h1>
+        <p class="text-brand-dim text-lg">2 questions → the best tools for your task & budget. No sign-up.</p>
+      </div>
+
+      <div class="space-y-8">
+        <div>
+          <h2 class="font-display font-bold text-brand-white mb-3">1. What do you want to do?</h2>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-2" data-group="cat">
+            {[['Chat / Assistant','chat'],['Write content','writing'],['Create images','image'],['Make videos','video'],['Audio / Voice','audio'],['Write code','code'],['Design / UI','design'],['Productivity','productivity'],['Marketing / SEO','marketing']].map(([label,val]) => (
+              <button class="opt px-3 py-2 rounded-lg border border-brand-border text-brand-dim text-sm font-semibold hover:border-brand-cyan/50 transition-colors" data-val={val}>{label}</button>
+            ))}
+          </div>
+        </div>
+        <div>
+          <h2 class="font-display font-bold text-brand-white mb-3">2. Budget</h2>
+          <div class="flex flex-wrap gap-2" data-group="budget">
+            {[['Free only','free'],['Free or freemium','freemium'],['Any budget','any']].map(([label,val]) => (
+              <button class="opt px-4 py-2 rounded-lg border border-brand-border text-brand-dim text-sm font-semibold hover:border-brand-cyan/50 transition-colors" data-val={val}>{label}</button>
+            ))}
+          </div>
+        </div>
+        <button id="go" class="w-full py-3 rounded-xl bg-brand-cyan text-brand-bg font-display font-black text-lg hover:opacity-90 transition-opacity">
+          Show me the tools →
+        </button>
+      </div>
+
+      <div id="results" class="mt-10 grid gap-3 sm:grid-cols-2"></div>
+      <p id="empty" class="hidden text-center text-brand-dim mt-8">Pick a task above to see tools.</p>
+    </section>
+  </main>
+  <Footer />
+
+  <script>
+    const state = { cat: '', budget: 'any' };
+    let DATA = [];
+    fetch('/ai-tools-data.json').then(r => r.json()).then(d => { DATA = d; });
+
+    document.querySelectorAll('[data-group]').forEach(group => {
+      group.querySelectorAll('.opt').forEach(btn => {
+        btn.addEventListener('click', () => {
+          group.querySelectorAll('.opt').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          state[group.dataset.group] = btn.dataset.val;
+        });
+      });
+    });
+
+    document.getElementById('go').addEventListener('click', () => {
+      const allow = state.budget === 'free' ? ['free']
+        : state.budget === 'freemium' ? ['free', 'freemium'] : ['free', 'freemium', 'paid'];
+      const matches = DATA.filter(t => (!state.cat || t.cat === state.cat) && allow.includes(t.price));
+      const box = document.getElementById('results');
+      const empty = document.getElementById('empty');
+      box.innerHTML = '';
+      empty.classList.toggle('hidden', matches.length > 0 || !state.cat);
+      const badge = { free: 'Free', freemium: 'Freemium', paid: 'Paid' };
+      matches.forEach(t => {
+        const el = document.createElement('a');
+        el.href = t.url; el.target = '_blank'; el.rel = 'noopener';
+        el.className = 'block rounded-xl border border-brand-border bg-brand-surface/60 p-4 no-underline hover:border-brand-cyan/40 transition-colors';
+        el.innerHTML =
+          `<div class="flex items-center justify-between gap-2 mb-1"><h3 class="font-display font-bold text-brand-white">${t.name}</h3>` +
+          `<span class="text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-brand-cyan/10 text-brand-cyan">${badge[t.price]}</span></div>` +
+          `<p class="text-brand-dim text-sm">${t.desc}</p>` +
+          `<span class="inline-block mt-2 text-xs text-brand-cyan font-bold">Visit ${t.name} →</span>`;
+        box.appendChild(el);
+      });
+      box.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  </script>
+  <style>.opt.active { border-color: var(--brand-cyan, #22d3ee); color: #fff; background: rgba(34,211,238,.12); }</style>
+</Base>
