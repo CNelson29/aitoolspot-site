@@ -6,6 +6,7 @@ export async function GET() {
 
   const urls = [
     { loc: base, priority: '1.0', freq: 'daily' },
+    { loc: `${base}/finder/`, priority: '0.9', freq: 'weekly' },
     ...posts.map(p => ({
       loc:      `${base}/${p.slug}/`,
       priority: '0.8',
