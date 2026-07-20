@@ -20,10 +20,10 @@ const { pathname } = Astro.url;
     <!-- Nav links -->
     <div class="hidden sm:flex items-center gap-1">
       {[
-        { href: '/',          label: 'Home' },
-        { href: '/#new',      label: 'New' },
-        { href: '/#reviews',  label: 'Reviews' },
-        { href: '/#compare',  label: 'Compare' },
+        { href: '/',                    label: 'Home' },
+        { href: '/#reviews',            label: 'Reviews' },
+        { href: '/prompt-builder/',     label: 'Prompt Builder' },
+        { href: '/ai-cost-calculator/', label: 'Cost Calc' },
       ].map(({ href, label }) => (
         <a
           href={href}

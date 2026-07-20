@@ -1,0 +1,98 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+<Base
+  title="AI API Cost Calculator — Compare ChatGPT, Claude & Gemini Prices"
+  description="Free AI cost calculator: estimate and compare the monthly API price of GPT, Claude and Gemini for your token usage. See the cheapest model for your workload instantly."
+  slug="ai-cost-calculator"
+>
+  <Header />
+  <main class="flex-1">
+    <section class="max-w-3xl mx-auto px-4 sm:px-6 py-12">
+      <div class="text-center mb-10">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-brand-cyan/20 mb-4">
+          <span class="w-1.5 h-1.5 rounded-full bg-brand-cyan animate-pulse"></span>
+          <span class="text-brand-cyan text-xs font-bold uppercase tracking-wide">Free tool · live estimate</span>
+        </div>
+        <h1 class="font-display font-black text-3xl sm:text-5xl text-brand-white mb-3">
+          AI API <span class="text-brand-cyan">Cost Calculator</span>
+        </h1>
+        <p class="text-brand-dim text-lg">Enter your usage → see what each model would cost per month, ranked cheapest first.</p>
+      </div>
+
+      <div class="grid sm:grid-cols-3 gap-4 mb-8">
+        <div>
+          <label class="block font-display font-bold text-brand-white mb-2 text-sm">Requests / day</label>
+          <input id="reqs" type="number" value="200" min="0" class="fld" />
+        </div>
+        <div>
+          <label class="block font-display font-bold text-brand-white mb-2 text-sm">Input tokens / request</label>
+          <input id="tin" type="number" value="1000" min="0" class="fld" />
+        </div>
+        <div>
+          <label class="block font-display font-bold text-brand-white mb-2 text-sm">Output tokens / request</label>
+          <input id="tout" type="number" value="500" min="0" class="fld" />
+        </div>
+      </div>
+
+      <div id="results" class="space-y-2"></div>
+      <p class="text-brand-dim text-xs mt-4">
+        Prices are public list rates per 1M tokens and change often — treat as an estimate, always confirm on the provider's pricing page.
+        Assumes 30 days/month.
+      </p>
+    </section>
+  </main>
+  <Footer />
+
+  <script>
+    // Public list prices, USD per 1M tokens (input / output). Update as providers change them.
+    const MODELS = [
+      { name: 'GPT-4o mini', vendor: 'OpenAI', in: 0.15, out: 0.60 },
+      { name: 'Gemini 1.5 Flash', vendor: 'Google', in: 0.075, out: 0.30 },
+      { name: 'Claude Haiku', vendor: 'Anthropic', in: 0.25, out: 1.25 },
+      { name: 'GPT-4o', vendor: 'OpenAI', in: 2.50, out: 10.00 },
+      { name: 'Claude Sonnet', vendor: 'Anthropic', in: 3.00, out: 15.00 },
+      { name: 'Gemini 1.5 Pro', vendor: 'Google', in: 1.25, out: 5.00 },
+      { name: 'Claude Opus', vendor: 'Anthropic', in: 15.00, out: 75.00 },
+    ];
+
+    const $ = id => document.getElementById(id);
+    function num(id) { return Math.max(0, parseFloat($(id).value) || 0); }
+
+    function render() {
+      const reqs = num('reqs'), tin = num('tin'), tout = num('tout');
+      const perMonth = reqs * 30;
+      const rows = MODELS.map(m => {
+        const cost = perMonth * (tin / 1e6 * m.in + tout / 1e6 * m.out);
+        return { ...m, cost };
+      }).sort((a, b) => a.cost - b.cost);
+      const cheapest = rows[0]?.cost || 0;
+      const box = $('results');
+      box.innerHTML = '';
+      rows.forEach((r, i) => {
+        const mult = cheapest > 0 ? (r.cost / cheapest) : 1;
+        const el = document.createElement('div');
+        el.className = 'flex items-center justify-between gap-3 rounded-xl border p-4 ' +
+          (i === 0 ? 'border-brand-cyan/50 bg-brand-cyan/5' : 'border-brand-border bg-brand-surface/50');
+        el.innerHTML =
+          `<div class="min-w-0"><div class="flex items-center gap-2">` +
+          `<span class="font-display font-bold text-brand-white">${r.name}</span>` +
+          (i === 0 ? '<span class="text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-brand-cyan text-brand-bg">Cheapest</span>' : '') +
+          `</div><span class="text-brand-dim text-xs">${r.vendor} · $${r.in}/$${r.out} per 1M</span></div>` +
+          `<div class="text-right shrink-0"><div class="font-display font-black text-lg text-brand-white">$${r.cost.toFixed(2)}</div>` +
+          `<div class="text-brand-dim text-[11px]">/mo${i > 0 ? ` · ${mult.toFixed(1)}× more` : ''}</div></div>`;
+        box.appendChild(el);
+      });
+    }
+
+    ['reqs', 'tin', 'tout'].forEach(id => $(id).addEventListener('input', render));
+    render();
+  </script>
+  <style>
+    .fld { width: 100%; border-radius: .75rem; border: 1px solid var(--brand-border, #23303a);
+           background: rgba(20,30,38,.6); color: #e6edf3; padding: .6rem .8rem; font-size: 1rem; }
+    .fld:focus { outline: none; border-color: var(--brand-cyan, #22d3ee); }
+  </style>
+</Base>

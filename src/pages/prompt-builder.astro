@@ -1,0 +1,138 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+<Base
+  title="AI Prompt Builder — Generate Better ChatGPT & Claude Prompts"
+  description="Free AI prompt generator: pick a role, task, tone and format and instantly build a clear, structured prompt for ChatGPT, Claude or Gemini. Copy in one click, no sign-up."
+  slug="prompt-builder"
+>
+  <Header />
+  <main class="flex-1">
+    <section class="max-w-3xl mx-auto px-4 sm:px-6 py-12">
+      <div class="text-center mb-10">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-brand-cyan/20 mb-4">
+          <span class="w-1.5 h-1.5 rounded-full bg-brand-cyan animate-pulse"></span>
+          <span class="text-brand-cyan text-xs font-bold uppercase tracking-wide">Free tool · no sign-up</span>
+        </div>
+        <h1 class="font-display font-black text-3xl sm:text-5xl text-brand-white mb-3">
+          AI <span class="text-brand-cyan">Prompt Builder</span>
+        </h1>
+        <p class="text-brand-dim text-lg">Answer a few boxes → get a clear, structured prompt for ChatGPT, Claude or Gemini. Copy in one click.</p>
+      </div>
+
+      <div class="space-y-6">
+        <div>
+          <label class="block font-display font-bold text-brand-white mb-2">Who should the AI act as?</label>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-2" data-chips="role">
+            {['Expert copywriter','Senior developer','Marketing strategist','Career coach','Data analyst','Teacher','Editor','Product manager'].map(v => (
+              <button class="chip px-3 py-1.5 rounded-lg border border-brand-border text-brand-dim text-xs font-semibold hover:border-brand-cyan/50 transition-colors" data-val={v}>{v}</button>
+            ))}
+          </div>
+          <input id="role" type="text" placeholder="…or type a custom role" class="fld" />
+        </div>
+
+        <div>
+          <label class="block font-display font-bold text-brand-white mb-2">What do you want it to do? <span class="text-brand-cyan">*</span></label>
+          <textarea id="task" rows="2" placeholder="e.g. Write a launch email for my productivity app" class="fld"></textarea>
+        </div>
+
+        <div>
+          <label class="block font-display font-bold text-brand-white mb-2">Any context it should know? <span class="text-brand-dim font-normal text-sm">(optional)</span></label>
+          <textarea id="context" rows="2" placeholder="e.g. Audience is busy founders; app saves 2 hours/day; friendly but direct" class="fld"></textarea>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div>
+            <label class="block font-display font-bold text-brand-white mb-2">Tone</label>
+            <div class="flex flex-wrap gap-2" data-chips="tone">
+              {['Professional','Friendly','Persuasive','Playful','Concise','Confident'].map(v => (
+                <button class="chip px-3 py-1.5 rounded-lg border border-brand-border text-brand-dim text-xs font-semibold hover:border-brand-cyan/50 transition-colors" data-val={v}>{v}</button>
+              ))}
+            </div>
+          </div>
+          <div>
+            <label class="block font-display font-bold text-brand-white mb-2">Format</label>
+            <div class="flex flex-wrap gap-2" data-chips="format">
+              {['Bullet points','Numbered steps','Short paragraphs','A table','Email','Just the answer'].map(v => (
+                <button class="chip px-3 py-1.5 rounded-lg border border-brand-border text-brand-dim text-xs font-semibold hover:border-brand-cyan/50 transition-colors" data-val={v}>{v}</button>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Live prompt output -->
+      <div class="mt-10">
+        <div class="flex items-center justify-between mb-2">
+          <h2 class="font-display font-bold text-brand-white">Your prompt</h2>
+          <button id="copy" class="px-4 py-1.5 rounded-lg bg-brand-cyan text-brand-bg font-bold text-sm hover:opacity-90 transition-opacity">Copy</button>
+        </div>
+        <pre id="out" class="whitespace-pre-wrap rounded-xl border border-brand-border bg-brand-surface/60 p-4 text-brand-text text-sm leading-relaxed font-mono min-h-[8rem]"></pre>
+        <p class="text-brand-dim text-xs mt-2">Tip: paste this into <span class="text-brand-cyan">ChatGPT</span>, <span class="text-brand-cyan">Claude</span> or <span class="text-brand-cyan">Gemini</span>. The clearer your task line, the better the result.</p>
+      </div>
+    </section>
+  </main>
+  <Footer />
+
+  <script>
+    const state = { role: '', tone: '', format: '' };
+
+    document.querySelectorAll('[data-chips]').forEach(group => {
+      const key = group.dataset.chips;
+      group.querySelectorAll('.chip').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const on = btn.classList.contains('active');
+          group.querySelectorAll('.chip').forEach(b => b.classList.remove('active'));
+          if (!on) { btn.classList.add('active'); state[key] = btn.dataset.val; }
+          else { state[key] = ''; }
+          if (key === 'role') roleInput.value = state.role;
+          render();
+        });
+      });
+    });
+
+    const roleInput = document.getElementById('role');
+    const taskInput = document.getElementById('task');
+    const ctxInput = document.getElementById('context');
+    [roleInput, taskInput, ctxInput].forEach(el => el.addEventListener('input', () => {
+      if (el === roleInput) state.role = el.value;
+      render();
+    }));
+
+    function render() {
+      const role = (state.role || roleInput.value).trim();
+      const task = taskInput.value.trim();
+      const ctx = ctxInput.value.trim();
+      const lines = [];
+      if (role) lines.push(`Act as ${/^an? /i.test(role) ? role : 'a ' + role.toLowerCase()}.`);
+      lines.push(task ? `Your task: ${task}.` : 'Your task: [describe what you want above].');
+      if (ctx) lines.push(`Context to use: ${ctx}.`);
+      if (state.tone) lines.push(`Tone: ${state.tone.toLowerCase()}.`);
+      if (state.format) {
+        const f = state.format.toLowerCase();
+        lines.push(f === 'just the answer' ? 'Respond with only the final answer, no preamble.' : `Format the response as ${f}.`);
+      }
+      lines.push('If anything is ambiguous, ask me one clarifying question before answering.');
+      document.getElementById('out').textContent = lines.join('\n');
+    }
+
+    document.getElementById('copy').addEventListener('click', async () => {
+      const btn = document.getElementById('copy');
+      try {
+        await navigator.clipboard.writeText(document.getElementById('out').textContent);
+        btn.textContent = 'Copied ✓';
+        setTimeout(() => (btn.textContent = 'Copy'), 1600);
+      } catch { btn.textContent = 'Press Ctrl+C'; }
+    });
+
+    render();
+  </script>
+  <style>
+    .chip.active { border-color: var(--brand-cyan, #22d3ee); color: #fff; background: rgba(34,211,238,.12); }
+    .fld { width: 100%; border-radius: .75rem; border: 1px solid var(--brand-border, #23303a);
+           background: rgba(20,30,38,.6); color: #e6edf3; padding: .6rem .8rem; font-size: .9rem; }
+    .fld:focus { outline: none; border-color: var(--brand-cyan, #22d3ee); }
+  </style>
+</Base>
