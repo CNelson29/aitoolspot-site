@@ -32,23 +32,23 @@ const comparePosts = allPosts
       </div>
 
       <div class="relative max-w-6xl mx-auto px-4 sm:px-6 text-center">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-brand-cyan/20
+        <div class="anim-rise d1 inline-flex items-center gap-2 px-3 py-1 rounded-full border border-brand-cyan/20
                     bg-brand-cyan/5 text-brand-cyan text-xs font-medium mb-6">
           <span class="w-1.5 h-1.5 rounded-full bg-brand-cyan animate-pulse"></span>
           Updated daily · AI tool reviews
         </div>
 
-        <h1 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl text-white leading-tight mb-4">
+        <h1 class="anim-rise d2 font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl text-white leading-tight mb-4">
           Find the best<br />
           <span class="gradient-text">AI tools</span>
         </h1>
 
-        <p class="text-brand-dim text-lg sm:text-xl max-w-xl mx-auto mb-8 leading-relaxed">
+        <p class="anim-rise d3 text-brand-dim text-lg sm:text-xl max-w-xl mx-auto mb-8 leading-relaxed">
           Honest reviews, real comparisons.<br />
           Is it worth it or not — in 60 seconds.
         </p>
 
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+        <div class="anim-rise d4 flex flex-col sm:flex-row items-center justify-center gap-3">
           <a href="#new"
             class="px-6 py-3 rounded-xl bg-brand-cyan text-brand-bg font-semibold text-sm
                    hover:bg-sky-300 transition-colors shadow-lg shadow-brand-cyan/20">
@@ -62,7 +62,7 @@ const comparePosts = allPosts
         </div>
 
         <!-- Stats -->
-        <div class="mt-14 flex flex-col sm:flex-row justify-center gap-8 sm:gap-16">
+        <div class="anim-rise d5 mt-14 flex flex-col sm:flex-row justify-center gap-8 sm:gap-16">
           {[
             { value: `${allPosts.length}+`, label: 'Reviews published' },
             { value: '100%',                label: 'Independent opinions' },
@@ -87,7 +87,7 @@ const comparePosts = allPosts
         <span class="text-brand-dim text-sm">{newPosts.length} latest</span>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div data-reveal-stagger class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {newPosts.map(post => (
           <PostCard
             title={post.data.title}
@@ -113,7 +113,7 @@ const comparePosts = allPosts
         <span class="text-brand-dim text-sm">{reviewPosts.length} picks</span>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div data-reveal-stagger class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {reviewPosts.map(post => (
           <PostCard
             title={post.data.title}
@@ -139,7 +139,7 @@ const comparePosts = allPosts
         <span class="text-brand-dim text-sm">{comparePosts.length} matchups</span>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div data-reveal-stagger class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {comparePosts.map(post => (
           <PostCard
             title={post.data.title}
