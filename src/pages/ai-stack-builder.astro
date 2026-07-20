@@ -1,0 +1,90 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+<Base
+  title="AI Stack Builder — Get a Complete AI Tool Workflow for Your Goal"
+  description="Tell us your goal and get a ready-made AI tool stack: every tool you need, in the right order, with its role, a free option and the paid pick. Not a list — an assembled workflow."
+  slug="ai-stack-builder"
+>
+  <Header />
+  <main class="flex-1">
+    <section class="max-w-3xl mx-auto px-4 sm:px-6 py-12">
+      <div class="text-center mb-8">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-brand-cyan/20 mb-4">
+          <span class="w-1.5 h-1.5 rounded-full bg-brand-cyan animate-pulse"></span>
+          <span class="text-brand-cyan text-xs font-bold uppercase tracking-wide">Assembled for you · free options included</span>
+        </div>
+        <h1 class="font-display font-black text-3xl sm:text-5xl text-brand-white mb-3">
+          AI <span class="text-brand-cyan">Stack Builder</span>
+        </h1>
+        <p class="text-brand-dim text-lg max-w-2xl mx-auto">Pick your goal → get the exact tools you need, in order, with a free option for each. A whole workflow, not a list.</p>
+      </div>
+
+      <div id="goals" class="grid grid-cols-2 sm:grid-cols-3 gap-2 mb-8"></div>
+      <div id="stack" class="space-y-3"></div>
+      <p id="hint" class="text-center text-brand-dim text-sm">Pick a goal above to build your stack.</p>
+    </section>
+  </main>
+  <Footer />
+
+  <script>
+    const T = {
+      chatgpt:{n:'ChatGPT',u:'https://chat.openai.com',p:'freemium'}, claude:{n:'Claude',u:'https://claude.ai',p:'freemium'},
+      deepseek:{n:'DeepSeek',u:'https://chat.deepseek.com',p:'free'}, perplexity:{n:'Perplexity',u:'https://perplexity.ai',p:'freemium'},
+      midjourney:{n:'Midjourney',u:'https://midjourney.com',p:'paid'}, leonardo:{n:'Leonardo AI',u:'https://leonardo.ai',p:'freemium'},
+      sd:{n:'Stable Diffusion',u:'https://stability.ai',p:'free'}, canva:{n:'Canva',u:'https://canva.com',p:'freemium'},
+      elevenlabs:{n:'ElevenLabs',u:'https://elevenlabs.io',p:'freemium'}, edgetts:{n:'Edge TTS',u:'https://github.com/rany2/edge-tts',p:'free'},
+      runway:{n:'Runway',u:'https://runwayml.com',p:'freemium'}, capcut:{n:'CapCut',u:'https://capcut.com',p:'free'},
+      suno:{n:'Suno',u:'https://suno.com',p:'freemium'}, heygen:{n:'HeyGen',u:'https://heygen.com',p:'freemium'},
+      cursor:{n:'Cursor',u:'https://cursor.com',p:'freemium'}, v0:{n:'v0',u:'https://v0.dev',p:'freemium'},
+      bolt:{n:'Bolt',u:'https://bolt.new',p:'freemium'}, surfer:{n:'Surfer SEO',u:'https://surferseo.com',p:'paid'},
+      gamma:{n:'Gamma',u:'https://gamma.app',p:'freemium'}, notebooklm:{n:'NotebookLM',u:'https://notebooklm.google',p:'free'},
+      descript:{n:'Descript',u:'https://descript.com',p:'freemium'},
+    };
+    const GOALS = [
+      { id:'yt', icon:'🎬', label:'Faceless YouTube channel', steps:[
+        ['Script & ideas', ['chatgpt','deepseek']], ['Voiceover', ['elevenlabs','edgetts']],
+        ['Visuals / B-roll', ['leonardo','runway']], ['Edit the video', ['capcut','descript']], ['Thumbnail', ['canva']] ] },
+      { id:'novel', icon:'📖', label:'Write & publish a novel', steps:[
+        ['Outline & plot', ['claude','chatgpt']], ['Draft & rewrite', ['claude','deepseek']],
+        ['Cover art', ['midjourney','leonardo']], ['Format & blurb', ['chatgpt','canva']] ] },
+      { id:'landing', icon:'🚀', label:'Launch a landing page', steps:[
+        ['Copy & positioning', ['claude','chatgpt']], ['Build the page', ['v0','bolt']],
+        ['Hero image', ['leonardo','sd']], ['Polish the code', ['cursor']] ] },
+      { id:'social', icon:'📱', label:'Grow on social media', steps:[
+        ['Content ideas & captions', ['chatgpt','deepseek']], ['Graphics', ['canva','leonardo']],
+        ['Short-form video', ['capcut','runway']], ['Repurpose long→short', ['descript']] ] },
+      { id:'podcast', icon:'🎙️', label:'Start a podcast', steps:[
+        ['Research & show notes', ['perplexity','notebooklm']], ['Intro music', ['suno']],
+        ['Record & edit', ['descript']], ['Clips for social', ['capcut']] ] },
+      { id:'deck', icon:'📊', label:'Make a pitch deck', steps:[
+        ['Narrative & structure', ['claude','chatgpt']], ['Build the deck', ['gamma']],
+        ['Custom visuals', ['leonardo','sd']], ['Practice Q&A', ['chatgpt']] ] },
+    ];
+
+    const badge = { free:'Free', freemium:'Freemium', paid:'Paid' };
+    const goalsEl = document.getElementById('goals'), stackEl = document.getElementById('stack'), hint = document.getElementById('hint');
+
+    goalsEl.innerHTML = GOALS.map(g=>`<button class="gbtn px-3 py-3 rounded-xl border border-brand-border text-brand-dim text-sm font-semibold hover:border-brand-cyan/50 transition-colors flex flex-col items-center gap-1" data-id="${g.id}"><span class="text-2xl">${g.icon}</span>${g.label}</button>`).join('');
+
+    goalsEl.querySelectorAll('.gbtn').forEach(b=>b.addEventListener('click',()=>{
+      goalsEl.querySelectorAll('.gbtn').forEach(x=>x.classList.remove('active')); b.classList.add('active');
+      build(GOALS.find(g=>g.id===b.dataset.id));
+    }));
+
+    function build(g){
+      hint.classList.add('hidden');
+      stackEl.innerHTML = `<div class="text-center mb-2 text-brand-white font-display font-bold">${g.icon} Your stack for “${g.label}”</div>` +
+        g.steps.map(([role,tools],i)=>`
+        <div class="rounded-xl border border-brand-border bg-brand-surface/50 p-4">
+          <div class="flex items-center gap-2 mb-2"><span class="w-6 h-6 rounded-full bg-brand-cyan/15 text-brand-cyan text-xs font-black flex items-center justify-center">${i+1}</span><span class="font-display font-bold text-brand-white">${role}</span></div>
+          <div class="flex flex-wrap gap-2">${tools.map((k,ti)=>{const t=T[k];return `<a href="${t.u}" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 rounded-lg border ${ti===0?'border-brand-cyan/40 bg-brand-cyan/5':'border-brand-border'} px-2.5 py-1.5 text-sm no-underline hover:border-brand-cyan/60 transition-colors"><span class="text-brand-white font-semibold">${t.n}</span><span class="text-[9px] font-bold uppercase px-1.5 py-0.5 rounded ${t.p==='free'?'bg-green-500/15 text-green-400':'bg-brand-surface text-brand-dim'}">${badge[t.p]}</span>${ti===0?'<span class="text-brand-cyan text-[10px] font-bold">pick</span>':''}</a>`;}).join('')}</div>
+        </div>`).join('') +
+        `<p class="text-brand-dim text-xs text-center pt-1">First tool in each step = our pick. The rest are solid free/cheaper swaps.</p>`;
+      stackEl.scrollIntoView({behavior:'smooth',block:'start'});
+    }
+  </script>
+  <style>.gbtn.active{border-color:var(--brand-cyan,#22d3ee);color:#fff;background:rgba(34,211,238,.1);}</style>
+</Base>
