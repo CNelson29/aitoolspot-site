@@ -1,0 +1,104 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+<Base
+  title="AI or Human? — Can You Spot AI-Written Text? (Free Game)"
+  description="Play AI or Human: read a short snippet and guess whether AI or a person wrote it. Build a streak, learn the tells of AI writing, and share your score. Free, no sign-up."
+  slug="ai-or-human"
+>
+  <Header />
+  <main class="flex-1">
+    <section class="max-w-xl mx-auto px-4 sm:px-6 py-10">
+      <div class="text-center mb-6">
+        <h1 class="font-display font-black text-3xl sm:text-5xl text-brand-white mb-2">
+          AI <span class="text-brand-cyan">or Human?</span>
+        </h1>
+        <p class="text-brand-dim">Read the snippet. Guess who wrote it. Learn the tells. Build a streak.</p>
+      </div>
+
+      <div class="flex items-center justify-between text-sm font-display font-bold mb-3">
+        <span class="text-brand-white">Score <span id="score">0</span>/<span id="total">0</span></span>
+        <span class="text-brand-cyan">🔥 Streak <span id="streak">0</span></span>
+        <span class="text-amber-400">Best <span id="best">0</span></span>
+      </div>
+
+      <div id="card" class="rounded-2xl border border-brand-border bg-brand-surface/50 p-5 min-h-[9rem] flex items-center">
+        <p id="snippet" class="text-brand-text text-lg leading-relaxed"></p>
+      </div>
+
+      <div id="choices" class="grid grid-cols-2 gap-3 mt-4">
+        <button id="ai" class="py-3 rounded-xl border border-brand-border font-display font-bold text-brand-white hover:border-brand-cyan/50 transition-colors">🤖 AI wrote it</button>
+        <button id="human" class="py-3 rounded-xl border border-brand-border font-display font-bold text-brand-white hover:border-brand-cyan/50 transition-colors">🧑 A human</button>
+      </div>
+
+      <div id="feedback" class="hidden mt-4 rounded-xl p-4 text-sm"></div>
+      <button id="next" class="hidden mt-3 w-full py-3 rounded-xl bg-brand-cyan text-brand-bg font-display font-black">Next →</button>
+
+      <div id="share-wrap" class="hidden mt-3 text-center">
+        <button id="share" class="text-brand-cyan text-sm font-bold underline">Share my score</button>
+      </div>
+    </section>
+  </main>
+  <Footer />
+
+  <script>
+    // Curated snippets. tell = why it reads AI/human. Illustrative, for fun + learning.
+    const ITEMS = [
+      { t:"In today's fast-paced digital landscape, leveraging synergistic solutions is key to unlocking your full potential.", ai:true, tell:"Empty buzzwords ('fast-paced landscape', 'synergistic', 'unlock potential') are a classic AI/marketing tell." },
+      { t:"ok so i tried the recipe and forgot the baking soda lol. still ate it. 3/10 would not recommend but also kinda would", ai:false, tell:"Typos, lowercase, self-contradiction and real messiness read human." },
+      { t:"There are several important factors to consider. First, it is essential to understand the fundamentals. Second, practice consistently. In conclusion, dedication leads to success.", ai:true, tell:"Rigid 'First… Second… In conclusion' scaffolding and safe platitudes are typical of AI." },
+      { t:"my grandma used to say the soup needed 'one more hour than you think' and honestly she was never wrong about anything except my haircut", ai:false, tell:"Specific, personal, oddly particular memory with a joke — hard for AI to fake naturally." },
+      { t:"Certainly! Here are five engaging tips to boost your productivity and elevate your workflow to the next level. 🚀", ai:true, tell:"'Certainly! Here are…', 'elevate to the next level' and a rocket emoji scream chatbot." },
+      { t:"the printer at work only prints if you talk to it nicely. i'm not joking. dave from accounting confirmed it.", ai:false, tell:"Absurd specific anecdote with a named coworker — a very human kind of story." },
+      { t:"It is worth noting that while there are pros and cons to both approaches, the best choice ultimately depends on your specific needs and circumstances.", ai:true, tell:"Maximally hedged non-answer ('it depends on your needs') is a hallmark of AI caution." },
+      { t:"i named my car Brenda. Brenda has 210k miles and a check engine light that i now consider a personality trait.", ai:false, tell:"Playful, concrete, emotionally specific — reads clearly human." },
+      { t:"Unlock the power of seamless integration with our cutting-edge, AI-driven platform designed to revolutionize your business.", ai:true, tell:"Stacked marketing adjectives with no concrete detail is a strong AI/ad tell." },
+      { t:"honestly the movie was fine? like i didn't hate it but i also checked my phone twice and one of those times was during the 'emotional' part", ai:false, tell:"Ambivalent, self-aware, casual punctuation — a very human review." },
+      { t:"To summarize the key takeaways: consistency is crucial, small steps add up, and every journey begins with a single step.", ai:true, tell:"Cliché stacking ('every journey begins with a single step') plus 'key takeaways' framing." },
+      { t:"we lost the dog for 20 minutes at the park and found him sitting in a stranger's picnic like he'd been invited. no shame.", ai:false, tell:"Vivid, weird, specific real-life event told with personality." },
+    ];
+
+    const $ = id => document.getElementById(id);
+    let queue = [], cur = null, score = 0, total = 0, streak = 0;
+    let best = +(localStorage.getItem('aihuman-best') || 0);
+    $('best').textContent = best;
+
+    function shuffle(a){ for(let i=a.length-1;i>0;i--){const j=(Math.random()*(i+1))|0;[a[i],a[j]]=[a[j],a[i]];} return a; }
+    function nextCard(){
+      if (!queue.length) queue = shuffle(ITEMS.slice());
+      cur = queue.pop();
+      $('snippet').textContent = '“' + cur.t + '”';
+      $('feedback').className = 'hidden'; $('next').classList.add('hidden'); $('share-wrap').classList.add('hidden');
+      $('ai').disabled = $('human').disabled = false;
+      $('ai').classList.remove('opacity-40'); $('human').classList.remove('opacity-40');
+    }
+
+    function answer(guessAI){
+      if ($('ai').disabled) return;
+      $('ai').disabled = $('human').disabled = true;
+      total++;
+      const correct = guessAI === cur.ai;
+      if (correct){ score++; streak++; if(streak>best){ best=streak; localStorage.setItem('aihuman-best',best); } }
+      else { streak = 0; }
+      $('score').textContent=score; $('total').textContent=total; $('streak').textContent=streak; $('best').textContent=best;
+      const fb = $('feedback');
+      fb.className = 'mt-4 rounded-xl p-4 text-sm border ' + (correct ? 'border-green-500/40 bg-green-500/10 text-green-300' : 'border-red-500/40 bg-red-500/10 text-red-300');
+      fb.innerHTML = `<b>${correct?'Correct!':'Nope.'}</b> It was written by ${cur.ai?'🤖 AI':'🧑 a human'}. <span class="text-brand-text/80">${cur.tell}</span>`;
+      (guessAI?$('ai'):$('human')).classList.add('opacity-40');
+      $('next').classList.remove('hidden'); $('share-wrap').classList.remove('hidden');
+    }
+
+    $('ai').addEventListener('click',()=>answer(true));
+    $('human').addEventListener('click',()=>answer(false));
+    $('next').addEventListener('click',nextCard);
+    $('share').addEventListener('click',async()=>{
+      const txt=`I scored ${score}/${total} (best streak ${best}) spotting AI writing on AI or Human? Can you beat me? aitoolspot.net/ai-or-human`;
+      if(navigator.share){ try{ await navigator.share({text:txt,url:'https://aitoolspot.net/ai-or-human'}); return; }catch{} }
+      try{ await navigator.clipboard.writeText(txt); $('share').textContent='Copied!'; setTimeout(()=>$('share').textContent='Share my score',1500);}catch{}
+    });
+
+    nextCard();
+  </script>
+</Base>

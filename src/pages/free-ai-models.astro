@@ -1,0 +1,85 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+<Base
+  title="Free AI Models That Rival GPT-4 & Claude (2026) — DeepSeek, Qwen & More"
+  description="A curated list of powerful FREE and open AI models from around the world — DeepSeek, Qwen, Kimi, Mistral, Llama — that match paid models like GPT-4o and Claude. See what each rivals and where to use it free."
+  slug="free-ai-models"
+>
+  <Header />
+  <main class="flex-1">
+    <section class="max-w-4xl mx-auto px-4 sm:px-6 py-12">
+      <div class="text-center mb-8">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-brand-cyan/20 mb-4">
+          <span class="w-1.5 h-1.5 rounded-full bg-brand-cyan animate-pulse"></span>
+          <span class="text-brand-cyan text-xs font-bold uppercase tracking-wide">Updated for 2026 · all free to use</span>
+        </div>
+        <h1 class="font-display font-black text-3xl sm:text-5xl text-brand-white mb-3">
+          Free AI Models That <span class="text-brand-cyan">Rival GPT-4 &amp; Claude</span>
+        </h1>
+        <p class="text-brand-dim text-lg max-w-2xl mx-auto">The best <b>free</b> and open models from China, Europe and beyond — many match the paid giants. Filter by what you need.</p>
+      </div>
+
+      <div class="flex flex-wrap justify-center gap-2 mb-8" data-filter>
+        {[['All','all'],['Reasoning','reasoning'],['Coding','coding'],['Writing','writing'],['Vision','vision'],['Long context','longctx']].map(([l,v],i)=>(
+          <button class={`fbtn px-4 py-1.5 rounded-lg border text-sm font-semibold transition-colors ${i===0?'active':''}`} data-val={v}>{l}</button>
+        ))}
+      </div>
+
+      <div id="grid" class="grid gap-4 sm:grid-cols-2"></div>
+
+      <p class="text-brand-dim text-xs mt-8 text-center max-w-2xl mx-auto">
+        "Free" means a free web chat and/or open weights you can self-host. Capabilities and access change fast — always confirm on the provider's site. Benchmarks are approximate and evolve with each release.
+      </p>
+    </section>
+  </main>
+  <Footer />
+
+  <script>
+    const MODELS = [
+      { name:'DeepSeek-R1', org:'DeepSeek', flag:'🇨🇳', tags:['reasoning','coding'], rivals:'OpenAI o1', why:'Open reasoning model that thinks step-by-step; matches o1-class math & code at zero cost.', free:'Free chat + open weights', url:'https://chat.deepseek.com' },
+      { name:'DeepSeek-V3', org:'DeepSeek', flag:'🇨🇳', tags:['coding','writing','reasoning'], rivals:'GPT-4o', why:'Huge MoE model, excellent general assistant and coding, very cheap API + free chat.', free:'Free chat + open weights', url:'https://chat.deepseek.com' },
+      { name:'Qwen2.5 / QwQ', org:'Alibaba', flag:'🇨🇳', tags:['coding','reasoning','longctx'], rivals:'GPT-4o / o1-mini', why:'Top open coding & reasoning family, many sizes, strong multilingual.', free:'Free chat + open weights', url:'https://chat.qwen.ai' },
+      { name:'Kimi K2', org:'Moonshot AI', flag:'🇨🇳', tags:['writing','longctx','reasoning'], rivals:'Claude Sonnet', why:'Agentic, very long context, great long-document reading and writing.', free:'Free chat', url:'https://kimi.moonshot.cn' },
+      { name:'GLM-4', org:'Zhipu AI', flag:'🇨🇳', tags:['writing','coding','vision'], rivals:'GPT-4o', why:'Well-rounded assistant with vision and tool use; open variants available.', free:'Free chat + open weights', url:'https://chatglm.cn' },
+      { name:'Mistral Large / Le Chat', org:'Mistral', flag:'🇫🇷', tags:['writing','coding','reasoning'], rivals:'GPT-4o', why:'Fast European model, strong writing & code, generous free web chat.', free:'Free chat (Le Chat) + open weights', url:'https://chat.mistral.ai' },
+      { name:'Llama 3.x', org:'Meta', flag:'🇺🇸', tags:['coding','writing','longctx'], rivals:'GPT-4o mini', why:'The most-used open weights; run it free locally or on many free hosts.', free:'Open weights (self-host free)', url:'https://www.llama.com' },
+      { name:'Gemma 2', org:'Google', flag:'🇺🇸', tags:['writing','coding'], rivals:'GPT-3.5+', why:'Small, efficient open models that punch above their size; easy to self-host.', free:'Open weights', url:'https://ai.google.dev/gemma' },
+      { name:'Command R+', org:'Cohere', flag:'🇨🇦', tags:['writing','longctx'], rivals:'GPT-4o mini', why:'Built for retrieval (RAG) and grounded, cited answers; open weights.', free:'Open weights + free tier', url:'https://cohere.com/command' },
+      { name:'Yi-Large', org:'01.AI', flag:'🇨🇳', tags:['writing','reasoning'], rivals:'GPT-4', why:'Strong bilingual (EN/ZH) reasoning and writing from Kai-Fu Lee’s lab.', free:'Free chat + open weights', url:'https://www.01.ai' },
+      { name:'Falcon 2', org:'TII', flag:'🇦🇪', tags:['writing','vision'], rivals:'GPT-3.5+', why:'Open model from Abu Dhabi with a vision-language variant.', free:'Open weights', url:'https://falconllm.tii.ae' },
+      { name:'InternVL', org:'Shanghai AI Lab', flag:'🇨🇳', tags:['vision','reasoning'], rivals:'GPT-4o (vision)', why:'One of the strongest open vision-language models for image understanding.', free:'Open weights + demo', url:'https://internvl.github.io' },
+    ];
+
+    const grid = document.getElementById('grid');
+    function render(filter='all'){
+      const list = MODELS.filter(m => filter==='all' || m.tags.includes(filter));
+      grid.innerHTML = list.map(m => `
+        <div class="rounded-xl border border-brand-border bg-brand-surface/50 p-4 flex flex-col gap-2">
+          <div class="flex items-center justify-between gap-2">
+            <div class="flex items-center gap-2"><span class="text-xl">${m.flag}</span>
+              <h3 class="font-display font-bold text-brand-white">${m.name}</h3></div>
+            <span class="text-[10px] font-bold uppercase px-2 py-0.5 rounded bg-brand-cyan/10 text-brand-cyan">Free</span>
+          </div>
+          <div class="text-brand-dim text-xs">${m.org} · rivals <span class="text-brand-white font-semibold">${m.rivals}</span></div>
+          <p class="text-brand-text text-sm leading-relaxed">${m.why}</p>
+          <div class="flex flex-wrap gap-1">${m.tags.map(t=>`<span class="text-[10px] px-2 py-0.5 rounded-full bg-brand-surface border border-brand-border text-brand-dim">${t}</span>`).join('')}</div>
+          <div class="flex items-center justify-between mt-1 pt-2 border-t border-brand-border/40">
+            <span class="text-brand-dim text-xs">${m.free}</span>
+            <a href="${m.url}" target="_blank" rel="noopener" class="text-brand-cyan text-xs font-bold">Try free →</a>
+          </div>
+        </div>`).join('');
+    }
+    document.querySelectorAll('[data-filter] .fbtn').forEach(b=>b.addEventListener('click',()=>{
+      document.querySelectorAll('[data-filter] .fbtn').forEach(x=>x.classList.remove('active'));
+      b.classList.add('active'); render(b.dataset.val);
+    }));
+    render();
+  </script>
+  <style>
+    .fbtn { border-color: var(--brand-border,#23303a); color: var(--brand-dim,#8b97a5); }
+    .fbtn.active { border-color: var(--brand-cyan,#22d3ee); color:#fff; background: rgba(34,211,238,.12); }
+  </style>
+</Base>
