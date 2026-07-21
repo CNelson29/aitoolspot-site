@@ -126,6 +126,14 @@ const schemaReview = (type === 'review' || type === 'comparison') && toolName ? 
   <slot />
   <script is:inline>
     (() => {
+      // Compliance: mark outbound affiliate/external links.
+      document.querySelectorAll('a[href^="http"]').forEach(a => {
+        try {
+          if (new URL(a.href).host === location.host) return;
+          a.target = '_blank';
+          a.rel = /amazon\.|amzn\.to|\bfpr=|\baff|partnerstack|impact|go\.|ref=/.test(a.href) ? 'sponsored noopener nofollow' : 'noopener';
+        } catch {}
+      });
       if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
       const els = document.querySelectorAll('[data-reveal], [data-reveal-stagger]');
       if (!('IntersectionObserver' in window) || !els.length) return;

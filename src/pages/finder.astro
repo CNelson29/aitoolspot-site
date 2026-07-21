@@ -47,8 +47,9 @@ import Footer from '../components/Footer.astro';
 
   <script>
     const state = { cat: '', budget: 'any' };
-    let DATA = [];
+    let DATA = [], AFF = {};
     fetch('/ai-tools-data.json').then(r => r.json()).then(d => { DATA = d; });
+    fetch('/affiliates.json').then(r => r.json()).then(d => { AFF = d || {}; }).catch(() => {});
 
     document.querySelectorAll('[data-group]').forEach(group => {
       group.querySelectorAll('.opt').forEach(btn => {
@@ -71,7 +72,8 @@ import Footer from '../components/Footer.astro';
       const badge = { free: 'Free', freemium: 'Freemium', paid: 'Paid' };
       matches.forEach(t => {
         const el = document.createElement('a');
-        el.href = t.url; el.target = '_blank'; el.rel = 'noopener';
+        const aff = AFF[t.name];
+        el.href = aff || t.url; el.target = '_blank'; el.rel = aff ? 'sponsored noopener nofollow' : 'noopener';
         el.className = 'block rounded-xl border border-brand-border bg-brand-surface/60 p-4 no-underline hover:border-brand-cyan/40 transition-colors';
         el.innerHTML =
           `<div class="flex items-center justify-between gap-2 mb-1"><h3 class="font-display font-bold text-brand-white">${t.name}</h3>` +
