@@ -1,0 +1,179 @@
+{
+  "name": "WhatsApp Business Auto-Reply Flow",
+  "nodes": [
+    {
+      "id": "ab57b383-7389-42a7-b4f9-a7bcdefdda0e",
+      "name": "WhatsApp Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [240, 300],
+      "parameters": {
+        "multipleMethods": true,
+        "httpMethod": ["GET", "POST"],
+        "path": "whatsapp-inbound",
+        "responseMode": "responseNode",
+        "options": { "rawBody": true }
+      }
+    },
+    {
+      "id": "fab63a89-3bd7-4831-8cbb-9408e4ca299a",
+      "name": "Meta Webhook Verification",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [460, 300],
+      "parameters": {
+        "conditions": {
+          "options": { "caseSensitive": true, "leftValue": "", "typeValidation": "strict" },
+          "conditions": [
+            {
+              "id": "cond_1",
+              "leftValue": "={{ $json.query['hub.mode'] }}",
+              "rightValue": "subscribe",
+              "operator": { "type": "string", "operation": "equals" }
+            }
+          ],
+          "combinator": "and"
+        }
+      }
+    },
+    {
+      "id": "adca4b48-9a0e-42f5-99e4-8f0a60b516fc",
+      "name": "Respond to Verification",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [680, 200],
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "={{ $('WhatsApp Webhook').item.json.query['hub.challenge'] }}",
+        "options": { "responseCode": 200 }
+      }
+    },
+    {
+      "id": "2e8bdc30-36ff-4904-b9f6-d2b0ad81f7cb",
+      "name": "Extract Message Data",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [680, 400],
+      "parameters": {
+        "jsCode": "const body = $input.item.json.body;\nlet messageText = '', fromNumber = '', messageId = '', displayName = '';\ntry {\n  const entry = body.entry?.[0];\n  const change = entry?.changes?.[0];\n  const value = change?.value;\n  const message = value?.messages?.[0];\n  const contact = value?.contacts?.[0];\n  messageText = message?.text?.body || message?.interactive?.button_reply?.title || '[non-text message]';\n  fromNumber = message?.from || '';\n  messageId = message?.id || '';\n  displayName = contact?.profile?.name || 'Customer';\n} catch (e) {\n  return [{ json: { error: true, raw: body } }];\n}\nreturn [{ json: { messageText, fromNumber, messageId, displayName, timestamp: new Date().toISOString() } }];"
+      }
+    },
+    {
+      "id": "2c7a5be5-a063-4402-9494-01612e09b197",
+      "name": "AI Intent Classifier & Reply Generator",
+      "type": "@n8n/n8n-nodes-langchain.anthropic",
+      "typeVersion": 1,
+      "position": [900, 400],
+      "parameters": {
+        "resource": "text",
+        "operation": "message",
+        "modelId": { "__rl": true, "value": "claude-haiku-4-5-20251001", "mode": "id" },
+        "messages": { "values": [{ "role": "user", "content": "=Customer name: {{ $json.displayName }}\nCustomer message: {{ $json.messageText }}" }] },
+        "options": {
+          "system": "You are a helpful customer service assistant for [YOUR BUSINESS NAME]. Reply to WhatsApp messages.\n\nBusiness info:\n- Hours: Mon-Fri 9am-6pm\n- Products/Services: [DESCRIBE YOUR PRODUCTS/SERVICES]\n- Returns policy: 30-day no-questions-asked returns\n- Support email: support@yourbusiness.com\n\nInstructions:\n1. Greet the customer by first name.\n2. Answer concisely (max 3 sentences).\n3. If you cannot answer (order-specific details, complaints), respond with exactly: ESCALATE: [reason]\n4. Keep replies friendly, professional, under 300 characters when possible.\n5. Never make up information you don't have.",
+          "temperature": 0.4,
+          "maxTokens": 300
+        }
+      },
+      "credentials": { "anthropicApi": { "id": "REPLACE_WITH_YOUR_CREDENTIAL_ID", "name": "Anthropic account" } }
+    },
+    {
+      "id": "df651d16-1df9-4df7-b76a-1a100ac2ec0c",
+      "name": "Route: Escalate or Reply",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [1120, 400],
+      "parameters": {
+        "conditions": {
+          "options": { "caseSensitive": false, "leftValue": "", "typeValidation": "strict" },
+          "conditions": [
+            {
+              "id": "cond_escalate",
+              "leftValue": "={{ $json.message.content[0].text }}",
+              "rightValue": "ESCALATE:",
+              "operator": { "type": "string", "operation": "startsWith" }
+            }
+          ],
+          "combinator": "and"
+        }
+      }
+    },
+    {
+      "id": "08ee3d6d-5d75-486a-a93c-feccb48e1286",
+      "name": "Escalate to Slack",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.4,
+      "position": [1340, 320],
+      "parameters": {
+        "resource": "message",
+        "operation": "post",
+        "select": "channel",
+        "channelId": { "__rl": true, "mode": "name", "value": "#customer-support" },
+        "messageType": "text",
+        "text": "=🚨 *WhatsApp Escalation Required*\n\n*Customer:* {{ $('Extract Message Data').item.json.displayName }}\n*Phone:* {{ $('Extract Message Data').item.json.fromNumber }}\n*Message:* {{ $('Extract Message Data').item.json.messageText }}\n*Reason:* {{ $json.message.content[0].text }}\n*Time:* {{ $('Extract Message Data').item.json.timestamp }}\n\nPlease follow up directly with this customer.",
+        "otherOptions": { "includeLinkToWorkflow": false }
+      },
+      "credentials": { "slackApi": { "id": "REPLACE_WITH_YOUR_CREDENTIAL_ID", "name": "Slack account" } }
+    },
+    {
+      "id": "0f087dbb-74ce-4f1e-b90b-3d0fcbfb6865",
+      "name": "Acknowledge Webhook (Escalated)",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [1560, 320],
+      "parameters": { "respondWith": "json", "responseBody": "{ \"status\": \"ok\" }", "options": { "responseCode": 200 } }
+    },
+    {
+      "id": "e66c4937-b31f-4c82-bdc0-d55256940efe",
+      "name": "Send WhatsApp Reply",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1340, 480],
+      "parameters": {
+        "method": "POST",
+        "url": "=https://graph.facebook.com/v19.0/{{ $vars.WHATSAPP_PHONE_NUMBER_ID }}/messages",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "headers": { "parameters": [{ "name": "Content-Type", "value": "application/json" }] },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ messaging_product: 'whatsapp', recipient_type: 'individual', to: $('Extract Message Data').item.json.fromNumber, type: 'text', text: { preview_url: false, body: $json.message.content[0].text } }) }}",
+        "options": { "response": { "response": { "fullResponse": false } } }
+      },
+      "credentials": { "httpHeaderAuth": { "id": "REPLACE_WITH_YOUR_CREDENTIAL_ID", "name": "WhatsApp Bearer Token" } }
+    },
+    {
+      "id": "27662e42-d3b4-41be-8040-67caf338025a",
+      "name": "Acknowledge Webhook (Replied)",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [1560, 480],
+      "parameters": { "respondWith": "json", "responseBody": "{ \"status\": \"ok\" }", "options": { "responseCode": 200 } }
+    }
+  ],
+  "connections": {
+    "WhatsApp Webhook": { "main": [[{ "node": "Meta Webhook Verification", "type": "main", "index": 0 }]] },
+    "Meta Webhook Verification": { "main": [[{ "node": "Respond to Verification", "type": "main", "index": 0 }], [{ "node": "Extract Message Data", "type": "main", "index": 0 }]] },
+    "Extract Message Data": { "main": [[{ "node": "AI Intent Classifier & Reply Generator", "type": "main", "index": 0 }]] },
+    "AI Intent Classifier & Reply Generator": { "main": [[{ "node": "Route: Escalate or Reply", "type": "main", "index": 0 }]] },
+    "Route: Escalate or Reply": { "main": [[{ "node": "Escalate to Slack", "type": "main", "index": 0 }], [{ "node": "Send WhatsApp Reply", "type": "main", "index": 0 }]] },
+    "Escalate to Slack": { "main": [[{ "node": "Acknowledge Webhook (Escalated)", "type": "main", "index": 0 }]] },
+    "Send WhatsApp Reply": { "main": [[{ "node": "Acknowledge Webhook (Replied)", "type": "main", "index": 0 }]] }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": ""
+  },
+  "staticData": null,
+  "tags": [
+    { "name": "whatsapp" },
+    { "name": "customer-service" },
+    { "name": "ai" },
+    { "name": "automation" }
+  ],
+  "variables": [
+    { "key": "WHATSAPP_PHONE_NUMBER_ID", "value": "YOUR_PHONE_NUMBER_ID_HERE" }
+  ]
+}

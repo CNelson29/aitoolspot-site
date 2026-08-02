@@ -1,0 +1,109 @@
+{
+  "name": "AI Support Triage & Auto-Reply",
+  "nodes": [
+    {
+      "id": "101608b8-1aae-4473-9094-3d07dfeb6c26",
+      "name": "Support Ticket Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [240, 300],
+      "parameters": { "httpMethod": "POST", "path": "support-ticket", "responseMode": "responseNode", "options": {} }
+    },
+    {
+      "id": "2ebd55f8-d1a0-4d26-966b-496ab8dca686",
+      "name": "AI Triage & Reply Generator",
+      "type": "@n8n/n8n-nodes-langchain.anthropic",
+      "typeVersion": 1,
+      "position": [460, 300],
+      "parameters": {
+        "resource": "text",
+        "operation": "message",
+        "modelId": { "__rl": true, "value": "claude-haiku-4-5-20251001", "mode": "id" },
+        "messages": { "values": [{ "role": "user", "content": "=Customer: {{ $json.body.customerName }} ({{ $json.body.customerEmail }})\nChannel: {{ $json.body.channel }}\nMessage: {{ $json.body.message }}" }] },
+        "options": {
+          "system": "You are a customer support triage assistant for [YOUR BUSINESS NAME].\n\nKnowledge base (edit this with your real business info):\n- Hours: Mon-Fri 9am-6pm\n- Products/Services: [DESCRIBE YOUR PRODUCTS/SERVICES]\n- Shipping: [YOUR SHIPPING POLICY]\n- Returns: 30-day no-questions-asked returns\n- Support email: support@yourbusiness.com\n\nInstructions:\n1. Read the customer message and knowledge base above.\n2. If you can answer confidently from the knowledge base, write a friendly, concise reply (max 4 sentences) and a short internal note.\n3. If the question needs account-specific data, is a complaint, or you're not confident, respond with exactly: ESCALATE: [one-line reason]\n4. Rate urgency as low/medium/high and sentiment as positive/neutral/negative.\n\nRespond ONLY as JSON: {\"action\": \"reply\"|\"escalate\", \"reply\": \"...\", \"reason\": \"...\", \"urgency\": \"...\", \"sentiment\": \"...\"}",
+          "temperature": 0.3,
+          "maxTokens": 400
+        }
+      },
+      "credentials": { "anthropicApi": { "id": "REPLACE_WITH_YOUR_CREDENTIAL_ID", "name": "Anthropic account" } }
+    },
+    {
+      "id": "a8dd19ec-2e3c-44ea-b7f1-b363474ec816",
+      "name": "Parse Triage Result",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [680, 300],
+      "parameters": {
+        "jsCode": "let parsed;\ntry {\n  parsed = JSON.parse($input.item.json.message.content[0].text);\n} catch (e) {\n  parsed = { action: 'escalate', reply: '', reason: 'Could not parse AI response', urgency: 'medium', sentiment: 'neutral' };\n}\nreturn [{ json: parsed }];"
+      }
+    },
+    {
+      "id": "94932181-a8bd-4e34-a0f6-1e07f1105df9",
+      "name": "Route: Escalate or Reply",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [900, 300],
+      "parameters": {
+        "conditions": {
+          "options": { "caseSensitive": false, "leftValue": "", "typeValidation": "strict" },
+          "conditions": [{ "id": "cond_escalate", "leftValue": "={{ $json.action }}", "rightValue": "escalate", "operator": { "type": "string", "operation": "equals" } }],
+          "combinator": "and"
+        }
+      }
+    },
+    {
+      "id": "2c9ef33d-be81-4b4b-b423-e71f6e208bf4",
+      "name": "Escalate to Slack",
+      "type": "n8n-nodes-base.slack",
+      "typeVersion": 2.4,
+      "position": [1140, 200],
+      "parameters": {
+        "resource": "message",
+        "operation": "post",
+        "select": "channel",
+        "channelId": { "__rl": true, "mode": "name", "value": "#customer-support" },
+        "messageType": "text",
+        "text": "=🚨 *Support Escalation*\n\n*Customer:* {{ $('Support Ticket Webhook').item.json.body.customerName }} ({{ $('Support Ticket Webhook').item.json.body.customerEmail }})\n*Channel:* {{ $('Support Ticket Webhook').item.json.body.channel }}\n*Message:* {{ $('Support Ticket Webhook').item.json.body.message }}\n*Reason:* {{ $('Parse Triage Result').item.json.reason }}\n*Urgency:* {{ $('Parse Triage Result').item.json.urgency }} · *Sentiment:* {{ $('Parse Triage Result').item.json.sentiment }}\n\nPlease follow up directly with this customer.",
+        "otherOptions": { "includeLinkToWorkflow": false }
+      },
+      "credentials": { "slackApi": { "id": "REPLACE_WITH_YOUR_CREDENTIAL_ID", "name": "Slack account" } }
+    },
+    {
+      "id": "73776f3c-e440-4838-991d-78adc3985cd9",
+      "name": "Respond (Escalated)",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [1360, 200],
+      "parameters": { "respondWith": "json", "responseBody": "={{ { status: 'escalated', urgency: $('Parse Triage Result').item.json.urgency, sentiment: $('Parse Triage Result').item.json.sentiment } }}", "options": { "responseCode": 200 } }
+    },
+    {
+      "id": "8be19a64-fb4d-4d97-9c8e-84cfc7fe201f",
+      "name": "Respond (Auto-Reply)",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [1140, 420],
+      "parameters": { "respondWith": "json", "responseBody": "={{ { status: 'replied', reply: $json.reply, sentiment: $json.sentiment } }}", "options": { "responseCode": 200 } }
+    }
+  ],
+  "connections": {
+    "Support Ticket Webhook": { "main": [[{ "node": "AI Triage & Reply Generator", "type": "main", "index": 0 }]] },
+    "AI Triage & Reply Generator": { "main": [[{ "node": "Parse Triage Result", "type": "main", "index": 0 }]] },
+    "Parse Triage Result": { "main": [[{ "node": "Route: Escalate or Reply", "type": "main", "index": 0 }]] },
+    "Route: Escalate or Reply": { "main": [[{ "node": "Escalate to Slack", "type": "main", "index": 0 }], [{ "node": "Respond (Auto-Reply)", "type": "main", "index": 0 }]] },
+    "Escalate to Slack": { "main": [[{ "node": "Respond (Escalated)", "type": "main", "index": 0 }]] }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": ""
+  },
+  "staticData": null,
+  "tags": [
+    { "name": "customer-service" },
+    { "name": "ai" },
+    { "name": "automation" },
+    { "name": "triage" }
+  ]
+}

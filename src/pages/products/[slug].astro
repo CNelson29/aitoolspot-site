@@ -1,0 +1,107 @@
+---
+import Base from '../../layouts/Base.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { CATALOG } from '../../lib/store-catalog';
+
+// Marketing content is static/prerendered (SEO); the buy flow calls the serverless
+// /api/store/* routes at runtime, so this page needs no server rendering of its own.
+export function getStaticPaths() {
+  return CATALOG.map((p) => ({ params: { slug: p.slug }, props: { product: p } }));
+}
+
+const { product } = Astro.props;
+const PAYPAL_CLIENT_ID = import.meta.env.PUBLIC_PAYPAL_CLIENT_ID || '';
+---
+<Base
+  title={`${product.name} — AIToolSpot`}
+  description={product.description}
+  slug={`products/${product.slug}`}
+>
+  <Header />
+  <main class="flex-1">
+    <section class="max-w-2xl mx-auto px-4 sm:px-6 py-12">
+      <div class="text-center mb-8">
+        <h1 class="font-display font-black text-2xl sm:text-4xl text-brand-white mb-2">{product.name}</h1>
+        <p class="text-brand-dim text-lg">{product.tagline}</p>
+      </div>
+
+      <div class="rounded-2xl border border-brand-border bg-brand-surface p-5 sm:p-8">
+        <p class="text-brand-text leading-relaxed mb-5">{product.description}</p>
+
+        <ul class="space-y-2 mb-6">
+          {product.features.map((f: string) => (
+            <li class="flex items-start gap-2 text-brand-text text-sm">
+              <span class="text-brand-cyan mt-0.5">✓</span><span>{f}</span>
+            </li>
+          ))}
+        </ul>
+
+        {product.scopeNote && (
+          <p class="text-brand-dim text-xs border-l-2 border-brand-border pl-3 mb-6">{product.scopeNote}</p>
+        )}
+
+        <div class="flex items-center justify-between border-t border-brand-border pt-5">
+          <div class="font-display font-black text-3xl text-brand-white">${product.priceUsd}</div>
+          <div class="text-brand-dim text-xs">One-time · instant download</div>
+        </div>
+
+        <div id="buy-box" class="mt-5">
+          <div id="paypal-container"></div>
+          <p id="buy-msg" class="text-center text-brand-dim text-xs h-4 mt-2"></p>
+        </div>
+
+        <div id="done-box" class="hidden mt-5 text-center">
+          <div class="font-display font-black text-xl text-brand-cyan mb-2">Purchase complete 🎉</div>
+          <a id="download-link" class="inline-block py-3 px-6 rounded-xl bg-brand-cyan text-black font-bold" download>Download</a>
+          <p class="text-brand-dim text-xs mt-2">Link expires in 15 minutes — download it now.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+
+  {PAYPAL_CLIENT_ID && (
+    <script is:inline src={`https://www.paypal.com/sdk/js?client-id=${PAYPAL_CLIENT_ID}&currency=USD&intent=capture`}></script>
+  )}
+  <script define:vars={{ hasPaypal: !!PAYPAL_CLIENT_ID, slug: product.slug }}>
+    window.__STORE = { hasPaypal, slug };
+  </script>
+  <script>
+    const $ = (id) => document.getElementById(id);
+
+    function renderPaypal() {
+      if (!window.__STORE.hasPaypal || !window.paypal) {
+        $('buy-msg').textContent = 'Payment is not configured yet.';
+        return;
+      }
+      window.paypal.Buttons({
+        style: { layout: 'vertical', color: 'blue', shape: 'pill', label: 'pay' },
+        createOrder: async () => {
+          const r = await fetch('/api/store/create-order', {
+            method: 'POST', headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ slug: window.__STORE.slug }),
+          });
+          const d = await r.json();
+          if (!r.ok) throw new Error(d.error || 'Could not create order');
+          return d.orderID;
+        },
+        onApprove: async (data) => {
+          $('buy-msg').textContent = 'Confirming payment…';
+          const r = await fetch('/api/store/capture', {
+            method: 'POST', headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ slug: window.__STORE.slug, orderID: data.orderID }),
+          });
+          const d = await r.json();
+          if (!r.ok) { $('buy-msg').textContent = d.error || 'Payment could not be verified.'; return; }
+          $('buy-box').classList.add('hidden');
+          $('download-link').href = d.downloadUrl;
+          $('done-box').classList.remove('hidden');
+        },
+        onError: () => { $('buy-msg').textContent = 'Payment error. Try again.'; },
+      }).render('#paypal-container');
+    }
+
+    renderPaypal();
+  </script>
+</Base>

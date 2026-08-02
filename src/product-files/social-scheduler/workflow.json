@@ -1,0 +1,163 @@
+{
+  "name": "Social Media Content Scheduler",
+  "nodes": [
+    {
+      "id": "97c030d1-bc20-4421-89ba-c0bbfdc4d417",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [240, 300],
+      "parameters": { "rule": { "interval": [{ "field": "minutes", "minutesInterval": 30 }] } }
+    },
+    {
+      "id": "75300443-4a1b-42f6-bc8e-dfc2fd044bfd",
+      "name": "Fetch Pending Posts",
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.2,
+      "position": [460, 300],
+      "parameters": {
+        "resource": "record",
+        "operation": "search",
+        "base": { "__rl": true, "mode": "id", "value": "YOUR_AIRTABLE_BASE_ID" },
+        "table": { "__rl": true, "mode": "name", "value": "Content Calendar" },
+        "filterByFormula": "AND({Status}='Pending', IS_BEFORE({Scheduled_Date}, NOW()))",
+        "returnAll": false,
+        "limit": 5,
+        "sort": { "property": [{ "field": "Scheduled_Date", "direction": "asc" }] }
+      },
+      "credentials": { "airtableTokenApi": { "id": "REPLACE_WITH_YOUR_CREDENTIAL_ID", "name": "Airtable account" } }
+    },
+    {
+      "id": "44bc8f68-378a-40de-9695-b2d54795bf9c",
+      "name": "Enhance Caption with AI",
+      "type": "@n8n/n8n-nodes-langchain.anthropic",
+      "typeVersion": 1,
+      "position": [680, 300],
+      "parameters": {
+        "resource": "text",
+        "operation": "message",
+        "modelId": { "__rl": true, "value": "claude-haiku-4-5-20251001", "mode": "id" },
+        "messages": { "values": [{ "role": "user", "content": "=Platform: {{ $json.fields.Platform }}\nRaw Caption: {{ $json.fields.Raw_Caption }}\nTitle: {{ $json.fields.Title }}" }] },
+        "options": {
+          "system": "You are a social media expert. Given a raw caption and target platform, rewrite it to be engaging, on-brand, and platform-appropriate. For Twitter: keep under 280 chars, punchy, add 2-3 relevant hashtags. For LinkedIn: professional tone, slightly longer, add 3-5 hashtags. Return ONLY the final caption text, no explanations.",
+          "temperature": 0.7,
+          "maxTokens": 400
+        }
+      },
+      "credentials": { "anthropicApi": { "id": "REPLACE_WITH_YOUR_CREDENTIAL_ID", "name": "Anthropic account" } }
+    },
+    {
+      "id": "4ab170ef-addb-41db-915a-26ac60f89575",
+      "name": "Route by Platform",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.4,
+      "position": [900, 300],
+      "parameters": {
+        "mode": "rules",
+        "rules": {
+          "values": [
+            { "conditions": { "options": { "caseSensitive": false, "leftValue": "", "typeValidation": "strict" }, "conditions": [{ "leftValue": "={{ $('Fetch Pending Posts').item.json.fields.Platform }}", "rightValue": "Twitter", "operator": { "type": "string", "operation": "equals" } }], "combinator": "and" }, "renameOutput": true, "outputKey": "Twitter" },
+            { "conditions": { "options": { "caseSensitive": false, "leftValue": "", "typeValidation": "strict" }, "conditions": [{ "leftValue": "={{ $('Fetch Pending Posts').item.json.fields.Platform }}", "rightValue": "LinkedIn", "operator": { "type": "string", "operation": "equals" } }], "combinator": "and" }, "renameOutput": true, "outputKey": "LinkedIn" },
+            { "conditions": { "options": { "caseSensitive": false, "leftValue": "", "typeValidation": "strict" }, "conditions": [{ "leftValue": "={{ $('Fetch Pending Posts').item.json.fields.Platform }}", "rightValue": "Both", "operator": { "type": "string", "operation": "equals" } }], "combinator": "and" }, "renameOutput": true, "outputKey": "Both" }
+          ]
+        },
+        "options": { "fallbackOutput": "none" }
+      }
+    },
+    {
+      "id": "b71826fa-2174-424a-9858-04ebb4ed8f64",
+      "name": "Post to Twitter",
+      "type": "n8n-nodes-base.twitter",
+      "typeVersion": 2,
+      "position": [1140, 140],
+      "parameters": {
+        "resource": "tweet",
+        "operation": "create",
+        "text": "={{ $('Enhance Caption with AI').item.json.message.content[0].text.substring(0, 280) }}",
+        "additionalFields": {}
+      },
+      "credentials": { "twitterOAuth2Api": { "id": "REPLACE_WITH_YOUR_CREDENTIAL_ID", "name": "Twitter account" } }
+    },
+    {
+      "id": "c80a0e1d-5f10-4835-a755-3d239a928e48",
+      "name": "Post to LinkedIn",
+      "type": "n8n-nodes-base.linkedIn",
+      "typeVersion": 1,
+      "position": [1140, 300],
+      "parameters": {
+        "resource": "post",
+        "operation": "create",
+        "postAs": "person",
+        "person": "={{ $credentials.oauthTokenData.id }}",
+        "text": "={{ $('Enhance Caption with AI').item.json.message.content[0].text }}",
+        "shareMediaCategory": "NONE",
+        "additionalFields": {}
+      },
+      "credentials": { "linkedInOAuth2Api": { "id": "REPLACE_WITH_YOUR_CREDENTIAL_ID", "name": "LinkedIn account" } }
+    },
+    {
+      "id": "ab51a8d3-83eb-4c15-b27f-52501f7f706e",
+      "name": "Post to Both Platforms",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1140, 460],
+      "parameters": {
+        "url": "https://api.twitter.com/2/tweets",
+        "method": "POST",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "twitterOAuth2Api",
+        "sendBody": true,
+        "bodyParameters": { "parameters": [{ "name": "text", "value": "={{ $('Enhance Caption with AI').item.json.message.content[0].text.substring(0, 280) }}" }] }
+      },
+      "credentials": { "twitterOAuth2Api": { "id": "REPLACE_WITH_YOUR_CREDENTIAL_ID", "name": "Twitter account" } }
+    },
+    {
+      "id": "e592efcd-ef14-4f94-a036-6bea332f66b1",
+      "name": "Mark as Published",
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2.2,
+      "position": [1400, 300],
+      "parameters": {
+        "resource": "record",
+        "operation": "update",
+        "base": { "__rl": true, "mode": "id", "value": "YOUR_AIRTABLE_BASE_ID" },
+        "table": { "__rl": true, "mode": "name", "value": "Content Calendar" },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Status": "Published",
+            "Published_At": "={{ new Date().toISOString() }}",
+            "Final_Caption": "={{ $('Enhance Caption with AI').item.json.message.content[0].text }}"
+          },
+          "matchingColumns": ["id"],
+          "schema": []
+        },
+        "id": "={{ $('Fetch Pending Posts').item.json.id }}"
+      },
+      "credentials": { "airtableTokenApi": { "id": "REPLACE_WITH_YOUR_CREDENTIAL_ID", "name": "Airtable account" } }
+    }
+  ],
+  "connections": {
+    "Schedule Trigger": { "main": [[{ "node": "Fetch Pending Posts", "type": "main", "index": 0 }]] },
+    "Fetch Pending Posts": { "main": [[{ "node": "Enhance Caption with AI", "type": "main", "index": 0 }]] },
+    "Enhance Caption with AI": { "main": [[{ "node": "Route by Platform", "type": "main", "index": 0 }]] },
+    "Route by Platform": { "main": [[{ "node": "Post to Twitter", "type": "main", "index": 0 }], [{ "node": "Post to LinkedIn", "type": "main", "index": 0 }], [{ "node": "Post to Both Platforms", "type": "main", "index": 0 }]] },
+    "Post to Twitter": { "main": [[{ "node": "Mark as Published", "type": "main", "index": 0 }]] },
+    "Post to LinkedIn": { "main": [[{ "node": "Mark as Published", "type": "main", "index": 0 }]] },
+    "Post to Both Platforms": { "main": [[{ "node": "Mark as Published", "type": "main", "index": 0 }]] }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "saveManualExecutions": true,
+    "callerPolicy": "workflowsFromSameOwner",
+    "errorWorkflow": ""
+  },
+  "staticData": null,
+  "tags": [
+    { "name": "social-media" },
+    { "name": "automation" },
+    { "name": "content-scheduling" },
+    { "name": "airtable" },
+    { "name": "anthropic" }
+  ]
+}

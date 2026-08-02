@@ -3,6 +3,7 @@ import Base             from '../layouts/Base.astro';
 import Header           from '../components/Header.astro';
 import Footer           from '../components/Footer.astro';
 import NewsletterSignup from '../components/NewsletterSignup.astro';
+import PostCard from '../components/PostCard.astro';
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -27,6 +28,18 @@ function stars(r: number) {
 
 // Derive tool name from title (for schema)
 const toolName = data.title.match(/^(.+?)\s+(Review|vs\s)/i)?.[1] ?? data.title.split(':')[0];
+
+// Related posts: same category first, then most recent — internal linking so
+// crawlers (and readers) can discover the other 160+ reviews from any single page.
+const allPosts = await getCollection('posts', ({ data }) => !data.draft);
+const relatedPosts = allPosts
+  .filter((p) => p.slug !== post.slug)
+  .sort((a, b) => {
+    const aScore = a.data.category === data.category ? 0 : 1;
+    const bScore = b.data.category === data.category ? 0 : 1;
+    return aScore - bScore || (a.data.date < b.data.date ? 1 : -1);
+  })
+  .slice(0, 4);
 
 const badgeMap: Record<string, string> = {
   review: 'badge-review', comparison: 'badge-comparison',
@@ -166,6 +179,27 @@ const badgeLabel: Record<string, string> = {
             </svg>
           </a>
         </div>
+      )}
+
+      <!-- Related posts: internal linking for discovery/crawlability -->
+      {relatedPosts.length > 0 && (
+        <section class="mt-10 pt-8 border-t border-brand-border/50">
+          <h2 class="font-display font-bold text-xl text-white mb-5">Related reviews</h2>
+          <div class="grid gap-5 sm:grid-cols-2">
+            {relatedPosts.map((related) => (
+              <PostCard
+                title={related.data.title}
+                slug={related.slug}
+                excerpt={related.data.excerpt}
+                date={related.data.date}
+                type={related.data.type}
+                rating={related.data.rating}
+                tags={related.data.tags}
+                image={related.data.image}
+              />
+            ))}
+          </div>
+        </section>
       )}
     </div>
   </main>
