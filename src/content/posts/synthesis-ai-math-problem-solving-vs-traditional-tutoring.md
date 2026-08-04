@@ -1,5 +1,5 @@
 ---
-title: "Synthesis AI Math Problem Solving vs Traditional Tutoring"
+title: "Synthesis AI Math vs Traditional Tutoring"
 date: "2026-05-07"
 excerpt: "Synthesis AI math problem solving vs traditional tutoring compared in depth. See features, pricing, and whether it beats human tutors in 2026."
 category: "AI Tools"
