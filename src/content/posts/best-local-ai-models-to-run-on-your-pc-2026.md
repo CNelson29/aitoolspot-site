@@ -104,7 +104,6 @@ Start with Ollama or LM Studio, load Gemma 4 12B or a quantized DeepSeek model, 
 ## Sources Checked
 
 - [Top 5 Local LLM Tools and Models in 2026 — Pinggy](https://pinggy.io/blog/top_5_local_llm_tools_and_models/)
-- [Best AI PC Builds for Local LLMs 2026 — Newegg](https://www.newegg.com/insider/best-ai-pc-builds-for-running-local-llms-in-2026)
 - [LM Studio Review 2026 — infobro.ai](https://infobro.ai/reviews/lm-studio-review-2026-the-best-way-to-run-local-llms-on-your-own-hardware)
 - [Run Local AI on Windows 11 2026 — Windows Forum](https://windowsforum.com/threads/run-local-ai-on-windows-11-2026-best-apps-runtimes-hardware-tips.428691)
 - [AI PC Requirements 2026 — Vision Computers](http://www.visioncomputers.com/ai-pc-requirements-2026)

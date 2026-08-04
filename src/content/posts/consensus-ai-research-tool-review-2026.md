@@ -72,7 +72,6 @@ The tool is not magic — it cannot replace rigorous systematic review methodolo
 - [ComparEdge — Consensus Review 2026: Pricing and Expert Verdict](https://comparedge.com/tools/consensus-ai)
 - [Aymo AI — 15+ Best AI for Research in 2026](https://aymo.ai/blog/ai-for-research)
 - [Perplexity AI Magazine — Consensus AI Review 2026: 8 Evidence Tests](https://perplexityaimagazine.com/ai-tools/consensus-ai-review-2026/)
-- [MytheAi — Consensus Review 2026](https://mytheai.com/tools/consensus)
 
 ## FAQ
 

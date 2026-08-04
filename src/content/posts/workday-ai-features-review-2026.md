@@ -93,7 +93,6 @@ The caveats are equally real: pricing is opaque, implementation is heavy, and th
 ## Sources Checked
 
 - [AI is Everywhere — Workday Illuminate Overview](https://www.aiiseverywhere.com/tools/workday-illuminate)
-- [Redress Compliance — Workday AI Licensing & Premium Analysis](https://redresscompliance.com/workday-ai-ml-premium-guide.html)
 - [AI Scanner — Workday AI Platform Review 2026](https://ai-scanner.com/platforms/workday-ai)
 - [Agent Finder — Workday AI Agents (Sana) Review](https://agent-finder.co/reviews/workday-ai-agents-sana-from-workday-)
 - [Instawhat.ai — Workday AI StackScore Review](https://instawhat.ai/tools/workday-ai)

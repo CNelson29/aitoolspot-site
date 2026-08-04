@@ -93,7 +93,6 @@ Both are genuinely capable tools. The wrong choice is not about quality — it i
 
 - [G2 Learn: Hands-on Synthesia vs HeyGen review](https://learn.g2.com/synthesia-vs-heygen)
 - [TechSifted: HeyGen vs Synthesia 2026](https://techsifted.com/comparisons/heygen-vs-synthesia/)
-- [VidAI Lab: HeyGen vs Synthesia comparison](https://vidailab.com/heygen-vs-synthesia-comparison/)
 - [AllThingsAI: HeyGen vs Synthesia 2026](https://allthingsai.work/comparisons/heygen-vs-synthesia/)
 
 ## FAQ

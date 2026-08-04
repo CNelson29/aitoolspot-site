@@ -90,4 +90,3 @@ For review-heavy courses, yes. Roughly 1 in 2 US college students already use Qu
 - [Quizlet AI features review 2026 — Study Tool Guide](https://studytoolguide.com/study-tools/quizlet-ai-features-review-2026-qchat-magic-notes-worth-it)
 - [Quizlet Q-Chat review — Chatbot Gallery](https://chatbot.gallery/chatbot/quizlet-q-chat)
 - [Quizlet subscription plans — Quizlet Help Center](https://help.quizlet.com/hc/en-us/articles/360041181691-Subscribing-to-Quizlet)
-- [Quizlet Q-Chat vs alternatives — PikAgent](https://www.pikagent.com/compare/ai-teaching-agent-team-vs-quizlet-q-chat)

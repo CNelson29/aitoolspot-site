@@ -77,7 +77,6 @@ Outside that profile, the per-source-minute credit model creates real cost press
 - [Ssemble — Opus Clip Review & Pricing Breakdown 2026](https://www.ssemble.com/blog/opus-clip-review-2026)
 - [eesel AI — OpusClip Pricing: What You Actually Pay](https://www.eesel.ai/blog/opusclip-pricing)
 - [BIGVU — Is Opus Clips Worth It? (2026)](https://bigvu.tv/blog/opus-clips-worth-the-hype)
-- [Creator Tribune — Opus Clip Review: When Credits Run Out](https://creatortribune.com/opus-clip-review/)
 - [Marc Andrews — Opus Clip Review 2026: AI Video Shorts Tool Tested](https://marcandrews.com/opus-clip-review-2026-ai-video-shorts-tool-tested/)
 
 ## FAQ

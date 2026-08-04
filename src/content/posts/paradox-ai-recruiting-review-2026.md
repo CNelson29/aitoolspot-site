@@ -81,7 +81,6 @@ For high-volume Workday shops: a strong fit. For everyone else: evaluate alterna
 
 - [IndustryLabs — Paradox AI Review 2026](https://www.industrylabs.ai/articles/paradox-ai-review)
 - [AI Tools Bakery — Paradox AI Review (Jul 2026)](https://aitoolsbakery.com/blog/paradox-ai-review/)
-- [Dirr — Paradox Pricing and Review 2026](https://dirr.ai/tools/paradox)
 - [Classet — Paradox Reviews, Pricing and Alternatives](https://www.classet.ai/blog/paradox-reviews-pricing-alternatives)
 - [Truffle — Is Paradox AI Worth It for High-Volume Hiring?](https://www.hiretruffle.com/blog/paradox-ai-pricing)
 

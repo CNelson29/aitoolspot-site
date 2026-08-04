@@ -96,7 +96,6 @@ None of the tools in this roundup add visible watermarks to text output. The rea
 - [HIX.AI Review 2026 — AiToolsCoop](https://aitoolscoop.com/tool/hix-ai/)
 - [Katteb Review 2026 — AiToolsCoop](https://aitoolscoop.com/tool/katteb/)
 - [9 Free AI Book Writing Tools 2026 — Inkfluence AI](https://www.inkfluenceai.com/blog/best-free-ai-book-writing-tools-2026)
-- [Rytr Review 2026 — Heitan Lab](https://heitanlab.com/rytr-review-2026)
 
 ## FAQ
 

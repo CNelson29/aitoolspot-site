@@ -100,7 +100,6 @@ Notion AI is available as an add-on at $10 per user per month. Students may qual
 **Sources checked:**
 
 - [Notion AI for Students 2026 — Truescho](https://truescho.com/en/blog/notion-ai-students-2026)
-- [Notion AI for Students Full Review 2026 — AiToolsSimple](https://aitoolssimple.com/chatbots/notion-ai-for-students/)
 - [Use Notion AI to write better notes — Notion Help](https://www.notion.com/help/guides/notion-ai-for-docs)
 - [Notion AI Review: Features, Pricing and Use Cases 2026 — Agent Finder](https://agent-finder.co/reviews/notion-ai-review)
 - [Notion AI Complaints and Hidden Fees — SaasFlags](https://saasflags.com/products/notion-ai/complaints)
