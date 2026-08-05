@@ -64,11 +64,15 @@ const PAYPAL_CLIENT_ID = import.meta.env.PUBLIC_PAYPAL_CLIENT_ID || '';
   {PAYPAL_CLIENT_ID && (
     <script is:inline src={`https://www.paypal.com/sdk/js?client-id=${PAYPAL_CLIENT_ID}&currency=USD&intent=capture`}></script>
   )}
-  <script define:vars={{ hasPaypal: !!PAYPAL_CLIENT_ID, slug: product.slug }}>
-    window.__STORE = { hasPaypal, slug };
+  <script define:vars={{ hasPaypal: !!PAYPAL_CLIENT_ID, slug: product.slug, name: product.name, priceUsd: product.priceUsd }}>
+    window.__STORE = { hasPaypal, slug, name, priceUsd };
   </script>
   <script>
     const $ = (id) => document.getElementById(id);
+    const ga = (...args) => { if (typeof window.gtag === 'function') window.gtag(...args); };
+    const item = () => ({ item_id: window.__STORE.slug, item_name: window.__STORE.name, price: window.__STORE.priceUsd, quantity: 1 });
+
+    ga('event', 'view_item', { currency: 'USD', value: window.__STORE.priceUsd, items: [item()] });
 
     function renderPaypal() {
       if (!window.__STORE.hasPaypal || !window.paypal) {
@@ -78,6 +82,7 @@ const PAYPAL_CLIENT_ID = import.meta.env.PUBLIC_PAYPAL_CLIENT_ID || '';
       window.paypal.Buttons({
         style: { layout: 'vertical', color: 'blue', shape: 'pill', label: 'pay' },
         createOrder: async () => {
+          ga('event', 'begin_checkout', { currency: 'USD', value: window.__STORE.priceUsd, items: [item()] });
           const r = await fetch('/api/store/create-order', {
             method: 'POST', headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ slug: window.__STORE.slug }),
@@ -93,7 +98,14 @@ const PAYPAL_CLIENT_ID = import.meta.env.PUBLIC_PAYPAL_CLIENT_ID || '';
             body: JSON.stringify({ slug: window.__STORE.slug, orderID: data.orderID }),
           });
           const d = await r.json();
-          if (!r.ok) { $('buy-msg').textContent = d.error || 'Payment could not be verified.'; return; }
+          if (!r.ok) {
+            $('buy-msg').textContent = d.error || 'Payment could not be verified.';
+            ga('event', 'purchase_failed', { currency: 'USD', value: window.__STORE.priceUsd, items: [item()] });
+            return;
+          }
+          ga('event', 'purchase', {
+            transaction_id: data.orderID, currency: 'USD', value: window.__STORE.priceUsd, items: [item()],
+          });
           $('buy-box').classList.add('hidden');
           $('download-link').href = d.downloadUrl;
           $('done-box').classList.remove('hidden');

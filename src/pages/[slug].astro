@@ -29,6 +29,43 @@ function stars(r: number) {
 // Derive tool name from title (for schema)
 const toolName = data.title.match(/^(.+?)\s+(Review|vs\s)/i)?.[1] ?? data.title.split(':')[0];
 
+// FAQPage schema — extracted from the post's own "## FAQ" markdown section (### Q + paragraph A),
+// so it can only ever describe FAQs that are actually visible in the rendered content.
+// (Index-based, not a single `$`-anchored regex: in multiline mode `$` matches every line end,
+// not just the section end, which silently truncated extraction to just the first question.)
+const faqItems: { q: string; a: string }[] = [];
+const headingMatch = post.body.match(/^## FAQ\s*\n/m);
+if (headingMatch && headingMatch.index !== undefined) {
+  const contentStart = headingMatch.index + headingMatch[0].length;
+  const nextH2 = post.body.indexOf('\n## ', contentStart);
+  const faqSection = nextH2 === -1 ? post.body.slice(contentStart) : post.body.slice(contentStart, nextH2);
+  const blocks = ('\n' + faqSection).split('\n### ').slice(1);
+  for (const block of blocks) {
+    const nl = block.indexOf('\n');
+    const q = (nl === -1 ? block : block.slice(0, nl)).trim();
+    const a = (nl === -1 ? '' : block.slice(nl + 1)).trim().replace(/\s+/g, ' ');
+    if (q && a) faqItems.push({ q, a });
+  }
+  // Fallback: some posts write FAQs as "**Question?**Answer" on one line instead of ### headings.
+  if (faqItems.length === 0) {
+    const inlineRe = /\*\*(.+?\?)\*\*(.+)/g;
+    let im: RegExpExecArray | null;
+    while ((im = inlineRe.exec(faqSection))) {
+      const q = im[1].trim();
+      const a = im[2].trim().replace(/\s+/g, ' ');
+      if (q && a) faqItems.push({ q, a });
+    }
+  }
+}
+const faqSchema = faqItems.length ? JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqItems.map(({ q, a }) => ({
+    '@type': 'Question', name: q,
+    acceptedAnswer: { '@type': 'Answer', text: a },
+  })),
+}) : null;
+
 // Related posts: same category first, then most recent — internal linking so
 // crawlers (and readers) can discover the other 160+ reviews from any single page.
 const allPosts = await getCollection('posts', ({ data }) => !data.draft);
@@ -58,6 +95,7 @@ const badgeLabel: Record<string, string> = {
   toolName={toolName}
   date={data.date}
 >
+  {faqSchema && <script type="application/ld+json" set:html={faqSchema} />}
   <Header />
 
   <main class="flex-1">

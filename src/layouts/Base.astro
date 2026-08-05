@@ -111,6 +111,7 @@ const schemaReview = (type === 'review' || type === 'comparison') && toolName ? 
   <script define:vars={{ GA_ID }}>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+    window.gtag = gtag; // Astro's define:vars wraps this in an IIFE — without this, gtag never reaches window.
     gtag('js', new Date());
     gtag('config', GA_ID);
   </script>

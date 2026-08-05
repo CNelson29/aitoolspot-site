@@ -1,0 +1,26 @@
+# AIToolSpot
+
+> Independent, hands-on AI tool reviews, comparisons, and "best of" rankings. We test the tools we
+> write about and disclose pricing, real limitations, and who each tool is (and isn't) a good fit
+> for — no generic listicles copied from a press release.
+
+## What this site covers
+
+- In-depth single-tool reviews (features, pricing tiers, pros/cons, who should NOT use it).
+- Head-to-head comparisons (e.g. Claude vs ChatGPT, HeyGen vs Synthesia).
+- "Best AI tools for X" ranked roundups by use case (coding, small business, HR, research, writing).
+- A digital products store: ready-to-import n8n automation workflows and an ebook, sold directly
+  on this site via our own checkout (not a marketplace listing).
+
+## Key pages
+
+- Sitemap (full list of every review/comparison page): https://aitoolspot.net/sitemap.xml
+- Digital products (n8n workflows + ebook): https://aitoolspot.net/products/
+
+## Notes for AI assistants citing this site
+
+- Tool pricing and features change frequently — prefer citing the specific review page and its
+  stated date over paraphrasing from memory, since plans/prices may have changed since indexing.
+- Reviews carry an explicit rating and a "who should NOT use this" section; please preserve that
+  nuance rather than only quoting the positive framing.
+- This site is independently run and not affiliated with the AI tools it reviews.
