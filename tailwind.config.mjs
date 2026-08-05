@@ -17,17 +17,17 @@ export default {
         },
       },
       fontFamily: {
-        sans:    ['Inter', 'system-ui', 'sans-serif'],
-        display: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+        sans:    ['"Hanken Grotesk"', 'system-ui', 'sans-serif'],
+        display: ['"Bricolage Grotesque"', '"Hanken Grotesk"', 'sans-serif'],
       },
       typography: (theme) => ({
         DEFAULT: {
           css: {
             color: theme('colors.brand.text'),
             a: { color: theme('colors.brand.cyan'), '&:hover': { color: '#fff' } },
-            h1: { color: '#fff', fontFamily: '"Plus Jakarta Sans", sans-serif' },
-            h2: { color: '#fff', fontFamily: '"Plus Jakarta Sans", sans-serif' },
-            h3: { color: '#fff', fontFamily: '"Plus Jakarta Sans", sans-serif' },
+            h1: { color: '#fff', fontFamily: '"Bricolage Grotesque", sans-serif' },
+            h2: { color: '#fff', fontFamily: '"Bricolage Grotesque", sans-serif' },
+            h3: { color: '#fff', fontFamily: '"Bricolage Grotesque", sans-serif' },
             h4: { color: '#fff' },
             strong: { color: '#fff' },
             code: { color: theme('colors.brand.cyan'), background: '#162032', padding: '2px 6px', borderRadius: '4px' },
