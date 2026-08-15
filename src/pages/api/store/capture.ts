@@ -3,6 +3,7 @@ import { rateLimit, rateLimitedResponse } from '../../../lib/rate-limit';
 import { getProduct } from '../../../lib/store-catalog';
 import { captureStoreOrder } from '../../../lib/store-paypal';
 import { signOrderToken } from '../../../lib/order-token';
+import { recordOrder } from '../../../lib/orders-db';
 
 export const prerender = false;
 
@@ -29,6 +30,8 @@ export const POST: APIRoute = async ({ request }) => {
   try {
     const paid = await captureStoreOrder(orderID, product.priceUsd);
     if (!paid) return json({ error: 'El pago no se completó.' }, 402);
+
+    recordOrder({ productSlug: slug, paypalOrderId: orderID, amountUsd: product.priceUsd }).catch(() => {});
 
     const token = signOrderToken({ slug, exp: Date.now() + DOWNLOAD_TTL_MS });
     return json({ downloadUrl: `/api/store/download?token=${encodeURIComponent(token)}` });
