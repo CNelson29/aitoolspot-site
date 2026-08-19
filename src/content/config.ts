@@ -13,6 +13,8 @@ const posts = defineCollection({
     rating:        z.number().optional(),
     image:         z.string().optional(),
     draft:         z.boolean().default(false),
+    dateModified:  z.string().optional(),
+    linksVerified: z.array(z.object({ url: z.string(), ok: z.boolean(), checkedAt: z.string() })).optional(),
   }),
 });
 

@@ -2,6 +2,18 @@
 import Base from '../layouts/Base.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+
+let verified: { checkedAt: string; results: { ok: boolean }[] } | null = null;
+try {
+  const mod = await import('../data/free-ai-models-verified.json');
+  verified = mod.default ?? mod;
+} catch {
+  verified = null;
+}
+const verifiedDate = verified
+  ? new Date(verified.checkedAt).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
+  : null;
+const verifiedOkCount = verified ? verified.results.filter(r => r.ok).length : 0;
 ---
 <Base
   title="Free AI Models That Rival GPT-4 & Claude (2026) — DeepSeek, Qwen & More"
@@ -21,6 +33,17 @@ import Footer from '../components/Footer.astro';
         </h1>
         <p class="text-brand-dim text-lg max-w-2xl mx-auto">The best <b>free</b> and open models from China, Europe and beyond — many match the paid giants. Filter by what you need.</p>
       </div>
+
+      {verified && (
+        <div class="max-w-xl mx-auto mb-8 p-4 rounded-xl border border-brand-cyan/25 bg-brand-cyan/5 text-sm text-center">
+          <p class="font-semibold text-white mb-0.5">
+            ✅ Every link below was checked on {verifiedDate}
+          </p>
+          <p class="text-brand-dim text-xs">
+            {verifiedOkCount}/{verified.results.length} providers confirmed live — re-checked weekly, not left to rot.
+          </p>
+        </div>
+      )}
 
       <div class="flex flex-wrap justify-center gap-2 mb-8" data-filter>
         {[['All','all'],['Reasoning','reasoning'],['Coding','coding'],['Writing','writing'],['Vision','vision'],['Long context','longctx']].map(([l,v],i)=>(
