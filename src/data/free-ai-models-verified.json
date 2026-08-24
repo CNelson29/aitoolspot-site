@@ -1,71 +1,71 @@
 {
-  "checkedAt": "2026-08-19",
+  "checkedAt": "2026-08-24",
   "results": [
     {
       "label": "DeepSeek",
       "url": "https://chat.deepseek.com",
       "ok": true,
-      "checkedAt": "2026-08-19"
+      "checkedAt": "2026-08-24"
     },
     {
       "label": "Qwen",
       "url": "https://chat.qwen.ai",
       "ok": true,
-      "checkedAt": "2026-08-19"
+      "checkedAt": "2026-08-24"
     },
     {
       "label": "Kimi",
       "url": "https://kimi.moonshot.cn",
       "ok": true,
-      "checkedAt": "2026-08-19"
+      "checkedAt": "2026-08-24"
     },
     {
       "label": "GLM-4",
       "url": "https://chatglm.cn",
       "ok": true,
-      "checkedAt": "2026-08-19"
+      "checkedAt": "2026-08-24"
     },
     {
       "label": "Mistral",
       "url": "https://chat.mistral.ai",
       "ok": false,
-      "checkedAt": "2026-08-19"
+      "checkedAt": "2026-08-24"
     },
     {
       "label": "Llama",
       "url": "https://www.llama.com",
       "ok": true,
-      "checkedAt": "2026-08-19"
+      "checkedAt": "2026-08-24"
     },
     {
       "label": "Gemma",
       "url": "https://ai.google.dev/gemma",
       "ok": true,
-      "checkedAt": "2026-08-19"
+      "checkedAt": "2026-08-24"
     },
     {
       "label": "Command R+",
       "url": "https://cohere.com/command",
       "ok": true,
-      "checkedAt": "2026-08-19"
+      "checkedAt": "2026-08-24"
     },
     {
       "label": "Yi-Large",
       "url": "https://www.01.ai",
       "ok": true,
-      "checkedAt": "2026-08-19"
+      "checkedAt": "2026-08-24"
     },
     {
       "label": "Falcon 2",
       "url": "https://falconllm.tii.ae",
       "ok": true,
-      "checkedAt": "2026-08-19"
+      "checkedAt": "2026-08-24"
     },
     {
       "label": "InternVL",
       "url": "https://internvl.github.io",
       "ok": true,
-      "checkedAt": "2026-08-19"
+      "checkedAt": "2026-08-24"
     }
   ]
 }
