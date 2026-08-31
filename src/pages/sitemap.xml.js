@@ -8,6 +8,12 @@ export async function GET() {
     { loc: base, priority: '1.0', freq: 'daily' },
     { loc: `${base}/finder/`, priority: '0.9', freq: 'weekly' },
     { loc: `${base}/ai-prompts/`, priority: '0.9', freq: 'weekly' },
+    { loc: `${base}/prompt-builder/`, priority: '0.8', freq: 'weekly' },
+    { loc: `${base}/ai-cost-calculator/`, priority: '0.8', freq: 'weekly' },
+    { loc: `${base}/free-ai-models/`, priority: '0.8', freq: 'weekly' },
+    { loc: `${base}/ai-or-human/`, priority: '0.8', freq: 'weekly' },
+    { loc: `${base}/ai-leaderboard/`, priority: '0.8', freq: 'weekly' },
+    { loc: `${base}/ai-stack-builder/`, priority: '0.8', freq: 'weekly' },
     ...posts.map(p => ({
       loc:      `${base}/${p.slug}/`,
       priority: '0.8',

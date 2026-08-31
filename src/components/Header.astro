@@ -1,6 +1,17 @@
 ---
 import SiteControls from './SiteControls.astro';
 const { pathname } = Astro.url;
+
+const navLinks = [
+  { href: '/',                    label: 'Home' },
+  { href: '/#reviews',            label: 'Reviews' },
+  { href: '/prompt-builder/',     label: 'Prompt Builder' },
+  { href: '/ai-cost-calculator/', label: 'Cost Calc' },
+  { href: '/free-ai-models/',     label: 'Free Models' },
+  { href: '/ai-or-human/',        label: 'AI or Human?' },
+  { href: '/ai-leaderboard/',     label: 'Best AI' },
+  { href: '/ai-stack-builder/',   label: 'Stack Builder' },
+];
 ---
 <header class="sticky top-0 z-50 border-b border-brand-border/50 bg-brand-bg/80 backdrop-blur-md">
   <nav class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
@@ -19,16 +30,7 @@ const { pathname } = Astro.url;
 
     <!-- Nav links -->
     <div class="hidden sm:flex items-center gap-1">
-      {[
-        { href: '/',                    label: 'Home' },
-        { href: '/#reviews',            label: 'Reviews' },
-        { href: '/prompt-builder/',     label: 'Prompt Builder' },
-        { href: '/ai-cost-calculator/', label: 'Cost Calc' },
-        { href: '/free-ai-models/',     label: 'Free Models' },
-        { href: '/ai-or-human/',        label: 'AI or Human?' },
-        { href: '/ai-leaderboard/',     label: 'Best AI' },
-        { href: '/ai-stack-builder/',   label: 'Stack Builder' },
-      ].map(({ href, label }) => (
+      {navLinks.map(({ href, label }) => (
         <a
           href={href}
           class={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
@@ -63,6 +65,72 @@ const { pathname } = Astro.url;
         </svg>
         YouTube
       </a>
+      <button
+        id="mobile-menu-btn"
+        class="sm:hidden flex items-center justify-center w-9 h-9 rounded-lg hover:bg-white/5 transition-colors flex-shrink-0"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <svg id="mobile-menu-icon-open" class="w-5 h-5 text-brand-dim" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg id="mobile-menu-icon-close" class="hidden w-5 h-5 text-brand-dim" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
     </div>
   </nav>
+
+  <!-- Mobile menu panel -->
+  <div id="mobile-menu" class="hidden sm:hidden border-t border-brand-border/50 bg-brand-bg">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex flex-col gap-1">
+      {navLinks.map(({ href, label }) => (
+        <a
+          href={href}
+          class={`px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+            pathname === href
+              ? 'text-brand-cyan bg-brand-cyan/10'
+              : 'text-brand-dim hover:text-white hover:bg-white/5'
+          }`}
+        >
+          {label}
+        </a>
+      ))}
+      <div class="h-px bg-brand-border/50 my-1"></div>
+      <a href="/ai-prompts/" class="px-3 py-2.5 rounded-lg text-sm font-medium text-brand-cyan hover:bg-brand-cyan/10 transition-colors">
+        ✍️ Free Prompts
+      </a>
+      <a href="https://www.youtube.com/@AIToolSpott" target="_blank" rel="noopener noreferrer"
+        class="px-3 py-2.5 rounded-lg text-sm font-medium text-brand-dim hover:text-white hover:bg-white/5 transition-colors">
+        YouTube
+      </a>
+    </div>
+  </div>
 </header>
+
+<script>
+  const btn   = document.getElementById('mobile-menu-btn');
+  const panel = document.getElementById('mobile-menu');
+  const iconOpen  = document.getElementById('mobile-menu-icon-open');
+  const iconClose = document.getElementById('mobile-menu-icon-close');
+
+  function setOpen(open: boolean) {
+    panel?.classList.toggle('hidden', !open);
+    iconOpen?.classList.toggle('hidden', open);
+    iconClose?.classList.toggle('hidden', !open);
+    btn?.setAttribute('aria-expanded', String(open));
+  }
+
+  btn?.addEventListener('click', () => {
+    setOpen(panel?.classList.contains('hidden') ?? false);
+  });
+
+  panel?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => setOpen(false));
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') setOpen(false);
+  });
+</script>
