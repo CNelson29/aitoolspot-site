@@ -31,3 +31,7 @@ Three.js itself isn't a small dependency. In our own testing while building a mu
 ## Where to get it
 
 Repo: [github.com/MengTo/threeui](https://github.com/MengTo/threeui) · Live catalog: [threeui.com](https://threeui.com)
+
+---
+
+**More free tools worth knowing about:** [claude-blog](/claude-blog-free-skill-for-claude-code/) (Claude Code blog skill) · [Vorssaint](/vorssaint-free-mac-menu-bar-app/) (Mac menu bar utility) · [GPT-Image2 prompt library](/gpt-image2-free-prompt-library/) (image prompt templates)

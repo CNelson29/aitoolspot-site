@@ -32,3 +32,7 @@ This is a genuinely full-featured suite — the same category of tool this very 
 ## Where to get it
 
 Repo: [github.com/AgriciDaniel/claude-blog](https://github.com/AgriciDaniel/claude-blog)
+
+---
+
+**More free tools worth knowing about:** [ThreeUI](/threeui-free-3d-component-kit/) (3D component kit) · [Vorssaint](/vorssaint-free-mac-menu-bar-app/) (Mac menu bar utility) · [GPT-Image2 prompt library](/gpt-image2-free-prompt-library/) (image prompt templates)
