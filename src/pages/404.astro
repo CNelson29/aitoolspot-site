@@ -1,0 +1,35 @@
+---
+import Base   from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+<Base
+  title="Page Not Found | AIToolSpott"
+  description="This page doesn't exist or has moved. Browse the latest AI tool reviews and tools on AIToolSpott."
+  slug="404"
+>
+  <Header />
+  <main class="flex-1">
+    <section class="max-w-2xl mx-auto px-4 sm:px-6 py-24 text-center">
+      <p class="text-brand-cyan text-sm font-semibold mb-3 uppercase tracking-wider">404</p>
+      <h1 class="font-display font-extrabold text-3xl sm:text-4xl text-white mb-4">
+        That page doesn't exist — or moved.
+      </h1>
+      <p class="text-brand-dim mb-10">
+        No hype here either: the link's just broken. Try one of these instead.
+      </p>
+      <div class="flex flex-wrap justify-center gap-3">
+        <a href="/" class="px-5 py-2.5 rounded-lg bg-brand-cyan text-brand-bg font-bold text-sm hover:opacity-90 transition-opacity">
+          Go home
+        </a>
+        <a href="/finder/" class="px-5 py-2.5 rounded-lg border border-brand-cyan/40 text-brand-cyan font-bold text-sm hover:bg-brand-cyan/10 transition-colors">
+          🔍 AI Tool Finder
+        </a>
+        <a href="/free-ai-models/" class="px-5 py-2.5 rounded-lg border border-brand-border text-brand-dim font-bold text-sm hover:text-white hover:border-brand-cyan/40 transition-colors">
+          Free AI Models
+        </a>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Base>

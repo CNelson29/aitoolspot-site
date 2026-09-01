@@ -1,0 +1,90 @@
+---
+import Base   from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+<Base
+  title="My Tools — AIToolSpott"
+  description="Your saved AI tool reviews, synced to your account."
+  slug="my-tools"
+>
+  <Header />
+  <main class="flex-1">
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 py-10">
+      <h1 class="font-display font-black text-3xl text-white mb-1">🔖 My Tools</h1>
+      <p class="text-brand-dim text-sm mb-8">Saved from any device you sign in on.</p>
+
+      <div id="signed-out" class="hidden text-center py-16 rounded-2xl border border-brand-border bg-brand-surface/40">
+        <p class="text-white font-bold mb-3">Sign in to see your saved tools</p>
+        <p class="text-brand-dim text-sm mb-5">Bookmark any review with the 🔖 button on its page — it'll show up here.</p>
+        <button id="btn-signin" class="px-5 py-2.5 rounded-lg bg-brand-cyan text-brand-bg font-bold text-sm hover:opacity-90 transition-opacity">
+          Sign in
+        </button>
+      </div>
+
+      <div id="empty-list" class="hidden text-center py-16 rounded-2xl border border-brand-border bg-brand-surface/40">
+        <p class="text-white font-bold mb-2">You haven't saved anything yet</p>
+        <p class="text-brand-dim text-sm mb-5">Browse reviews and tap 🔖 on anything you want to compare later.</p>
+        <a href="/" class="px-5 py-2.5 rounded-lg bg-brand-cyan text-brand-bg font-bold text-sm hover:opacity-90 transition-opacity inline-block">
+          Browse reviews
+        </a>
+      </div>
+
+      <div id="loading" class="text-brand-dim text-sm">Loading…</div>
+
+      <div id="list-grid" class="hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+    </section>
+  </main>
+  <Footer />
+
+  <script>
+    import { getClerk } from '../lib/clerk-client';
+    const PUBLISHABLE_KEY = import.meta.env.PUBLIC_CLERK_PUBLISHABLE_KEY;
+    const $ = (id: string) => document.getElementById(id);
+
+    function show(id: string) { $(id)?.classList.remove('hidden'); }
+    function hide(id: string) { $(id)?.classList.add('hidden'); }
+    function esc(s: string) {
+      return (s || '').replace(/[&<>"']/g, (c) => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c] as string));
+    }
+
+    (async () => {
+      const clerk = await getClerk(PUBLISHABLE_KEY);
+      if (!clerk) { hide('loading'); show('signed-out'); return; }
+
+      hide('loading');
+
+      if (!clerk.user) {
+        show('signed-out');
+        $('btn-signin')?.addEventListener('click', () => clerk.openSignIn({ afterSignInUrl: '/my-tools/' }));
+        return;
+      }
+
+      const bookmarks: string[] = (clerk.user.unsafeMetadata?.savedTools as string[]) || [];
+      if (bookmarks.length === 0) { show('empty-list'); return; }
+
+      const manifest = await fetch('/posts-manifest.json').then((r) => r.json());
+      const bySlug = new Map(manifest.map((p: any) => [p.slug, p]));
+      const items = bookmarks.map((s) => bySlug.get(s)).filter(Boolean);
+
+      if (items.length === 0) { show('empty-list'); return; }
+
+      const grid = $('list-grid')!;
+      grid.innerHTML = items.map((p: any) => `
+        <a href="/${p.slug}/" class="block no-underline group rounded-2xl border border-brand-border bg-brand-surface overflow-hidden hover:border-brand-cyan/40 transition-colors">
+          <div class="h-32 relative overflow-hidden bg-brand-bg">
+            ${p.image
+              ? `<img src="${esc(p.image)}" alt="${esc(p.title)}" loading="lazy" class="absolute inset-0 w-full h-full object-cover" />`
+              : `<span class="absolute inset-0 flex items-center justify-center text-4xl">🤖</span>`}
+          </div>
+          <div class="p-4">
+            <h2 class="font-display font-bold text-white text-base leading-snug line-clamp-2 group-hover:text-brand-cyan transition-colors">${esc(p.title)}</h2>
+            ${p.rating ? `<div class="text-brand-cyan text-sm font-bold mt-1">${p.rating}/10</div>` : ''}
+            <p class="text-brand-dim text-sm mt-1 line-clamp-2">${esc(p.excerpt || '')}</p>
+          </div>
+        </a>
+      `).join('');
+      show('list-grid');
+    })();
+  </script>
+</Base>

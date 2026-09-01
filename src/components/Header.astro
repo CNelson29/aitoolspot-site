@@ -1,5 +1,6 @@
 ---
 import SiteControls from './SiteControls.astro';
+import AuthControl from './AuthControl.astro';
 const { pathname } = Astro.url;
 
 const navLinks = [
@@ -54,6 +55,7 @@ const navLinks = [
         ✍️ Free Prompts
       </a>
       <SiteControls />
+      <AuthControl />
       <a
         href="https://www.youtube.com/@AIToolSpott"
         target="_blank"

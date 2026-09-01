@@ -4,6 +4,7 @@ import Header           from '../components/Header.astro';
 import Footer           from '../components/Footer.astro';
 import NewsletterSignup from '../components/NewsletterSignup.astro';
 import PostCard from '../components/PostCard.astro';
+import Comments from '../components/Comments.astro';
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -115,6 +116,10 @@ const badgeLabel: Record<string, string> = {
             {badgeLabel[data.type] || 'Article'}
           </span>
           <span class="text-brand-dim text-sm">{dateFormatted}</span>
+          <button id="btn-bookmark" data-slug={post.slug}
+            class="ml-auto flex items-center gap-1 px-2.5 py-1 rounded-lg border border-brand-border text-brand-dim hover:text-brand-cyan hover:border-brand-cyan/40 transition-colors text-xs font-semibold">
+            <span id="bookmark-icon">🔖</span> <span id="bookmark-label">Save</span>
+          </button>
         </div>
 
         <h1 class="font-display font-extrabold text-3xl sm:text-4xl text-white leading-tight mb-4">
@@ -262,8 +267,54 @@ const badgeLabel: Record<string, string> = {
           </a>
         </div>
       </section>
+
+      <Comments />
     </div>
   </main>
+
+  <!-- Sticky mobile CTA — article pages only -->
+  <div class="sm:hidden fixed bottom-0 inset-x-0 z-40 border-t border-brand-cyan/30 bg-brand-bg/95 backdrop-blur-md p-3"
+       style="padding-bottom: max(0.75rem, env(safe-area-inset-bottom));">
+    <a href="/finder/"
+       class="flex items-center justify-center gap-1.5 py-2.5 rounded-lg bg-brand-cyan text-brand-bg font-bold text-sm">
+      🔍 Find your AI tool
+    </a>
+  </div>
+  <div class="sm:hidden h-16" aria-hidden="true"></div>
+
+  <script>
+    import { getClerk } from '../lib/clerk-client';
+    const PUBLISHABLE_KEY = import.meta.env.PUBLIC_CLERK_PUBLISHABLE_KEY;
+    const btn = document.getElementById('btn-bookmark') as HTMLButtonElement | null;
+    const slug = btn?.dataset.slug;
+
+    if (PUBLISHABLE_KEY && btn && slug) {
+      (async () => {
+        const clerk = await getClerk(PUBLISHABLE_KEY);
+        if (!clerk) return;
+
+        function render() {
+          const saved: string[] = (clerk.user?.unsafeMetadata?.savedTools as string[]) || [];
+          const isSaved = saved.includes(slug!);
+          document.getElementById('bookmark-icon')!.textContent = isSaved ? '✅' : '🔖';
+          document.getElementById('bookmark-label')!.textContent = isSaved ? 'Saved' : 'Save';
+        }
+        render();
+        clerk.addListener(render);
+
+        btn.addEventListener('click', async () => {
+          if (!clerk.user) {
+            clerk.openSignIn({ afterSignInUrl: window.location.pathname });
+            return;
+          }
+          const saved: string[] = (clerk.user.unsafeMetadata?.savedTools as string[]) || [];
+          const next = saved.includes(slug!) ? saved.filter((s) => s !== slug) : [...saved, slug!];
+          await clerk.user.update({ unsafeMetadata: { ...clerk.user.unsafeMetadata, savedTools: next } });
+          render();
+        });
+      })();
+    }
+  </script>
 
   <Footer />
 </Base>
