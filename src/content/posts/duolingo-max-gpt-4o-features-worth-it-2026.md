@@ -54,7 +54,9 @@ One of the most exciting 2026 additions is simulated video call practice. Using 
 ## Pricing
 
 Duolingo Max pricing as of May 2026:
-- **Monthly:** $29.99/month- **Annual:** $167.99/year (~$14/month, saving ~53%)- **Family Plan:** $199.99/year for up to 6 members
+- **Monthly:** $29.99/month
+- **Annual:** $167.99/year (~$14/month, saving ~53%)
+- **Family Plan:** $199.99/year for up to 6 members
 For comparison, Duolingo Super (the mid-tier plan) costs approximately $6.99/month annually. The jump to Max is significant — roughly double the annual cost — so the GPT-4o features need to deliver real value to justify the price.
 
 A **2-week free trial** is available for new Max subscribers, which is enough time to genuinely evaluate whether the AI features fit your learning style.
@@ -64,13 +66,28 @@ A **2-week free trial** is available for new Max subscribers, which is enough ti
 ## Pros and Cons
 
 ### ✅ Pros
-- **GPT-4o integration is genuinely impressive** — conversations feel natural and corrections are contextually accurate- **Explain My Answer is a game-changer** for understanding grammar at a deeper level- **Roleplay scenarios are diverse and expanding** — new scenarios added regularly in 2026- **Seamless UX** — AI features are woven into the existing Duolingo interface, not bolted on awkwardly- **Great for busy learners** — 10-15 minutes of Max practice delivers more depth than 30 minutes of standard Duolingo- **Family plan offers solid value** for households with multiple language learners- **Continuous improvement** — Duolingo's partnership with OpenAI means features improve as GPT models advance
+- **GPT-4o integration is genuinely impressive** — conversations feel natural and corrections are contextually accurate
+- **Explain My Answer is a game-changer** for understanding grammar at a deeper level
+- **Roleplay scenarios are diverse and expanding** — new scenarios added regularly in 2026
+- **Seamless UX** — AI features are woven into the existing Duolingo interface, not bolted on awkwardly
+- **Great for busy learners** — 10-15 minutes of Max practice delivers more depth than 30 minutes of standard Duolingo
+- **Family plan offers solid value** for households with multiple language learners
+- **Continuous improvement** — Duolingo's partnership with OpenAI means features improve as GPT models advance
 ### ❌ Cons
-- **Price is steep** — $29.99/month is hard to justify for casual learners- **Not all languages supported** — GPT-4o features are strongest for major languages; smaller language courses lag behind- **Still gamified at its core** — streaks and XP systems can feel at odds with serious study goals- **No offline AI features** — Roleplay and conversation practice require an internet connection- **Video Call feature still in beta** — limited language availability as of May 2026- **Not a replacement for human tutors** — advanced learners may hit a ceiling
+- **Price is steep** — $29.99/month is hard to justify for casual learners
+- **Not all languages supported** — GPT-4o features are strongest for major languages; smaller language courses lag behind
+- **Still gamified at its core** — streaks and XP systems can feel at odds with serious study goals
+- **No offline AI features** — Roleplay and conversation practice require an internet connection
+- **Video Call feature still in beta** — limited language availability as of May 2026
+- **Not a replacement for human tutors** — advanced learners may hit a ceiling
 ## Who Should NOT Use Duolingo Max
 
 Duolingo Max is an excellent product, but it is not for everyone. Here is who should probably skip it:
-- **Complete beginners** who need foundational vocabulary and grammar first — free Duolingo or Duolingo Super is sufficient at this stage- **Casual learners** who practice a few minutes a week — the AI features require consistent engagement to deliver value- **Advanced C1/C2 learners** who need nuanced literary or professional language training — dedicated platforms like iTalki or Preply with human tutors will serve you better- **Budget-conscious learners** — if $168/year is a stretch, the free tier with occasional Super upgrades is a smarter financial choice- **Learners of niche languages** — if you are studying Welsh, Navajo, or High Valyrian, GPT-4o features are minimal or absent
+- **Complete beginners** who need foundational vocabulary and grammar first — free Duolingo or Duolingo Super is sufficient at this stage
+- **Casual learners** who practice a few minutes a week — the AI features require consistent engagement to deliver value
+- **Advanced C1/C2 learners** who need nuanced literary or professional language training — dedicated platforms like iTalki or Preply with human tutors will serve you better
+- **Budget-conscious learners** — if $168/year is a stretch, the free tier with occasional Super upgrades is a smarter financial choice
+- **Learners of niche languages** — if you are studying Welsh, Navajo, or High Valyrian, GPT-4o features are minimal or absent
 ## Verdict
 
 After extensive testing in 2026, Duolingo Max earns a strong **8.5 out of 10**. The GPT-4o integration is not a gimmick — it meaningfully elevates the learning experience for intermediate learners who are serious about achieving conversational fluency.

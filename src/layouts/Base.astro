@@ -109,6 +109,9 @@ const schemaReview = (type === 'review' || type === 'comparison') && toolName ? 
   <!-- Google Analytics -->
   <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}></script>
   <script define:vars={{ GA_ID }}>
+    // Headless crawler hitting both sites since Aug 2026 (Singapore, Windows/Chrome, 1280x1200
+    // screen, 0s sessions) was ~80% of GA4 "Direct" sessions here. Official GA opt-out flag keeps it out.
+    if (navigator.webdriver || (screen.width === 1280 && screen.height === 1200)) window['ga-disable-' + GA_ID] = true;
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     window.gtag = gtag; // Astro's define:vars wraps this in an IIFE — without this, gtag never reaches window.

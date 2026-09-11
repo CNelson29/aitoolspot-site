@@ -24,7 +24,11 @@ If you've been searching for an honest **Perplexity AI review 2026**, here's the
 Think of it as the middle ground between Google and ChatGPT. You get the live-web awareness of a search engine and the conversational fluency of an LLM — without hallucinations going unchecked, because every claim is anchored to a source. For researchers, journalists, students, and knowledge workers drowning in browser tabs, that's a genuinely meaningful upgrade to how you find information.
 
 ## Key Features
-- **Pro Search Mode:** Asks clarifying questions before answering complex queries, then runs multiple searches to synthesize a deeper, more accurate response — significantly better than the default Quick Search for nuanced topics.- **Spaces (Collaborative Research Hubs):** Create shared workspaces where teams can build on the same AI-assisted research thread, upload documents, and maintain context across sessions — a standout feature for professional users in 2026.- **Real-Time Web Index:** Unlike ChatGPT's knowledge cutoff model, Perplexity crawls the live web on every query, meaning you get up-to-date answers on breaking news, stock prices, and recent research papers.- **Multi-Model Engine Switching:** Pro subscribers can toggle between underlying models including GPT-4o, Claude 3.5 Sonnet, and Perplexity's own Sonar models — letting you pick the best engine for the task at hand.- **File & Image Analysis:** Upload PDFs, CSVs, or images and ask questions directly about the content. Useful for quickly extracting insights from reports, contracts, or data sets without manual reading.
+- **Pro Search Mode:** Asks clarifying questions before answering complex queries, then runs multiple searches to synthesize a deeper, more accurate response — significantly better than the default Quick Search for nuanced topics.
+- **Spaces (Collaborative Research Hubs):** Create shared workspaces where teams can build on the same AI-assisted research thread, upload documents, and maintain context across sessions — a standout feature for professional users in 2026.
+- **Real-Time Web Index:** Unlike ChatGPT's knowledge cutoff model, Perplexity crawls the live web on every query, meaning you get up-to-date answers on breaking news, stock prices, and recent research papers.
+- **Multi-Model Engine Switching:** Pro subscribers can toggle between underlying models including GPT-4o, Claude 3.5 Sonnet, and Perplexity's own Sonar models — letting you pick the best engine for the task at hand.
+- **File & Image Analysis:** Upload PDFs, CSVs, or images and ask questions directly about the content. Useful for quickly extracting insights from reports, contracts, or data sets without manual reading.
 ## Pricing
 
 Perplexity AI operates on a freemium model. The **Free plan** gives you unlimited Quick Searches with limited Pro Search queries per day (typically 5). The **Pro plan costs $20/month** (or $200/year, saving ~17%) and unlocks unlimited Pro Searches, model switching, higher file upload limits, and full Spaces functionality. There is no mid-tier — it's free or Pro.
@@ -34,9 +38,15 @@ Perplexity AI operates on a freemium model. The **Free plan** gives you unlimite
 ## Pros and Cons
 
 **Pros:**
-- Every answer includes numbered citations you can verify in one click — dramatically reduces the risk of acting on hallucinated information.- Real-time web access means answers are current, not frozen at a training cutoff date.- Clean, distraction-free UI with no ads — a stark contrast to a cluttered Google results page.- Multi-model flexibility on Pro means you're not locked into one AI's blind spots.
+- Every answer includes numbered citations you can verify in one click — dramatically reduces the risk of acting on hallucinated information.
+- Real-time web access means answers are current, not frozen at a training cutoff date.
+- Clean, distraction-free UI with no ads — a stark contrast to a cluttered Google results page.
+- Multi-model flexibility on Pro means you're not locked into one AI's blind spots.
 **Cons:**
-- Free tier is genuinely limited — 5 Pro Searches per day goes fast if you're doing serious research.- Complex multi-step reasoning still occasionally misrepresents source material, even with citations visible.- No persistent memory across unrelated sessions on the free plan — context resets constantly.- Spaces and collaboration features feel undercooked for enterprise use; no admin controls or SSO yet in the base Pro tier.
+- Free tier is genuinely limited — 5 Pro Searches per day goes fast if you're doing serious research.
+- Complex multi-step reasoning still occasionally misrepresents source material, even with citations visible.
+- No persistent memory across unrelated sessions on the free plan — context resets constantly.
+- Spaces and collaboration features feel undercooked for enterprise use; no admin controls or SSO yet in the base Pro tier.
 ## ```html
 <h2>Pricing</h2>
 <table>

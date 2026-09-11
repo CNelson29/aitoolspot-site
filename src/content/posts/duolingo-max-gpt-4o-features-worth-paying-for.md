@@ -56,13 +56,26 @@ Compared to hiring a human tutor ($30–$80/hour) or subscribing to dedicated AI
 ## Pros and Cons
 
 ### Pros
-- **GPT-4o integration is genuinely useful** — Explain My Answer and Roleplay add real educational value beyond gamification.- **Accessible and familiar interface** — No learning curve if you already use Duolingo.- **Immediate, contextual feedback** — Explanations are accurate and appropriately detailed.- **Roleplay scenarios feel natural** — Conversation practice is surprisingly engaging and adaptive.- **No ads, unlimited hearts** — Removes the most frustrating friction points of the free tier.- **Continuously improving** — Duolingo pushes regular updates, and GPT-4o features have expanded significantly in 2026.
+- **GPT-4o integration is genuinely useful** — Explain My Answer and Roleplay add real educational value beyond gamification.
+- **Accessible and familiar interface** — No learning curve if you already use Duolingo.
+- **Immediate, contextual feedback** — Explanations are accurate and appropriately detailed.
+- **Roleplay scenarios feel natural** — Conversation practice is surprisingly engaging and adaptive.
+- **No ads, unlimited hearts** — Removes the most frustrating friction points of the free tier.
+- **Continuously improving** — Duolingo pushes regular updates, and GPT-4o features have expanded significantly in 2026.
 ### Cons
-- **High monthly price** — At $29.99/month, it's a significant commitment compared to Super Duolingo.- **Limited language availability** — Not all language courses support Max features yet; Spanish, French, and Japanese lead the pack.- **Still gamified at its core** — The streak-based structure may not suit serious academic learners.- **Roleplay depth has limits** — Very advanced learners may find conversations too simple or repetitive over time.- **No offline GPT-4o features** — AI-powered tools require an internet connection.
+- **High monthly price** — At $29.99/month, it's a significant commitment compared to Super Duolingo.
+- **Limited language availability** — Not all language courses support Max features yet; Spanish, French, and Japanese lead the pack.
+- **Still gamified at its core** — The streak-based structure may not suit serious academic learners.
+- **Roleplay depth has limits** — Very advanced learners may find conversations too simple or repetitive over time.
+- **No offline GPT-4o features** — AI-powered tools require an internet connection.
 ## Who Should NOT Use Duolingo Max
 
 Duolingo Max is not the right fit for everyone. Here's who should probably look elsewhere:
-- **Advanced or near-fluent speakers** — If you're already at a C1/C2 level, the content and AI conversations may feel too elementary to justify the cost.- **Learners of less common languages** — If your target language isn't among Duolingo's top-supported courses, GPT-4o features may be unavailable or limited.- **Structured curriculum seekers** — If you need a formal, exam-prep-oriented program (like DELF or JLPT preparation), dedicated platforms will serve you better.- **Budget-conscious learners** — If you're happy with the free tier or Super Duolingo, the incremental benefit of Max may not justify the price difference.- **Learners who prefer human interaction** — No AI, however advanced, fully replicates the nuance and cultural depth of a human tutor or language exchange partner.
+- **Advanced or near-fluent speakers** — If you're already at a C1/C2 level, the content and AI conversations may feel too elementary to justify the cost.
+- **Learners of less common languages** — If your target language isn't among Duolingo's top-supported courses, GPT-4o features may be unavailable or limited.
+- **Structured curriculum seekers** — If you need a formal, exam-prep-oriented program (like DELF or JLPT preparation), dedicated platforms will serve you better.
+- **Budget-conscious learners** — If you're happy with the free tier or Super Duolingo, the incremental benefit of Max may not justify the price difference.
+- **Learners who prefer human interaction** — No AI, however advanced, fully replicates the nuance and cultural depth of a human tutor or language exchange partner.
 ## Verdict
 
 So, are the **Duolingo Max GPT-4o features worth paying for**? For most active Duolingo users at beginner to upper-intermediate levels — yes, with some caveats.

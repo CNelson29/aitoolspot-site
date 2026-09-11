@@ -18,11 +18,20 @@ Synthesis is an AI-powered learning platform originally developed to educate stu
 In the ongoing debate of **Synthesis AI math problem solving vs traditional tutoring**, Synthesis positions itself as a scalable, always-available alternative that personalizes learning without the scheduling constraints or high costs of human tutors.
 
 ## Key Features
-- **Adaptive AI Engine:** Continuously adjusts difficulty based on each student's performance, ensuring they are always challenged but never overwhelmed.- **Math Problem-Solving Modules:** Covers arithmetic, algebra foundations, geometry, data interpretation, and logical reasoning through interactive puzzles and simulations.- **Collaborative Multiplayer Challenges:** Students solve problems alongside peers worldwide, building teamwork and communication skills alongside math competency.- **Progress Dashboard:** Parents receive detailed weekly reports showing skill growth, time spent, and areas needing improvement.- **Synthesis Tutor (AI Chat):** A conversational AI tutor that guides students through problems step-by-step, asking Socratic questions rather than simply giving answers.- **Curriculum Alignment:** Content is mapped to Common Core and international math standards, making it a strong supplement to school curricula.- **No-Ads, Safe Environment:** The platform is completely ad-free and COPPA-compliant, making it safe for children.
+- **Adaptive AI Engine:** Continuously adjusts difficulty based on each student's performance, ensuring they are always challenged but never overwhelmed.
+- **Math Problem-Solving Modules:** Covers arithmetic, algebra foundations, geometry, data interpretation, and logical reasoning through interactive puzzles and simulations.
+- **Collaborative Multiplayer Challenges:** Students solve problems alongside peers worldwide, building teamwork and communication skills alongside math competency.
+- **Progress Dashboard:** Parents receive detailed weekly reports showing skill growth, time spent, and areas needing improvement.
+- **Synthesis Tutor (AI Chat):** A conversational AI tutor that guides students through problems step-by-step, asking Socratic questions rather than simply giving answers.
+- **Curriculum Alignment:** Content is mapped to Common Core and international math standards, making it a strong supplement to school curricula.
+- **No-Ads, Safe Environment:** The platform is completely ad-free and COPPA-compliant, making it safe for children.
 ## Pricing
 
 Synthesis offers a straightforward subscription model as of 2026:
-- **Free Trial:** 14-day free trial with full access to all features — no credit card required.- **Monthly Plan:** $35/month per student.- **Annual Plan:** $299/year per student (saves approximately 29% vs monthly).- **Family Plan:** $399/year for up to 3 students — best value for households with multiple children.
+- **Free Trial:** 14-day free trial with full access to all features — no credit card required.
+- **Monthly Plan:** $35/month per student.
+- **Annual Plan:** $299/year per student (saves approximately 29% vs monthly).
+- **Family Plan:** $399/year for up to 3 students — best value for households with multiple children.
 Compare this to traditional tutoring, which typically costs $40–$120 per hour depending on location and tutor expertise. A single month of weekly tutoring sessions can easily exceed $200–$480, making Synthesis significantly more affordable for consistent, ongoing support.
 
 ## Pros and Cons
@@ -32,11 +41,25 @@ Compare this to traditional tutoring, which typically costs $40–$120 per hour 
 ### Cons
 - ❌ Currently focused on ages 6–14; limited for high school advanced math- ❌ No live human interaction — some students need emotional encouragement a human provides- ❌ Requires reliable internet connection- ❌ May not fully replace tutoring for students with learning disabilities who need specialized support- ❌ Multiplayer features depend on other students being online
 ## Synthesis AI Math Problem Solving vs Traditional Tutoring: Head-to-Head
-FactorSynthesis AITraditional TutoringCost~$25–$35/month$40–$120/hourAvailability24/7, on-demandScheduled sessions onlyPersonalizationAI-adaptive in real timeDepends on tutor skillEngagementGame-based, high engagementVaries by tutor styleEmotional SupportLimitedHigh — human connectionAdvanced TopicsUp to pre-algebra/algebra basicsAny level possibleProgress TrackingAutomated, detailed reportsManual, inconsistentScalabilityUnlimited sessionsLimited by tutor time
+
+| Factor | Synthesis AI | Traditional Tutoring |
+| --- | --- | --- |
+| Cost | ~$25–$35/month | $40–$120/hour |
+| Availability | 24/7, on-demand | Scheduled sessions only |
+| Personalization | AI-adaptive in real time | Depends on tutor skill |
+| Engagement | Game-based, high engagement | Varies by tutor style |
+| Emotional Support | Limited | High — human connection |
+| Advanced Topics | Up to pre-algebra/algebra basics | Any level possible |
+| Progress Tracking | Automated, detailed reports | Manual, inconsistent |
+| Scalability | Unlimited sessions | Limited by tutor time |
+
 The verdict on **Synthesis AI math problem solving vs traditional tutoring** is nuanced. Synthesis wins on cost, availability, and consistency. Traditional tutoring wins on emotional connection, advanced subject coverage, and handling complex learning needs.
 
 ## Who Should NOT Use Synthesis
-- **High school students** tackling calculus, trigonometry, or AP-level math — Synthesis does not yet cover these topics adequately.- **Students with diagnosed learning disabilities** (e.g., dyscalculia, ADHD) who require specialized, human-led intervention strategies.- **Children who struggle with screen time** or who need face-to-face accountability to stay focused.- **Families seeking test prep** for SAT, ACT, or standardized exams — Synthesis is not designed for this purpose.
+- **High school students** tackling calculus, trigonometry, or AP-level math — Synthesis does not yet cover these topics adequately.
+- **Students with diagnosed learning disabilities** (e.g., dyscalculia, ADHD) who require specialized, human-led intervention strategies.
+- **Children who struggle with screen time** or who need face-to-face accountability to stay focused.
+- **Families seeking test prep** for SAT, ACT, or standardized exams — Synthesis is not designed for this purpose.
 ## Verdict
 
 Synthesis earns a strong **8.5/10** in our 2026 review. For elementary and middle school students, it is one of the most compelling AI learning tools available. The platform's ability to make math genuinely fun while building deep problem-solving skills is impressive, and its price point makes it accessible to most families.

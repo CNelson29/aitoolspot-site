@@ -46,7 +46,9 @@ Like Duolingo Plus, Max removes ads and gives you unlimited hearts so you never 
 ## Pricing
 
 As of May 2026, Duolingo Max pricing is as follows:
-- **Monthly Plan:** $29.99/month- **Annual Plan:** $167.99/year (approximately $14.00/month — a 53% saving over monthly)- **Family Plan:** $239.99/year for up to 6 users
+- **Monthly Plan:** $29.99/month
+- **Annual Plan:** $167.99/year (approximately $14.00/month — a 53% saving over monthly)
+- **Family Plan:** $239.99/year for up to 6 users
 Duolingo Plus, for comparison, costs $6.99/month on the annual plan. The jump to Max is significant — roughly double the annual cost — but the GPT-4 features represent a fundamentally different product. A 14-day free trial is available for new Max subscribers, which is enough time to meaningfully evaluate the Roleplay and Explain My Answer features.
 
 For budget-conscious learners, the annual plan is the only sensible option. The monthly rate of $29.99 is hard to justify unless you are using Max intensively for a short-term goal like an upcoming trip or exam.
@@ -54,13 +56,26 @@ For budget-conscious learners, the annual plan is the only sensible option. The 
 ## Pros and Cons
 
 ### Pros
-- **GPT-4 explanations are genuinely useful** — the quality of grammar and usage explanations has improved dramatically since 2023 and now rivals dedicated grammar tools.- **Roleplay scenarios feel natural** — the 2026 scenario library is broad enough to cover most practical use cases, and the AI handles unexpected inputs gracefully.- **Video Call Practice is a game-changer** — no other mainstream language app offers this level of spoken AI interaction at this price point.- **Seamless integration** — Max features are woven into the existing Duolingo interface, so there is no learning curve for existing users.- **Supports 40+ languages** — broader language support than most AI conversation tools.- **Annual plan offers strong value** — at $14/month annually, it undercuts many standalone AI tutoring tools.
+- **GPT-4 explanations are genuinely useful** — the quality of grammar and usage explanations has improved dramatically since 2023 and now rivals dedicated grammar tools.
+- **Roleplay scenarios feel natural** — the 2026 scenario library is broad enough to cover most practical use cases, and the AI handles unexpected inputs gracefully.
+- **Video Call Practice is a game-changer** — no other mainstream language app offers this level of spoken AI interaction at this price point.
+- **Seamless integration** — Max features are woven into the existing Duolingo interface, so there is no learning curve for existing users.
+- **Supports 40+ languages** — broader language support than most AI conversation tools.
+- **Annual plan offers strong value** — at $14/month annually, it undercuts many standalone AI tutoring tools.
 ### Cons
-- **Monthly pricing is expensive** — $29.99/month is a tough sell for casual learners.- **GPT-4 features limited to select languages** — as of May 2026, Roleplay and Video Call are only fully available for Spanish, French, Japanese, Mandarin, German, Italian, Portuguese, Korean, Arabic, and Hindi. Smaller languages get Explain My Answer only.- **Still gamified at its core** — Duolingo's streak-and-XP structure can feel at odds with serious study goals. Max does not fundamentally change the app's pedagogical philosophy.- **No offline AI features** — GPT-4 features require an internet connection, which limits use during travel.- **Roleplay depth has a ceiling** — for advanced learners (B2 and above), the AI conversations can feel repetitive after exhausting the scenario library.
+- **Monthly pricing is expensive** — $29.99/month is a tough sell for casual learners.
+- **GPT-4 features limited to select languages** — as of May 2026, Roleplay and Video Call are only fully available for Spanish, French, Japanese, Mandarin, German, Italian, Portuguese, Korean, Arabic, and Hindi. Smaller languages get Explain My Answer only.
+- **Still gamified at its core** — Duolingo's streak-and-XP structure can feel at odds with serious study goals. Max does not fundamentally change the app's pedagogical philosophy.
+- **No offline AI features** — GPT-4 features require an internet connection, which limits use during travel.
+- **Roleplay depth has a ceiling** — for advanced learners (B2 and above), the AI conversations can feel repetitive after exhausting the scenario library.
 ## Who Should NOT Use Duolingo Max
 
 Duolingo Max is a strong product, but it is not the right tool for everyone. You should probably skip it if:
-- **You are an advanced learner (C1/C2).** The scenario library and exercise difficulty cap out around B2. Advanced learners will hit the ceiling quickly and would be better served by tools like italki, Pimsleur, or dedicated AI tutors.- **You only need one or two features.** If you just want ad-free learning and unlimited hearts, Duolingo Plus at $6.99/month is sufficient. The GPT-4 premium is only worth it if you will actively use Roleplay, Explain My Answer, and Video Call Practice.- **You are learning a less common language.** If your target language is not in the top 10 supported by GPT-4 features, you are paying Max prices for Plus-level functionality.- **You prefer structured curriculum over AI conversation.** Learners who thrive on textbook-style progression may find the AI features distracting rather than helpful.- **Budget is a primary concern.** Free Duolingo remains one of the best zero-cost language tools available. The jump to Max is only justified if you have a clear, active use case for the AI features.
+- **You are an advanced learner (C1/C2).** The scenario library and exercise difficulty cap out around B2. Advanced learners will hit the ceiling quickly and would be better served by tools like italki, Pimsleur, or dedicated AI tutors.
+- **You only need one or two features.** If you just want ad-free learning and unlimited hearts, Duolingo Plus at $6.99/month is sufficient. The GPT-4 premium is only worth it if you will actively use Roleplay, Explain My Answer, and Video Call Practice.
+- **You are learning a less common language.** If your target language is not in the top 10 supported by GPT-4 features, you are paying Max prices for Plus-level functionality.
+- **You prefer structured curriculum over AI conversation.** Learners who thrive on textbook-style progression may find the AI features distracting rather than helpful.
+- **Budget is a primary concern.** Free Duolingo remains one of the best zero-cost language tools available. The jump to Max is only justified if you have a clear, active use case for the AI features.
 ## Verdict
 
 Duolingo Max in 2026 is the best version of the product yet, and the GPT-4 features have matured from impressive novelties into genuinely useful learning tools. The addition of Video Call Practice in late 2025 was a pivotal upgrade that puts Max in a different category from standard language apps. For beginner to intermediate learners (A1 to B2) who are serious about reaching conversational fluency, the annual plan at approximately $14/month represents strong value — especially compared to hiring a human tutor or subscribing to multiple separate tools.

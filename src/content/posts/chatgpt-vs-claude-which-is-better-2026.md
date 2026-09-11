@@ -24,7 +24,11 @@ If you've been searching **chatgpt vs claude which is better 2026**, you're not 
 ChatGPT runs on OpenAI's GPT-4o and o-series reasoning models, giving it a remarkably broad skill set — from writing and coding to real-time web search and multimodal image understanding. It's the Swiss Army knife of AI assistants: not always the sharpest blade in every category, but reliably useful across almost every task you throw at it.
 
 ## Key Features
-- **GPT-4o & o3 Model Access:** GPT-4o handles fast, everyday tasks while the o3 reasoning model tackles complex logic, math proofs, and multi-step coding problems — you can switch between them mid-conversation.- **Real-Time Web Search:** Built-in Bing-powered browsing lets ChatGPT pull live data, current news, and up-to-date pricing without you leaving the chat window.- **Custom GPTs & GPT Store:** Users can build or download pre-configured AI agents tailored for specific workflows — SEO auditing, legal summarization, lesson planning, and thousands more.- **Advanced Data Analysis:** Upload CSVs, spreadsheets, or PDFs and ChatGPT will run calculations, generate charts, and surface insights without any coding knowledge required on your end.- **DALL·E 3 Image Generation:** Native text-to-image generation is baked directly into the chat interface — describe what you want and get publish-ready visuals in seconds.
+- **GPT-4o & o3 Model Access:** GPT-4o handles fast, everyday tasks while the o3 reasoning model tackles complex logic, math proofs, and multi-step coding problems — you can switch between them mid-conversation.
+- **Real-Time Web Search:** Built-in Bing-powered browsing lets ChatGPT pull live data, current news, and up-to-date pricing without you leaving the chat window.
+- **Custom GPTs & GPT Store:** Users can build or download pre-configured AI agents tailored for specific workflows — SEO auditing, legal summarization, lesson planning, and thousands more.
+- **Advanced Data Analysis:** Upload CSVs, spreadsheets, or PDFs and ChatGPT will run calculations, generate charts, and surface insights without any coding knowledge required on your end.
+- **DALL·E 3 Image Generation:** Native text-to-image generation is baked directly into the chat interface — describe what you want and get publish-ready visuals in seconds.
 ## Pricing
 
 **Free Plan:** Access to GPT-4o with limited daily messages and no access to o3 reasoning or Advanced Data Analysis. Good for light, casual use.
@@ -40,9 +44,14 @@ ChatGPT runs on OpenAI's GPT-4o and o-series reasoning models, giving it a remar
 ## Pros and Cons
 
 **Pros:**
-- Widest ecosystem of integrations, plugins, and custom GPTs available on any AI platform in 2026.- Multimodal by default — handle text, images, files, and voice in a single conversation without switching apps.- o3 reasoning model is genuinely competitive with the best chain-of-thought models for math and logic tasks.- Real-time web search is fast, cited, and accurate — a meaningful edge for research-heavy workflows.
+- Widest ecosystem of integrations, plugins, and custom GPTs available on any AI platform in 2026.
+- Multimodal by default — handle text, images, files, and voice in a single conversation without switching apps.- o3 reasoning model is genuinely competitive with the best chain-of-thought models for math and logic tasks.
+- Real-time web search is fast, cited, and accurate — a meaningful edge for research-heavy workflows.
 **Cons:**
-- Usage caps on Plus are still frustrating — heavy users will hit o3 limits faster than they expect.- Responses can be verbose and over-hedged; Claude frequently delivers tighter, more nuanced prose for long-form writing.- Memory feature is inconsistent — it sometimes forgets context it should retain across sessions.- Pro tier at $200/month is hard to justify unless you're billing clients or running high-volume workflows daily.
+- Usage caps on Plus are still frustrating — heavy users will hit o3 limits faster than they expect.
+- Responses can be verbose and over-hedged; Claude frequently delivers tighter, more nuanced prose for long-form writing.
+- Memory feature is inconsistent — it sometimes forgets context it should retain across sessions.
+- Pro tier at $200/month is hard to justify unless you're billing clients or running high-volume workflows daily.
 ## <h2>Pricing</h2>
 <table>
   <thead>

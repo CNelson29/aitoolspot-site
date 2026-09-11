@@ -20,31 +20,68 @@ Unlike generic chatbots, Khanmigo is deeply integrated into Khan Academy's vast 
 Whether you are a parent looking for affordable academic support, a student preparing for standardized tests, or a teacher seeking a classroom assistant, Khanmigo positions itself as a compelling alternative — and sometimes complement — to traditional human tutoring.
 
 ## Key Features
-- **Socratic Tutoring Method:** Khanmigo never just gives answers. It prompts students with questions, nudges them toward reasoning, and celebrates incremental progress — closely mimicking the best practices of skilled human tutors.- **Full Khan Academy Integration:** Seamlessly tied into Khan Academy's curriculum, Khanmigo can pull up relevant exercises, explain video content, and track a student's mastery progress in real time.- **Writing Coach:** Students can submit essays and receive structured, constructive feedback on thesis clarity, argument strength, grammar, and style — without the AI simply rewriting the work for them.- **SAT & Standardized Test Prep:** In partnership with College Board, Khanmigo offers personalized Digital SAT practice with adaptive question sets and detailed explanations for every wrong answer.- **Debate & Discussion Partner:** Students can practice arguing both sides of historical, ethical, or current events topics, building critical thinking and communication skills.- **Teacher Tools:** Educators get access to lesson plan generators, rubric builders, and student progress dashboards — making Khanmigo a classroom force multiplier, not just a student tool.- **Multi-Subject Coverage:** Math (K–12 through college), science, history, economics, computing, humanities, and test prep are all supported with contextual AI guidance.- **Safe & Age-Appropriate:** Khanmigo is built with strict content guardrails, making it suitable for children as young as 8 years old with parental oversight features included.
+- **Socratic Tutoring Method:** Khanmigo never just gives answers. It prompts students with questions, nudges them toward reasoning, and celebrates incremental progress — closely mimicking the best practices of skilled human tutors.
+- **Full Khan Academy Integration:** Seamlessly tied into Khan Academy's curriculum, Khanmigo can pull up relevant exercises, explain video content, and track a student's mastery progress in real time.
+- **Writing Coach:** Students can submit essays and receive structured, constructive feedback on thesis clarity, argument strength, grammar, and style — without the AI simply rewriting the work for them.
+- **SAT & Standardized Test Prep:** In partnership with College Board, Khanmigo offers personalized Digital SAT practice with adaptive question sets and detailed explanations for every wrong answer.
+- **Debate & Discussion Partner:** Students can practice arguing both sides of historical, ethical, or current events topics, building critical thinking and communication skills.
+- **Teacher Tools:** Educators get access to lesson plan generators, rubric builders, and student progress dashboards — making Khanmigo a classroom force multiplier, not just a student tool.
+- **Multi-Subject Coverage:** Math (K–12 through college), science, history, economics, computing, humanities, and test prep are all supported with contextual AI guidance.
+- **Safe & Age-Appropriate:** Khanmigo is built with strict content guardrails, making it suitable for children as young as 8 years old with parental oversight features included.
 
 ## Khanmigo vs Human Tutors: Head-to-Head Comparison
 
 This is the question every parent and student is asking in 2026: *Can Khanmigo actually replace a human tutor?* The honest answer is nuanced — it depends heavily on what you need.
-FactorKhanmigo AIHuman Tutor**Cost**~$4–$9/month$40–$150+/hour**Availability**24/7, instantScheduled, limited hours**Patience**Unlimited, never frustratedVariable by individual**Emotional Support**Limited, scripted empathyStrong, genuine connection**Curriculum Depth**Excellent within Khan AcademyDepends on tutor expertise**Adaptability**Data-driven personalizationIntuitive, holistic reading of student**Accountability**Moderate (progress tracking)High (social commitment)**Complex Problem Solving**Very good, occasionally rigidExcellent with experienced tutors
+
+| Factor | Khanmigo AI | Human Tutor |
+| --- | --- | --- |
+| **Cost** | ~$4–$9/month | $40–$150+/hour |
+| **Availability** | 24/7, instant | Scheduled, limited hours |
+| **Patience** | Unlimited, never frustrated | Variable by individual |
+| **Emotional Support** | Limited, scripted empathy | Strong, genuine connection |
+| **Curriculum Depth** | Excellent within Khan Academy | Depends on tutor expertise |
+| **Adaptability** | Data-driven personalization | Intuitive, holistic reading of student |
+| **Accountability** | Moderate (progress tracking) | High (social commitment) |
+| **Complex Problem Solving** | Very good, occasionally rigid | Excellent with experienced tutors |
+
 **Bottom line:** For consistent, affordable, curriculum-aligned practice and guidance, Khanmigo wins decisively on value. For students with learning differences, severe motivation challenges, or highly specialized needs (e.g., IB Higher Level Physics), a skilled human tutor still holds an edge. The smartest approach in 2026 is using both — Khanmigo for daily reinforcement, a human tutor for strategic sessions.
 
 ## Pricing
 
 Khanmigo's pricing in 2026 remains one of its strongest selling points, especially when stacked against the cost of human tutoring.
-- **Free Tier:** Khan Academy itself remains completely free. Students can access all video lessons, exercises, and progress tracking at no cost. Khanmigo AI features require a paid plan.- **Learner Plan — $4/month (billed annually) or $9/month (billed monthly):** Full access to Khanmigo tutoring across all subjects, writing coach, SAT prep integration, and debate practice. This is the primary plan for students and parents.- **Teacher/Classroom Plan — Free for educators:** Khan Academy has maintained its commitment to free teacher access. Educators get Khanmigo's lesson planning tools, rubric generators, and student dashboards at no charge through verified school accounts.- **District Licensing:** Schools and districts can negotiate bulk licensing for student access. Pricing varies by institution size.
+- **Free Tier:** Khan Academy itself remains completely free. Students can access all video lessons, exercises, and progress tracking at no cost. Khanmigo AI features require a paid plan.
+- **Learner Plan — $4/month (billed annually) or $9/month (billed monthly):** Full access to Khanmigo tutoring across all subjects, writing coach, SAT prep integration, and debate practice. This is the primary plan for students and parents.
+- **Teacher/Classroom Plan — Free for educators:** Khan Academy has maintained its commitment to free teacher access. Educators get Khanmigo's lesson planning tools, rubric generators, and student dashboards at no charge through verified school accounts.
+- **District Licensing:** Schools and districts can negotiate bulk licensing for student access. Pricing varies by institution size.
 At under $10/month, Khanmigo represents extraordinary value. A single hour with a mid-range human tutor costs more than an entire year of Khanmigo access. For families on tight budgets, this is genuinely transformative.
 
 ## Pros and Cons
 
 ### ✅ Pros
-- **Exceptional value for money** — fraction of the cost of human tutoring with broad subject coverage- **Socratic method prevents over-reliance** — students actually learn rather than just copying answers- **Available 24/7** — perfect for late-night homework sessions or weekend study marathons- **Deep curriculum integration** — knows exactly where each student is and what they need next- **Safe for children** — robust content filters and age-appropriate interactions- **Excellent SAT prep** — College Board partnership makes this one of the best free/low-cost test prep tools available- **Teacher tools are genuinely useful** — saves educators hours of lesson planning time- **Continuously improving** — Khan Academy has a strong track record of iterating based on user feedback
+- **Exceptional value for money** — fraction of the cost of human tutoring with broad subject coverage
+- **Socratic method prevents over-reliance** — students actually learn rather than just copying answers
+- **Available 24/7** — perfect for late-night homework sessions or weekend study marathons
+- **Deep curriculum integration** — knows exactly where each student is and what they need next
+- **Safe for children** — robust content filters and age-appropriate interactions
+- **Excellent SAT prep** — College Board partnership makes this one of the best free/low-cost test prep tools available
+- **Teacher tools are genuinely useful** — saves educators hours of lesson planning time
+- **Continuously improving** — Khan Academy has a strong track record of iterating based on user feedback
 ### ❌ Cons
-- **Limited emotional intelligence** — cannot truly read a frustrated or anxious student the way a human can- **Scope is tied to Khan Academy curriculum** — students needing help with school-specific textbooks or niche curricula may find gaps- **No voice interaction (as of mid-2026)** — text-based only, which can slow down younger learners or those who prefer verbal explanation- **Motivation still requires external support** — Khanmigo cannot replace the accountability a human tutor provides- **Occasional rigidity in explanations** — some users report the AI repeating similar hints rather than finding a genuinely new approach- **Not ideal for highly advanced learners** — AP Calculus BC or college-level content can sometimes hit the edges of its depth
+- **Limited emotional intelligence** — cannot truly read a frustrated or anxious student the way a human can
+- **Scope is tied to Khan Academy curriculum** — students needing help with school-specific textbooks or niche curricula may find gaps
+- **No voice interaction (as of mid-2026)** — text-based only, which can slow down younger learners or those who prefer verbal explanation
+- **Motivation still requires external support** — Khanmigo cannot replace the accountability a human tutor provides
+- **Occasional rigidity in explanations** — some users report the AI repeating similar hints rather than finding a genuinely new approach
+- **Not ideal for highly advanced learners** — AP Calculus BC or college-level content can sometimes hit the edges of its depth
 
 ## Who Should NOT Use Khanmigo
 
 Khanmigo is an impressive tool, but it is not the right fit for everyone. Here are the scenarios where you should look elsewhere or supplement with human support:
-- **Students with diagnosed learning disabilities (dyslexia, ADHD, dyscalculia):** These learners often need specialized instructional strategies, multisensory approaches, and emotional attunement that a human specialist provides. Khanmigo can supplement but should not be the primary support.- **Students in crisis or with severe academic anxiety:** If a student is deeply disengaged, school-phobic, or experiencing mental health challenges affecting learning, a human tutor or counselor is essential. AI cannot provide the relational safety these students need.- **Advanced learners pursuing highly specialized content:** If your student is working through university-level mathematics, IB Extended Essays, or niche AP subjects, a subject-matter expert human tutor will provide deeper, more nuanced guidance.- **Very young learners (under 7):** Early childhood learning benefits enormously from human interaction, play-based instruction, and physical presence. Screen-based AI tutoring is not developmentally optimal for this age group.- **Students who need strict external accountability:** If your child requires someone to sit with them, enforce focus, and provide real consequences for disengagement, a human tutor or structured tutoring center is more effective.
+- **Students with diagnosed learning disabilities (dyslexia, ADHD, dyscalculia):** These learners often need specialized instructional strategies, multisensory approaches, and emotional attunement that a human specialist provides. Khanmigo can supplement but should not be the primary support.
+- **Students in crisis or with severe academic anxiety:** If a student is deeply disengaged, school-phobic, or experiencing mental health challenges affecting learning, a human tutor or counselor is essential. AI cannot provide the relational safety these students need.
+- **Advanced learners pursuing highly specialized content:** If your student is working through university-level mathematics, IB Extended Essays, or niche AP subjects, a subject-matter expert human tutor will provide deeper, more nuanced guidance.
+- **Very young learners (under 7):** Early childhood learning benefits enormously from human interaction, play-based instruction, and physical presence. Screen-based AI tutoring is not developmentally optimal for this age group.
+- **Students who need strict external accountability:** If your child requires someone to sit with them, enforce focus, and provide real consequences for disengagement, a human tutor or structured tutoring center is more effective.
 
 ## Verdict
 

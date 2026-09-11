@@ -20,25 +20,49 @@ The platform targets children aged 6–14 and positions itself as a supplement �
 In this **Synthesis AI math learning app honest review**, we dig into everything: what works, what doesn't, who it's best for, and whether the price tag is justified.
 
 ## Key Features
-- **Adaptive AI Engine:** Synthesis continuously assesses each child's skill level and adjusts difficulty in real time, ensuring kids are always in the optimal learning zone — challenged but not overwhelmed.- **Game-Based Problem Solving:** Rather than worksheets, children tackle multi-step puzzles, strategy games, and simulations that require mathematical thinking to progress.- **Collaborative Multiplayer Modes:** Kids can team up with peers globally to solve problems together, building communication and critical-thinking skills alongside math competency.- **Progress Dashboard for Parents:** A clean, data-rich parent portal shows time spent, skills mastered, areas of struggle, and weekly progress reports — all in plain language.- **Curriculum Alignment:** Content maps to Common Core and international math standards, making it easy to see how Synthesis complements school curricula.- **No Ads, No Distractions:** The platform is completely ad-free, keeping children focused on learning without commercial interruptions.- **Cross-Device Access:** Available on web browsers, iOS, and Android, so kids can learn on tablets, laptops, or smartphones seamlessly.- **Live Synthesis Sessions:** Optional live group sessions led by trained facilitators add a human element for children who benefit from guided instruction.
+- **Adaptive AI Engine:** Synthesis continuously assesses each child's skill level and adjusts difficulty in real time, ensuring kids are always in the optimal learning zone — challenged but not overwhelmed.
+- **Game-Based Problem Solving:** Rather than worksheets, children tackle multi-step puzzles, strategy games, and simulations that require mathematical thinking to progress.
+- **Collaborative Multiplayer Modes:** Kids can team up with peers globally to solve problems together, building communication and critical-thinking skills alongside math competency.
+- **Progress Dashboard for Parents:** A clean, data-rich parent portal shows time spent, skills mastered, areas of struggle, and weekly progress reports — all in plain language.
+- **Curriculum Alignment:** Content maps to Common Core and international math standards, making it easy to see how Synthesis complements school curricula.
+- **No Ads, No Distractions:** The platform is completely ad-free, keeping children focused on learning without commercial interruptions.
+- **Cross-Device Access:** Available on web browsers, iOS, and Android, so kids can learn on tablets, laptops, or smartphones seamlessly.
+- **Live Synthesis Sessions:** Optional live group sessions led by trained facilitators add a human element for children who benefit from guided instruction.
 
 ## Pricing
 
 Synthesis offers a straightforward subscription model as of 2026:
-- **Free Trial:** 14-day free trial with full access — no credit card required at sign-up.- **Monthly Plan:** $35/month per child, billed monthly with no long-term commitment.- **Annual Plan:** $299/year per child (equivalent to ~$24.92/month), saving approximately 29% versus monthly billing.- **Family Plan:** Discounted rates available for families with two or more children — contact Synthesis directly for custom pricing.
+- **Free Trial:** 14-day free trial with full access — no credit card required at sign-up.
+- **Monthly Plan:** $35/month per child, billed monthly with no long-term commitment.
+- **Annual Plan:** $299/year per child (equivalent to ~$24.92/month), saving approximately 29% versus monthly billing.
+- **Family Plan:** Discounted rates available for families with two or more children — contact Synthesis directly for custom pricing.
 Compared to private math tutoring ($50–$100/hour) or competing platforms like Kumon or Mathnasium, Synthesis offers strong value — especially given the depth of its AI personalization and the quality of its content library.
 
 ## Pros and Cons
 
 ### Pros
-- **Genuinely engaging:** Children who resist traditional math practice often embrace Synthesis because it feels like gaming, not studying.- **Deep adaptive learning:** The AI engine is sophisticated — it doesn't just adjust difficulty linearly but identifies specific conceptual gaps and targets them precisely.- **Strong parent visibility:** The dashboard gives parents actionable insights without requiring them to sit beside their child during every session.- **No fluff rewards:** Synthesis avoids cheap gamification tricks (endless badges, cartoon characters) in favor of intrinsic motivation through genuine challenge.- **Proven origins:** Built for SpaceX's school, the pedagogy has real-world credibility behind it.- **Collaborative features:** Multiplayer modes teach teamwork and communication — skills most math apps completely ignore.
+- **Genuinely engaging:** Children who resist traditional math practice often embrace Synthesis because it feels like gaming, not studying.
+- **Deep adaptive learning:** The AI engine is sophisticated — it doesn't just adjust difficulty linearly but identifies specific conceptual gaps and targets them precisely.
+- **Strong parent visibility:** The dashboard gives parents actionable insights without requiring them to sit beside their child during every session.
+- **No fluff rewards:** Synthesis avoids cheap gamification tricks (endless badges, cartoon characters) in favor of intrinsic motivation through genuine challenge.
+- **Proven origins:** Built for SpaceX's school, the pedagogy has real-world credibility behind it.
+- **Collaborative features:** Multiplayer modes teach teamwork and communication — skills most math apps completely ignore.
 ### Cons
-- **Price point:** At $35/month, it's more expensive than many competing apps, which may be a barrier for budget-conscious families.- **Not a standalone curriculum:** Synthesis is explicitly a supplement; families hoping to replace school math entirely will need additional resources.- **Limited content below age 6:** Younger children (under 6) have fewer activities available, making it less suitable for early learners.- **Requires parental involvement to maximize value:** Children who lack parental encouragement or check-ins may disengage over time.- **No offline mode:** A stable internet connection is required — this can be limiting for families in areas with unreliable connectivity.- **Live sessions have limited availability:** Scheduling live facilitator-led sessions can be tricky depending on time zone and demand.
+- **Price point:** At $35/month, it's more expensive than many competing apps, which may be a barrier for budget-conscious families.
+- **Not a standalone curriculum:** Synthesis is explicitly a supplement; families hoping to replace school math entirely will need additional resources.
+- **Limited content below age 6:** Younger children (under 6) have fewer activities available, making it less suitable for early learners.
+- **Requires parental involvement to maximize value:** Children who lack parental encouragement or check-ins may disengage over time.
+- **No offline mode:** A stable internet connection is required — this can be limiting for families in areas with unreliable connectivity.
+- **Live sessions have limited availability:** Scheduling live facilitator-led sessions can be tricky depending on time zone and demand.
 
 ## Who Should NOT Use Synthesis
 
 Synthesis is an excellent tool, but it's not the right fit for everyone. Consider alternatives if:
-- **Your child is under 5:** The platform's complexity and interface are designed for school-age children. Younger kids may find it frustrating rather than fun.- **You need a full homeschool math curriculum:** Synthesis does not cover every math topic in a structured, sequential way suitable for primary curriculum use. Look at platforms like Khan Academy or Beast Academy for that purpose.- **Your child strongly dislikes screen time:** Synthesis is entirely digital. If your family limits screens for developmental reasons, this won't align with your approach.- **Budget is a primary concern:** Free alternatives like Khan Academy cover math fundamentals effectively. Synthesis's premium is justified by its AI depth and engagement, but it's not essential for every learner.- **Your child needs remedial support with learning differences:** While Synthesis adapts to skill level, it is not specifically designed for children with dyslexia, dyscalculia, or other learning differences. Specialized tools may serve those children better.
+- **Your child is under 5:** The platform's complexity and interface are designed for school-age children. Younger kids may find it frustrating rather than fun.
+- **You need a full homeschool math curriculum:** Synthesis does not cover every math topic in a structured, sequential way suitable for primary curriculum use. Look at platforms like Khan Academy or Beast Academy for that purpose.
+- **Your child strongly dislikes screen time:** Synthesis is entirely digital. If your family limits screens for developmental reasons, this won't align with your approach.
+- **Budget is a primary concern:** Free alternatives like Khan Academy cover math fundamentals effectively. Synthesis's premium is justified by its AI depth and engagement, but it's not essential for every learner.
+- **Your child needs remedial support with learning differences:** While Synthesis adapts to skill level, it is not specifically designed for children with dyslexia, dyscalculia, or other learning differences. Specialized tools may serve those children better.
 
 ## Verdict
 
