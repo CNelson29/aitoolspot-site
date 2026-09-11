@@ -8,7 +8,7 @@ type: "review"
 affiliate_link: "https://aitoolspot.net"
 rating: 8.5
 image: "/images/posts/khanmigo-ai-tutor-review-2026-is-it-worth-it-hero.jpg"
-draft: false
+draft: true
 ---
 
 ## What is Khanmigo?

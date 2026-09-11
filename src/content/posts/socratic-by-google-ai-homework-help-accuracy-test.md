@@ -8,7 +8,7 @@ type: "review"
 affiliate_link: "https://aitoolspot.net"
 rating: 8.0
 image: "/images/posts/socratic-by-google-ai-homework-help-accuracy-test-hero.jpg"
-draft: false
+draft: true
 ---
 
 ## What is Socratic by Google?

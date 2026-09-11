@@ -8,7 +8,7 @@ type: "review"
 affiliate_link: "https://aitoolspot.net"
 rating: 8.5
 image: "/images/posts/synthesis-tutor-vs-traditional-tutoring-math-skills-hero.jpg"
-draft: false
+draft: true
 ---
 
 ## What is Synthesis?

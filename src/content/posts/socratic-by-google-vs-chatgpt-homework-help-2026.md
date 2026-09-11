@@ -8,7 +8,7 @@ type: "review"
 affiliate_link: "https://chat.openai.com"
 rating: 7.8
 image: "/images/posts/socratic-by-google-vs-chatgpt-homework-help-2026-hero.jpg"
-draft: false
+draft: true
 ---
 
 ## What is Socratic by Google?

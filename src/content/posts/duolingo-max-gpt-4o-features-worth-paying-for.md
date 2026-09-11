@@ -8,7 +8,7 @@ type: "review"
 affiliate_link: "https://aitoolspot.net"
 rating: 8.5
 image: "/images/posts/duolingo-max-gpt-4o-features-worth-paying-for-hero.jpg"
-draft: false
+draft: true
 ---
 
 ## What is Duolingo Max?

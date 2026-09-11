@@ -1,7 +1,7 @@
 ---
-title: "Khanmigo AI Tutor Review 2026: Personalized Learning"
+title: "Khanmigo Review 2026: Is Khan Academy's AI Worth It?"
 date: "2026-05-07"
-excerpt: "Explore our Khanmigo AI tutor review 2026 covering personalized learning features, pricing, real pros and cons, and whether it's worth your investment."
+excerpt: "Khanmigo review 2026: what Khan Academy's AI tutor actually does, its personalized learning features, pricing, real pros and cons, and who it is worth it for."
 category: "AI Tools"
 tags: ["Khanmigo AI tutor review 2026 personalized learning", "Khanmigo", "2026", "AI tutoring", "personalized learning"]
 type: "review"

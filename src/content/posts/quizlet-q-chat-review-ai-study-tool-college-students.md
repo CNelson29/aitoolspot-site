@@ -8,7 +8,7 @@ type: "review"
 affiliate_link: "https://aitoolspot.net"
 rating: 8.0
 image: "/images/posts/quizlet-q-chat-review-ai-study-tool-college-students-hero.jpg"
-draft: false
+draft: true
 ---
 
 ## What is Quizlet Q-Chat?
